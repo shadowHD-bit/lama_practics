@@ -1,8 +1,8 @@
 <?php
 return array(
-    'UserNameInDatabase' => 'YOUR_NAME',
-    'PasswordUserInDatabase' => 'YOUR_PASSWORD',
-    'HostDatabase' => 'YOUR_HOST',
-    'NameDatabase' => 'YOUR_NAME_DATABASE'
+    'UserNameInDatabase' => 'root',
+    'PasswordUserInDatabase' => '',
+    'HostDatabase' => '127.0.0.1',
+    'NameDatabase' => 'lama'
 )
 ?>
