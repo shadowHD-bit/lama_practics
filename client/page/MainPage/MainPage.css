@@ -10,7 +10,7 @@ html {
 table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0;
+    border-spacing: 0px 10px;
 }
 
 table td {
@@ -32,12 +32,12 @@ table thead tr td {
     font-family: "Montserrat", sans-serif;
 }
 
-/*table tbody:before {
+table tbody:before {
     content: "-";
     display: block;
     line-height: 1em;
     color: transparent;
-}*/
+}
 
 table tbody tr:hover {
     background: #e8f6ff;

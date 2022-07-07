@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./MainPage.css">
 
     <!-- Connect libraries -->
-    <?php require('../../assets/libraries/head.lib.php') ?>
+
 </head>
 <body>
     <table>
