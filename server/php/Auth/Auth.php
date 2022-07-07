@@ -50,7 +50,7 @@ if ($resultAuthUser->num_rows == 0) {
     http_response_code(200);
 
     //Set COOKIE for save data this user
-    //setcookie('user_id', $resultAuthUser['id_user'], time() + 220 * 8, "/");
+    //setcookie('user_id', $resultAuthUser['id_user'], time() + 1440, "/");
     
     $mysqlConnectForQuery->close();
 
