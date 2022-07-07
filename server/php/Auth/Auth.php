@@ -21,6 +21,7 @@ $data = json_decode(file_get_contents('php://input'));
 $_loginUserInForm = '';
 $_passwordUserInForm = '';
 
+//Check data
 if(isset($data)){
     $_loginUserInForm = $data -> loginFetch;
     $_passwordUserInForm = $data -> passwordFetch;
@@ -33,6 +34,7 @@ $userTable = $configTableDatabase['UserTable'];
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
 $resultAuthUser = $mysqlConnectForQuery->query("SELECT * FROM `$userTable` WHERE `login`='$_loginUserInForm' AND `password`= '$_passwordUserInForm'");
 
+//Check count result query
 if ($resultAuthUser->num_rows == 0) {
     //HTTP code
     http_response_code(200);
