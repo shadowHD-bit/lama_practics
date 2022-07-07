@@ -1,7 +1,12 @@
 <?php
+//Headers
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header('Access-Control-Allow-Headers: *');
+header('Content-Type: application/json; charset=UTF-8');
 
 //Import connection SQL Server
-require('../connect.php');
+// require('../connect.php');
 
 //Import metadata database table
 $configTableDatabase = require('../configTableDatabase.php');
@@ -9,9 +14,18 @@ $configTableDatabase = require('../configTableDatabase.php');
 //Import metadata database
 $config = require('../config.php');
 
+//Variables data url server
+$data = json_decode(file_get_contents('php://input'));
+
 //Get data on client part
-$_loginUserInForm = $_POST['loginFetch'];
-$_passwordUserInForm = $_POST['passwordFetch'];
+$_loginUserInForm = '';
+$_passwordUserInForm = '';
+
+//Check data
+if(isset($data)){
+    $_loginUserInForm = $data -> loginFetch;
+    $_passwordUserInForm = $data -> passwordFetch;
+}
 
 //Get name user table
 $userTable = $configTableDatabase['UserTable'];
@@ -19,18 +33,31 @@ $userTable = $configTableDatabase['UserTable'];
 //Connect data user in SQL Server
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
 $resultAuthUser = $mysqlConnectForQuery->query("SELECT * FROM `$userTable` WHERE `login`='$_loginUserInForm' AND `password`= '$_passwordUserInForm'");
-$userInDatabase = $resultAuthUser->fetch_assoc();
-if (count($userInDatabase) == 0) {
-    $message = 'Неверный логин или пароль!';
-    echo $message;
+
+//Check count result query
+if ($resultAuthUser->num_rows == 0) {
+    //HTTP code
+    http_response_code(200);
+
+    //Display error
+    echo json_encode([
+        'error' => true,
+        'message' => 'User not found!',
+    ]);
+
 } else {
+    //HTTP code
+    http_response_code(200);
+
     //Set COOKIE for save data this user
-    setcookie('user_id', $user['id_user'], time() + 220 * 8, "/");
+    //setcookie('user_id', $resultAuthUser['id_user'], time() + 220 * 8, "/");
+    
     $mysqlConnectForQuery->close();
 
-    //Redirect in Main page
-    $_urlMainPage = '../../../client/page/MainPage/MainPage.html';
-    header('Location: ' . $_urlMainPage);
+    //Display ok status
+    echo json_encode([
+        'error' => false,
+        'message' => 'Access'
+    ]);
 }
 
-?>

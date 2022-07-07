@@ -14,6 +14,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background: linear-gradient(
     242.06deg,
     #428af7 15.6%,
@@ -56,7 +57,7 @@ html {
   color: #428af6;
 }
 .form_auth > input {
-  width: 97%;
+  width: 100%;
   margin-top: 10px;
   padding: 10px;
   background: rgba(66, 138, 246, 0.3);
