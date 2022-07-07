@@ -22,14 +22,13 @@
             <a class="Exit_text"> Выход </a>
         </button>
     </div>
-    <div class="Exit_field">
-
-    </div>
 </div>
 
 <div class="main_content">
-    <a id="Task_list"> Список задач </a>
-    <button id="Filt_button">Фильрация</button>
+    <div class="tasks_page">
+        <a id="Task_list"> Список задач </a>
+        <button id="Filt_button">Фильрация</button>
+    </div>
 </div>
 
 </body>
