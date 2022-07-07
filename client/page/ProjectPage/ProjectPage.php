@@ -8,7 +8,7 @@
     <?php require('../../assets/libraries/head.lib.php')?>
 </head>
 <body>
-hello in mainpage
+hello in project page
 
 
 <?php require('../../assets/libraries/scripts.lib.php')?>

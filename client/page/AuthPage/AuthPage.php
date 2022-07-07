@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./AuthPage.css?1">
 
     <!-- Connect libraries -->
-    <? require('../../assets/libraries/head.lib.php') ?>
+    <?php require('../../assets/libraries/head.lib.php') ?>
 </head>
 
 <body>
@@ -77,7 +77,7 @@
     </div>
 
     <!-- Connect libraries -->
-    <? require('../../assets/libraries/scripts.lib.php') ?>
+    <?php require('../../assets/libraries/scripts.lib.php') ?>
 
     <!-- Fetch auth post method -->
     <script src="../../scripts/ajax/Auth.js"></script>
