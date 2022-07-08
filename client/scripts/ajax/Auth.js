@@ -28,7 +28,7 @@ authBtn.addEventListener("click", () => {
     .then(function (body) {
       if (body.error) {
         errorBlock.innerHTML = `
-        <div class="alert alert-warning alert-dismissible fade show" id="error_alert" style="width: 100%" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show" id="error_alert" style="width: 100%" role="alert">
             <strong>Неверный логин или пароль!</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
