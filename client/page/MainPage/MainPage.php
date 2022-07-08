@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="MainPage.css">
-    <? require('../../assets/libraries/head.lib.php') ?>
+    <?php require('../../assets/libraries/head.lib.php') ?>
 
     <!-- Check Auth script -->
     <script src="../../scripts/ajax/CheckAuth.js"></script>
@@ -82,7 +82,7 @@
     </section>
 
 
-    <? require('../../assets/libraries/scripts.lib.php') ?>
+    <?php require('../../assets/libraries/scripts.lib.php') ?>
     <!-- Get task script -->
     <script src="../../scripts/ajax/get/get.data.task.js"></script>
 

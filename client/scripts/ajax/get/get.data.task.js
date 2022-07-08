@@ -23,17 +23,17 @@ function get_task_user() {
                 </td>
                 <td>
                      <span class="poster">
-                        ${el.task_name}
+                        ${el.last_name + ' ' + el.first_name + ' ' + el.second_name}
                     </span>
                 </td>
                 <td>
                     <span class="mainer">
-                        ${el.task_name}
+                        ${el.last_name + ' ' + el.first_name + ' ' + el.second_name}
                     </span>
                 </td>
                 <td>
                      <span class="project">
-                        ${el.id_project}
+                        ${el.project_name}
                     </span>
                  </td>
                 <td>

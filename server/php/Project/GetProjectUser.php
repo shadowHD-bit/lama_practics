@@ -18,12 +18,14 @@ $config = require('../config.php');
 $projectTable = $configTableDatabase['ProjectTable'];
 //Get name status table
 $statusTable = $configTableDatabase['StatusTable'];
-//$userTable = $configTableDatabase['UserTable'];
-//$userProjectTable = $configTableDatabase['UserProjectTable'];
+$userTable = $configTableDatabase['UserTable'];
+$userProjectTable = $configTableDatabase['UserProjectTable'];
 
 //Connect data user in SQL Server
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$GetProject = $mysqlConnectForQuery->query("SELECT * FROM `$projectTable` INNER JOIN `$statusTable` ON `$projectTable`.id_status = `$statusTable`.id_status");
+$GetProject = $mysqlConnectForQuery->query("SELECT * FROM `$projectTable` INNER JOIN `$statusTable` ON `$projectTable`.id_status = `$statusTable`.id_status
+                                                    INNER JOIN `$userProjectTable` ON `$projectTable`.id_project = `$userProjectTable`.id_project
+                                                    INNER JOIN `$userTable` ON `$userProjectTable`.id_user = `$userTable`.id_user");
 
 //Get result in right format
 $resultGetProject = mysqli_fetch_all($GetProject, MYSQLI_ASSOC);
