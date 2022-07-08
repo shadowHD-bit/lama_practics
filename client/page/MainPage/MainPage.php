@@ -79,7 +79,7 @@
 
 
     <? require('../../assets/libraries/scripts.lib.php') ?>
-    <script src="../../scripts/ajax/get/get.data.task.js"></script>
+    <script type="module" src="../../scripts/ajax/get/get.data.task.js"></script>
 </body>
 
 </html>
