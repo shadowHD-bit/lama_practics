@@ -1,8 +1,11 @@
+import {Loader} from "../../../components/Loader/Loader.js";
+
 //Get element tbody in main page
 let table_body_project = document.getElementById("project_user");
 
 //Func get tasks users
 function get_project_user() {
+    document.querySelector('.projects_page').appendChild(Loader);
     fetch("../../../../server/php/Project/GetProjectUser.php", {
         method: "GET",
         header: {
@@ -14,6 +17,7 @@ function get_project_user() {
         })
         .then(function (body) {
             console.log(body);
+            document.querySelector('.projects_page').removeChild(Loader);
             body.map((el) => {
                 table_body_project.innerHTML += `
             <tr>
