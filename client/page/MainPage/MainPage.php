@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="MainPage.css">
-    <?php require('../../assets/libraries/head.lib.php') ?>
+    <? require('../../assets/libraries/head.lib.php') ?>
+
+    <!-- Check Auth script -->
+    <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
 
 <body>
@@ -16,14 +19,15 @@
         <div class="Menu">
             <div class="profile_wrapper">
                 <button class="Button_profile"></button>
-                <a class="profile_name">Хаблак Владимир Алексеевич</a>
+                <!-- BIO user -->
+                <a id="bio_user" class="profile_name"></a>
             </div>
             <div class="menu_btn_wrapper">
                 <button class="button_menu_text" id="Profile">Профиль</button>
                 <button class="button_menu_text" id="Tasks"> Задачи</button>
                 <button class="button_menu_text" id="Projects">Проекты</button>
-                <button class="Exit">
-                    <a class="Exit_text"> Выход </a>
+                <button class="Exit" id="logout">
+                    Выход 
                 </button>
             </div>
         </div>
@@ -78,8 +82,16 @@
     </section>
 
 
-    <?php require('../../assets/libraries/scripts.lib.php') ?>
+    <? require('../../assets/libraries/scripts.lib.php') ?>
+    <!-- Get task script -->
     <script src="../../scripts/ajax/get/get.data.task.js"></script>
+
+    <!-- Get user script -->
+    <script src="../../scripts/ajax/get/get.data.user.js"></script>
+
+    <!-- Logout func script -->
+    <script src="../../scripts/ajax/Logout.js"></script>
+
 </body>
 
 </html>

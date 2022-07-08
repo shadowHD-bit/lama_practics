@@ -13,7 +13,6 @@ function get_task_user() {
       return response.json();
     })
     .then(function (body) {
-      console.log(body);
       body.map((el) => {
         table_body_task.innerHTML += `
             <tr>

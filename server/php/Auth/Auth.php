@@ -34,6 +34,9 @@ $userTable = $configTableDatabase['UserTable'];
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
 $resultAuthUser = $mysqlConnectForQuery->query("SELECT * FROM `$userTable` WHERE `login`='$_loginUserInForm' AND `password`= '$_passwordUserInForm'");
 
+//Get data user in object
+$dataUser = $resultAuthUser -> fetch_assoc();
+
 //Check count result query
 if ($resultAuthUser->num_rows == 0) {
     //HTTP code
@@ -50,8 +53,9 @@ if ($resultAuthUser->num_rows == 0) {
     http_response_code(200);
 
     //Set COOKIE for save data this user
-    //setcookie('user_id', $resultAuthUser['id_user'], time() + 1440, "/");
+    setcookie('user_id', $dataUser['id_user'], time() + 220 * 8, "/");
     
+    //Close connect database
     $mysqlConnectForQuery->close();
 
     //Display ok status
