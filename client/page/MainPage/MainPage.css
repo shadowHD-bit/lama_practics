@@ -32,8 +32,9 @@ body {
   display: block;
   margin: 10px auto;
   width: 80%;
-
-
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
   background: #FFFFFF;
   border-radius: 10px;
   font-family: 'Montserrat';
@@ -45,6 +46,13 @@ body {
   border: none;
   padding: 4px 0px;
 
+}
+
+.button_menu_text:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  background: #d6d6d6;
 }
 
 
@@ -78,13 +86,19 @@ body {
   width: 100px;
   height: auto;
   top: 40px;
-
+  text-decoration: none;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
-
+  cursor: pointer;
   color: #FFFFFF;
+}
+
+.profile_name:hover {
+  cursor: pointer;
+  color: #cfcfcf;
+  text-decoration: none;
 }
 
 .Exit {
@@ -102,10 +116,7 @@ body {
   background: #F33B3B;
   border-radius: 10px;
   border: none;
-  padding: 4px 0px;
-}
-
-.Exit_text {
+  padding: 6px 0px;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -115,6 +126,11 @@ body {
   text-align: center;
 
   color: white;
+}
+
+.Exit:hover {
+background: #c93030;
+color: white;
 }
 
 #Task_list {

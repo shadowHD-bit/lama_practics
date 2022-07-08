@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
-    <link rel="stylesheet" href="MainPage.css">
+    <link rel="stylesheet" href="MainPage.css?v1">
     <? require('../../assets/libraries/head.lib.php') ?>
 
     <!-- Check Auth script -->
@@ -23,9 +23,9 @@
                 <a id="bio_user" class="profile_name"></a>
             </div>
             <div class="menu_btn_wrapper">
-                <button class="button_menu_text" id="Profile">Профиль</button>
-                <button class="button_menu_text" id="Tasks"> Задачи</button>
-                <button class="button_menu_text" id="Projects">Проекты</button>
+                <a href="#" class="button_menu_text" id="Profile">Профиль</a>
+                <a href="../MainPage/MainPage.php" class="button_menu_text" id="Tasks"> Задачи</a>
+                <a href="../ProjectPage/ProjectPage.php" class="button_menu_text" id="Projects">Проекты</a>
                 <button class="Exit" id="logout">
                     Выход 
                 </button>

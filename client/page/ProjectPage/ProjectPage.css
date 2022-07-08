@@ -32,8 +32,9 @@ body {
     display: block;
     margin: 10px auto;
     width: 80%;
-
-
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
     background: #FFFFFF;
     border-radius: 10px;
     font-family: 'Montserrat';
@@ -44,8 +45,15 @@ body {
     text-align: center;
     border: none;
     padding: 4px 0px;
-
-}
+  
+  }
+  
+  .button_menu_text:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    background: #d6d6d6;
+  }
 
 
 .button_profile {
