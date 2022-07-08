@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="MainPage.css">
-    <? require('../../assets/libraries/head.lib.php') ?>
+    <?php require('../../assets/libraries/head.lib.php') ?>
 </head>
 
 <body>
@@ -78,7 +78,7 @@
     </section>
 
 
-    <? require('../../assets/libraries/scripts.lib.php') ?>
+    <?php require('../../assets/libraries/scripts.lib.php') ?>
     <script src="../../scripts/ajax/get/get.data.task.js"></script>
 </body>
 
