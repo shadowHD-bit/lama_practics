@@ -1,0 +1,69 @@
+/* Table Style */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(
+    242.06deg,
+    #428af7 15.6%,
+    rgba(41, 206, 196, 0) 101.16%
+  );
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table td {
+  padding: 5px 16px;
+}
+
+table tr {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+table thead tr {
+  font-weight: bold;
+  background-color: #e3e3e3;
+}
+
+table thead tr td {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+table tbody tr:hover {
+  background: #e8f6ff;
+}
+
+tbody:before {
+    content: "-";
+    display: block;
+    line-height: 10px;
+    color: transparent;
+}
+
+table td span{
+    padding: 5px 0px;
+    display: block;
+    width: 100%;
+    border-right: 1px solid black;
+}
+
+table td:last-child span{
+    border-right: none;
+}
+
+
+
+table tbody tr {
+    background: #ffffff;
+  }
+  
