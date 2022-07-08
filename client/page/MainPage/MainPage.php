@@ -19,7 +19,8 @@
         <div class="Menu">
             <div class="profile_wrapper">
                 <button class="Button_profile"></button>
-                <a class="profile_name">Хаблак Владимир Алексеевич</a>
+                <!-- BIO user -->
+                <a id="bio_user" class="profile_name"></a>
             </div>
             <div class="menu_btn_wrapper">
                 <button class="button_menu_text" id="Profile">Профиль</button>
@@ -84,6 +85,9 @@
     <? require('../../assets/libraries/scripts.lib.php') ?>
     <!-- Get task script -->
     <script src="../../scripts/ajax/get/get.data.task.js"></script>
+
+    <!-- Get user script -->
+    <script src="../../scripts/ajax/get/get.data.user.js"></script>
 
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
