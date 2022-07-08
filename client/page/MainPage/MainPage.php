@@ -84,7 +84,7 @@
 
     <? require('../../assets/libraries/scripts.lib.php') ?>
     <!-- Get task script -->
-    <script src="../../scripts/ajax/get/get.data.task.js"></script>
+    <script type="module" src="../../scripts/ajax/get/get.data.task.js"></script>
 
     <!-- Get user script -->
     <script src="../../scripts/ajax/get/get.data.user.js"></script>
