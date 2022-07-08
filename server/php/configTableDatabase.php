@@ -4,5 +4,6 @@ return array(
     'TaskTable' => 'task',
     'StatusTable' => 'status',
     'ProjectTable' => 'project',
+    'UserProjectTable' => 'user_project',
 )
 ?>

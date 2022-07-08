@@ -18,6 +18,8 @@ $config = require('../config.php');
 $projectTable = $configTableDatabase['ProjectTable'];
 //Get name status table
 $statusTable = $configTableDatabase['StatusTable'];
+//$userTable = $configTableDatabase['UserTable'];
+//$userProjectTable = $configTableDatabase['UserProjectTable'];
 
 //Connect data user in SQL Server
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
