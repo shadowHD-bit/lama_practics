@@ -138,7 +138,7 @@ display: block;
     border-radius:10px;
 
     background: #FFFFFF;
-    border-radius: 10px;
+    color: #428AF6;
 }
 
 .profile_font {
@@ -151,15 +151,15 @@ display: block;
     color: #428AF6;
 }
 
-.input_field {
+.print_text {
 
-    width: 539px;
-    height: 46px;
-    left: 253px;
-    top: 197px;
-    width: 539px;
-    background: rgba(66, 138, 246, 0.3);
     border-radius: 10px;
+    font-family: 'Monda';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 35px;
+    margin:0px 0px 0px 0px;
 }
 
 
@@ -188,7 +188,58 @@ display: block;
 
 
 .block {
-    border: 12px solid white;
+    border: 6px solid white;
+    border-radius: 10px;
+    margin : 30px 0px 0px 0px;
+}
+
+.registration_field {
+    position:absolute;
+    width: 671px;
+    height: 682px;
+    left: 1108px;
+    top: 131px;
+    border-radius:10px;
+
+    background: #FFFFFF;
+    color: #428AF6;
+}
+
+.input_text {
+    background: lightblue;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 35px;
+    margin: 0px 0px 0px 0px;
+}
+
+.button_blocks {
+    display:flex;
+    justify-content: space-between;
+}
+.button_acept {
+    width: 304px;
+    height: 54px;
+    left: 37px;
+    top: 860px;
+    background: greenyellow;
+    border-radius: 10px;
+}
+.button_cancel {
+    width: 304px;
+    height: 54px;
+    left: 37px;
+    top: 860px;
+    background: #F33B3B;
+    border-radius: 10px;
+}
+
+.Button_profile2 {
+    width: 95px;
+    height: 95px;
+    background: #D9D9D9;
+    border-radius: 67px;
 }
 
 
