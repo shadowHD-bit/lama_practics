@@ -36,34 +36,34 @@
                 </div>
                 <div class="table_project">
                     <table>
-                        <thead>
-                            <tr>
-                                <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
-                                    <span class="title">
-                                        Название
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="description">
-                                        Описание
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="creator">
-                                        Организатор
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="date">
-                                        Сроки
-                                    </span>
-                                </td>
-                                <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
-                                    <span class="status">
-                                        Статус
-                                    </span>
-                                </td>
-                            </tr>
+                        <thead id="project_head">
+<!--                            <tr>-->
+<!--                                <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">-->
+<!--                                    <span class="title">-->
+<!--                                        Название-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <span class="description">-->
+<!--                                        Описание-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <span class="creator">-->
+<!--                                        Организатор-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <span class="date">-->
+<!--                                        Сроки-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                                <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">-->
+<!--                                    <span class="status">-->
+<!--                                        Статус-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                            </tr>-->
                         </thead>
                         <tbody id="project_user">
                             <!-- This display task -->

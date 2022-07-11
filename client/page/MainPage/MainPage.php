@@ -27,7 +27,7 @@
                 <a href="../MainPage/MainPage.php" class="button_menu_text" id="Tasks"> Задачи</a>
                 <a href="../ProjectPage/ProjectPage.php" class="button_menu_text" id="Projects">Проекты</a>
                 <button class="Exit" id="logout">
-                    Выход 
+                    Выход
                 </button>
             </div>
         </div>
@@ -38,39 +38,39 @@
                 </div>
                 <div class="table_task">
                     <table>
-                        <thead>
-                            <tr>
-                                <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
-                                    <span class="title">
-                                        Название
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="poster">
-                                        Постановщик
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="mainer">
-                                        Ответственный
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="project">
-                                        Проект
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="date">
-                                        Сроки
-                                    </span>
-                                </td>
-                                <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
-                                    <span class="status">
-                                        Статус
-                                    </span>
-                                </td>
-                            </tr>
+                        <thead id="task_head">
+<!--                            <tr>-->
+<!--                                <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">-->
+<!--                                    <span class="title">-->
+<!--                                        Название-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <span class="poster">-->
+<!--                                        Постановщик-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <span class="mainer">-->
+<!--                                        Ответственный-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <span class="project">-->
+<!--                                        Проект-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <span class="date">-->
+<!--                                        Сроки-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                                <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">-->
+<!--                                    <span class="status">-->
+<!--                                        Статус-->
+<!--                                    </span>-->
+<!--                                </td>-->
+<!--                            </tr>-->
                         </thead>
                         <tbody id="task_user">
                             <!-- This display task -->
