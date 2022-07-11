@@ -17,7 +17,7 @@
     <section class="main_page">
         <div class="Menu">
             <div class="profile_wrapper">
-                <button class="Button_profile"></button>
+                <div class="Button_profile" id="photo_navs"></div>
                 <!-- BIO user -->
                 <a id="bio_user" class="profile_name"></a>
             </div>
@@ -26,7 +26,7 @@
                 <a href="../MainPage/MainPage.php" class="button_menu_text" id="Tasks"> Задачи</a>
                 <a href="../ProjectPage/ProjectPage.php" class="button_menu_text" id="Projects">Проекты</a>
                 <button class="Exit" id="logout">
-                    Выход 
+                    Выход
                 </button>
             </div>
         </div>

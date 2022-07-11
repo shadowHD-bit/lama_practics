@@ -15,7 +15,7 @@
 
         <div class="menu">
             <div class="profile_wrapper">
-                <button class="button_profile"></button>
+                <div class="Button_profile" id="photo_navs"></div>
                 <!-- BIO user -->
                 <a id="bio_user" class="profile_name"></a>
             </div>
