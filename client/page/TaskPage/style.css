@@ -1,0 +1,245 @@
+body {
+    background: linear-gradient(242.06deg, #428AF7 15.6%, rgba(41, 206, 196, 0) 101.16%);
+    width: 100%;
+    height: 100%;
+}
+
+.Menu {
+    position: fixed;
+    width: 369px;
+    height: 1080px;
+    left: 0px;
+    top: 0px;
+
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.button_menu_text {
+    position: absolute;
+    width: 318px;
+    height: 51px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 32px;
+    margin-left: 23px;
+
+
+    text-align: center;
+
+    color: #000000;
+}
+
+
+.Button_profile {
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    left: 23px;
+    margin-top: 39px;
+
+    background: #D9D9D9;
+    border-radius: 67px;
+}
+
+#Profile {
+    top: 191px;
+}
+#Tasks {
+    top: 260px;
+}
+#Projects {
+    top: 329px;
+}
+
+.profile_name {
+    position: absolute;
+    width: 173px;
+    height: 165px;
+    left: 137px;
+    top: 40px;
+
+
+    font-family: 'Monda';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 35px;
+
+    color: #FFFFFF;
+}
+
+.Exit {
+    position: absolute;
+    width: 304px;
+    height: 54px;
+    left: 37px;
+    top: 860px;
+    background: #F33B3B;
+    border-radius: 10px;
+}
+
+.Exit_text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 32px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+}
+.Task_field {
+    position: absolute;
+    width: 1233px;
+    height: 430px;
+    left: 430px;
+    top: 191px;
+
+    background: #FFFCFC;
+    border-radius: 10px;
+}
+.Cheklist {
+    position: absolute;
+    width: 1241px;
+    height: 178px;
+    left: 429px;
+    top: 664px;
+
+    background: #FFFCFC;
+    border-radius: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+.subtask {
+    position: absolute;
+    width: 1241px;
+    height: 69px;
+    left: 429px;
+    top: 934px;
+
+    background: #FFFCFC;
+    border-radius: 10px;
+
+}
+.Field_text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 61px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.block1 {
+    width: 1232px;
+    height: 74px;
+
+}
+.block2 {
+    width: 1232px;
+    height: 41px;
+    border-top: 1px solid black;
+}
+.block3 {
+    width: 1232px;
+    height: 172px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.block4 {
+    width: 1232px;
+    height: 73px;
+    display: flex;
+    justify-content:flex-start;
+}
+.block5 {
+    width: 1232px;
+    height: 68px;
+    display: flex;
+    justify-content: flex-start;
+    border-top: 1px solid black;
+ }
+
+.blacktext {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #000000;
+
+    margin: 0px 0px 0px 0px ;
+}
+.Button_profile2 {
+    width: 55px;
+    height: 55px;
+    background: #D9D9D9;
+    border-radius: 78px;
+    margin-left: 5px;
+}
+.Field_text2 {
+    position: absolute;
+    left: 380px;
+    top: 842px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 61px;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    color: #FFFFFF;
+
+}
+
+.block_C1 {
+    width: 1176px;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+}
+.block_C2 {
+    width: 1176px;
+    height: 69px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.block_C3 {
+    width: 1176px;
+    height: 63px;
+    margin-top: 6px;
+}
+.button_cencel {
+    width: 35px;
+    height: 35px;
+    border-radius: 49.5px;
+    margin-left: 5px;
+    background: #F33B3B;
+}
+.input_field {
+    width: 437px;
+    height: 41px;
+    background: #AED6D6;
+    border-radius: 10px;
+}
+
+.button_add {
+    width: 35px;
+    height: 35px;
+    background: #D9D9D9;
+    border-radius: 49.5px;
+    margin-left: 5px;
+}
