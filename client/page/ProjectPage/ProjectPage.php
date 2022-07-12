@@ -8,12 +8,14 @@
     <title>Проекты</title>
     <link rel="stylesheet" href="ProjectPage.css?v1">
     <?php require('../../assets/libraries/head.lib.php') ?>
+    <!-- Check Auth script -->
+    <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
 
 <body>
     <section class="project_page">
 
-        <div class="menu">
+    <div class="Menu">
             <div class="profile_wrapper">
                 <div class="Button_profile" id="photo_navs"></div>
                 <!-- BIO user -->
@@ -24,46 +26,21 @@
                 <a href="../MainPage/MainPage.php" class="button_menu_text" id="Tasks"> Задачи</a>
                 <a href="../ProjectPage/ProjectPage.php" class="button_menu_text" id="Projects">Проекты</a>
                 <button class="Exit" id="logout">
-                    <button class="exit">
-                        <a class="exit_text"> Выход </a>
-                    </button>
+                    Выход
+                </button>
             </div>
         </div>
         <div class="project_content">
             <div class="projects_page">
                 <div class="header_content_project">
                     <a id="project_list"> Список проектов </a>
+                    <a href="./CreateProjectPage.php"><i id="plus_icon" class="fas fa-plus-circle"></i></a>
+
                 </div>
                 <div class="table_project">
                     <table>
-                        <thead>
-                            <tr>
-                                <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
-                                    <span class="title">
-                                        Название
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="description">
-                                        Описание
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="creator">
-                                        Организатор
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="date">
-                                        Сроки
-                                    </span>
-                                </td>
-                                <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
-                                    <span class="status">
-                                        Статус
-                                    </span>
-                                </td>
-                            </tr>
+                        <thead id="project_head">
+                            
                         </thead>
                         <tbody id="project_user">
                             <!-- This display task -->
@@ -75,12 +52,14 @@
     </section>
 
     <?php require('../../assets/libraries/scripts.lib.php') ?>
-    <script src="../../scripts/ajax/get/get.data.project.js"></script>
+    <script type="module" src="../../scripts/ajax/get/get.data.project.js"></script>
     <!-- Get user script -->
     <script src="../../scripts/ajax/get/get.data.user.js"></script>
 
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
+
+    <script src="../../scripts/ajax/create/create.project.js"></script>
 
 </body>
 
