@@ -7,6 +7,7 @@
   margin: 0px;
   padding: 0px;
   font-family: "Montserrat", sans-serif;
+
 }
 
 body {
@@ -144,14 +145,18 @@ color: white;
 }
 
 .main_content {
-  display: inline-block;
   width: 82vw;
   min-height: 100vh;
   float: right;
+
 }
 
 .tasks_page{
   padding: 20px;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
 }
 
 .task_info{
@@ -195,7 +200,6 @@ color: white;
 
 .task_subtasks {
   padding: 20px;
-  width: auto;
   background: #FFFCFC;
   border-radius: 10px;
 
@@ -208,33 +212,6 @@ color: white;
 
 
 
-  color: #FFFFFF;
-}
-
-.button_profile2 {
-  width: 55px;
-  height: 55px;
-  background: #D9D9D9;
-  border-radius: 78px;
-  margin-left: 5px;
-}
-
-.field_text2 {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 50px;
-  line-height: 61px;
-  margin: 0px 0px 0px 0px;
-  color: #FFFFFF;
-
-}
-
-.field_text1 {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 50px;
-  line-height: 61px;
-  margin: 0px 0px 0px 0px;
   color: #FFFFFF;
 }
 
