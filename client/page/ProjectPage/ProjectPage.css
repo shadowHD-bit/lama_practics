@@ -28,6 +28,26 @@ body {
     height: 80%;
 }
 
+.profile_name {
+    display: inline-block;
+    width: 100px;
+    height: auto;
+    top: 40px;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    cursor: pointer;
+    color: #FFFFFF;
+  }
+  
+  .profile_name:hover {
+    cursor: pointer;
+    color: #cfcfcf;
+    text-decoration: none;
+  }
+
 .button_menu_text {
     display: block;
     margin: 10px auto;
@@ -65,14 +85,6 @@ body {
     border-radius: 67px;
 }
 
-#Profile {
-}
-
-#Tasks {
-}
-
-#Projects {
-}
 
 .profile_wrapper {
     height: 20%;

@@ -15,12 +15,12 @@
 
         <div class="menu">
             <div class="profile_wrapper">
-                <button class="button_profile"></button>
+                <div class="Button_profile" id="photo_navs"></div>
                 <!-- BIO user -->
                 <a id="bio_user" class="profile_name"></a>
             </div>
             <div class="menu_btn_wrapper">
-                <a href="#" class="button_menu_text" id="Profile">Профиль</a>
+                <a href="../ProfilePage/ProfilePage.php" class="button_menu_text" id="Profile">Профиль</a>
                 <a href="../MainPage/MainPage.php" class="button_menu_text" id="Tasks"> Задачи</a>
                 <a href="../ProjectPage/ProjectPage.php" class="button_menu_text" id="Projects">Проекты</a>
                 <button class="Exit" id="logout">
@@ -36,34 +36,34 @@
                 </div>
                 <div class="table_project">
                     <table>
-                        <thead id="project_head">
-<!--                            <tr>-->
-<!--                                <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">-->
-<!--                                    <span class="title">-->
-<!--                                        Название-->
-<!--                                    </span>-->
-<!--                                </td>-->
-<!--                                <td>-->
-<!--                                    <span class="description">-->
-<!--                                        Описание-->
-<!--                                    </span>-->
-<!--                                </td>-->
-<!--                                <td>-->
-<!--                                    <span class="creator">-->
-<!--                                        Организатор-->
-<!--                                    </span>-->
-<!--                                </td>-->
-<!--                                <td>-->
-<!--                                    <span class="date">-->
-<!--                                        Сроки-->
-<!--                                    </span>-->
-<!--                                </td>-->
-<!--                                <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">-->
-<!--                                    <span class="status">-->
-<!--                                        Статус-->
-<!--                                    </span>-->
-<!--                                </td>-->
-<!--                            </tr>-->
+                        <thead>
+                            <tr>
+                                <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
+                                    <span class="title">
+                                        Название
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="description">
+                                        Описание
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="creator">
+                                        Организатор
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="date">
+                                        Сроки
+                                    </span>
+                                </td>
+                                <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
+                                    <span class="status">
+                                        Статус
+                                    </span>
+                                </td>
+                            </tr>
                         </thead>
                         <tbody id="project_user">
                             <!-- This display task -->
@@ -75,7 +75,7 @@
     </section>
 
     <?php require('../../assets/libraries/scripts.lib.php') ?>
-    <script type="module" src="../../scripts/ajax/get/get.data.project.js"></script>
+    <script src="../../scripts/ajax/get/get.data.project.js"></script>
     <!-- Get user script -->
     <script src="../../scripts/ajax/get/get.data.user.js"></script>
 
