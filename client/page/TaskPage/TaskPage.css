@@ -195,7 +195,7 @@ color: white;
 
 .task_subtasks {
   padding: 20px;
-
+  width: auto;
   background: #FFFCFC;
   border-radius: 10px;
 
@@ -241,7 +241,7 @@ color: white;
 .checklist_item {
   display: flex;
   justify-content: space-between;
-  margin:  30px 0px;
+  margin:  0px 0px 20px 0px;
   padding: 10px;
   border-radius: 8px;
   background-color: #e8e8e8;
@@ -252,13 +252,11 @@ color: white;
 }
 
 .block_C2 {
-  width: 1176px;
-  height: 69px;
+  width: auto;
 }
 
 .block_C3 {
-  width: 1176px;
-  height: 63px;
+  width: auto;
   margin-top: 6px;
 }
 
