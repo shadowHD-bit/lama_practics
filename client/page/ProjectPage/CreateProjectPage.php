@@ -71,6 +71,7 @@
         </div>
     </section>
 
+    <?php require('../../assets/libraries/scripts.lib.php') ?>
 
     <!-- Get user script -->
     <script src="../../scripts/ajax/get/get.data.user.js"></script>
