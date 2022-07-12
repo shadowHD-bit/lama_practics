@@ -2,7 +2,7 @@
 return array(
     'UserNameInDatabase' => 'root',
     'PasswordUserInDatabase' => '',
-    'HostDatabase' => '127.0.0.1',
+    'HostDatabase' => 'localhost',
     'NameDatabase' => 'lama'
 )
 ?>
