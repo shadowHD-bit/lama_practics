@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    
     <section class="profile">
         <div class="Menu">
             <div class="profile_wrapper">
@@ -86,27 +87,30 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Изменить аватар профиля</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body" style="display: flex; justify-content: center; align-items:center; flex-direction: column;">
-                    <div class="Button_profile" id="photo_in_change" style="width: 300px; height: 300px; margin-bottom: 50px; border-radius: 50%"></div>
+                   <div id="change_error" class="change_error">
+
+                   </div>
+                <div class="Button_profile" id="photo_in_change" style="width: 300px; height: 300px; margin-bottom: 50px; border-radius: 50%"></div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupFileAddon01">Загрузка</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <input onchange="previewImage(this)" id="updateAvatar" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputGroupFile01">Выберите файл</label>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                    <button type="button" class="btn btn-primary">Сохраниить</button>
+                    <button type="button" id="savedAvatarUpdate" class="btn btn-primary">Сохраниить</button>
                 </div>
             </div>
         </div>
@@ -116,6 +120,8 @@
     <!-- Get user script -->
     <script src="../../scripts/ajax/get/get.data.userprofile.js"></script>
     <script src="../../scripts/ajax/get/get.data.user.js"></script>
+    <script src="../../scripts/ajax/update/update.avatar.user.js"></script>
+
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
 
