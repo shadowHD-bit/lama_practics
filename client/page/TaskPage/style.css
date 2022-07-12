@@ -15,8 +15,22 @@ body {
     backdrop-filter: blur(5px);
 }
 
+.Upprofile {
+display: flex;
+    justify-content: flex-end;
+    width: auto;
+    height: 171px;
+}
+
+.Buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 367px;
+    height: 219px;
+}
+
 .button_menu_text {
-    position: absolute;
     width: 318px;
     height: 51px;
 
@@ -47,15 +61,6 @@ body {
     border-radius: 67px;
 }
 
-#Profile {
-    top: 191px;
-}
-#Tasks {
-    top: 260px;
-}
-#Projects {
-    top: 329px;
-}
 
 .profile_name {
     position: absolute;
@@ -100,17 +105,19 @@ body {
     position: absolute;
     width: 1233px;
     height: 430px;
-    left: 430px;
-    top: 191px;
+    left: 427px;
+    top: 159px;
 
     background: #FFFCFC;
     border-radius: 10px;
+    padding: 8px 8px 8px 8px;
+    margin: 0px 0px 0px 0px ;
 }
 .Cheklist {
     position: absolute;
-    width: 1241px;
+    width: 1233px;
     height: 178px;
-    left: 429px;
+    left: 427px;
     top: 664px;
 
     background: #FFFCFC;
@@ -118,25 +125,34 @@ body {
 
     display: flex;
     flex-wrap: wrap;
+    padding: 8px 8px 8px 8px;
+
 }
 .subtask {
     position: absolute;
-    width: 1241px;
+    width: 1233px;
     height: 69px;
-    left: 429px;
+    left: 427px;
     top: 934px;
 
     background: #FFFCFC;
     border-radius: 10px;
+    padding: 8px 8px 8px 8px;
+
 
 }
 .Field_text {
+    position: absolute;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 50px;
     line-height: 61px;
-    text-align: center;
+    left: 427px;
+    top: 48px;
+    margin: 0px 0px 0px 0px;
+
+
 
     color: #FFFFFF;
 }
@@ -149,26 +165,23 @@ body {
 .block2 {
     width: 1232px;
     height: 41px;
-    border-top: 1px solid black;
 }
 .block3 {
     width: 1232px;
     height: 172px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
 }
 .block4 {
     width: 1232px;
     height: 73px;
     display: flex;
     justify-content:flex-start;
+
 }
 .block5 {
     width: 1232px;
     height: 68px;
     display: flex;
     justify-content: flex-start;
-    border-top: 1px solid black;
  }
 
 .blacktext {
@@ -177,7 +190,6 @@ body {
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
-
     color: #000000;
 
     margin: 0px 0px 0px 0px ;
@@ -191,18 +203,31 @@ body {
 }
 .Field_text2 {
     position: absolute;
-    left: 380px;
-    top: 842px;
+    left: 427px;
+    top: 856px;
 
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 50px;
     line-height: 61px;
-    text-align: center;
     margin: 0px 0px 0px 0px;
     color: #FFFFFF;
 
+}
+
+.Field_text1 {
+    position: absolute;
+    left: 427px;
+    top: 595px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 61px;
+    margin: 0px 0px 0px 0px;
+    color: #FFFFFF;
 }
 
 .block_C1 {
@@ -214,8 +239,6 @@ body {
 .block_C2 {
     width: 1176px;
     height: 69px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
 }
 .block_C3 {
     width: 1176px;
