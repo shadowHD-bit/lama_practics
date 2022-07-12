@@ -19,7 +19,8 @@ function get_project_user() {
         .then(function (body) {
             console.log(body);
             document.querySelector('.projects_page').removeChild(Loader);
-            table_head_project.innerHTML = `
+            table_head_project.innerHTML =
+                `
                 <tr>
                     <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
                         <span className="title">
