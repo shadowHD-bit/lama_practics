@@ -38,49 +38,58 @@
             </div>
 
 
-
             <div class="task_field">
 
                 <div class="task_name">
-                    <p>Задача 1</p>
+                    <p class="task_title">Тема:</p>
+                    <p class="task_info">Задача 1</p>
                 </div>
+                <hr>
                 <div class="task_deadline">
-                    <p>C 35 июля по 35 июня</p>
+                    <p class="task_title">Сроки:</p>
+                    <p class="task_info">C 35 июля по 35 июня</p>
                 </div>
+                <hr>
                 <div class="task_description">
-                    <p>Необходимо сходить в магазин и закупить мясо к шашлыкам, после чего замариновать его в уксусе и майонезе</p>
+                    <p class="task_title">Описание:</p>
+                    <p class="task_info">Необходимо сходить в магазин и закупить мясо к шашлыкам, после чего
+                        замариновать его в уксусе и майонезе</p>
                 </div>
+                <hr>
                 <div class="task_director">
-                    <p>Постановщик:</p>
+                    <p class="task_title">Постановщик:</p>
                     <div class="task_member">
                         <div class="task_member_photo"></div>
-                        <p class="task_member_fullname">Pupkin vasiliy Ivanovich</p>
+                        <p class="task_member_fullname task_info">Pupkin vasiliy Ivanovich</p>
                     </div>
                 </div>
                 <div class="task_performer">
-                    <p>Исполнитель:</p>
+                    <p class="task_title">Исполнитель:</p>
                     <div class="task_member">
                         <div class="task_member_photo"></div>
-                        <p class="task_member_fullname">Pupkin vasiliy Ivanovich</p>
+                        <p class="task_member_fullname task_info">Pupkin vasiliy Ivanovich</p>
                     </div>
                 </div>
             </div>
 
-            <p class="field_text1"> Чеклист </p>
+            <div class="header_content_task">
+                <a id="task_list">Чек-лист</a>
+            </div>
 
             <div class="task_cheklist">
-
-                <div class="block_C1">
-
-                    <p> Задача выполнена </p>
-                    <input type="checkbox" checked="Unchecked">
-                    <button class="button_cencel">
-                        <p class="blacktext"> X </p>
-                    </button>
+                <p class="task_title">Пункты:</p>
+                <div class="checklist_item">
+                    <div class="checklist_item_text">
+                        <label>
+                            <input type="checkbox">
+                            <p class="task_info">Задача</p>
+                        </label>
+                    </div>
+                    <button class="delete_item_btn">X</button>
                 </div>
                 <div class="block_C2">
                     <button class="button_add">
-                        <p class="blacktext"> + </p>
+                        <p> + </p>
                     </button>
                 </div>
                 <div class="block_C3">
@@ -90,11 +99,13 @@
 
             </div>
 
-            <p class="field_text2"> Подзадачи </p>
+            <div class="header_content_task">
+                <a id="task_list">Подзадачи</a>
+            </div>
 
             <div class="task_subtasks">
                 <button class="button_add">
-                    <p class="blacktext"> + </p>
+                    <p> + </p>
                 </button>
 
             </div>
@@ -105,9 +116,8 @@
 </section>
 
 
-
 <!-- Get task script -->
-<script type="module" src="../../scripts/ajax/get/get.data.task.js"></script>
+
 
 <!-- Get user script -->
 <script src="../../scripts/ajax/get/get.data.user.js"></script>

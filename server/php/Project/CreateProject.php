@@ -38,7 +38,7 @@ if(isset($data)){
 $sqldate = $_dateProject;
 
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$insertProject = $mysqlConnectForQuery->query("INSERT INTO `$projectTable` (id_user, id_status, project_name, project_deadline, project_description) VALUES ('$cookieUserId',1,'$_titleProject', '$sqldate', '$_descriptionProject')");
+$insertProject = $mysqlConnectForQuery->query("INSERT INTO `$projectTable` (id_status, project_name, project_deadline, project_description) VALUES (1,'$_titleProject', '$sqldate', '$_descriptionProject')");
 
 echo json_encode($data);
 
