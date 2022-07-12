@@ -8,6 +8,9 @@
     <title>Профиль</title>
     <link rel="stylesheet" href="ProfilePage.css?v1">
     <?php require('../../assets/libraries/head.lib.php') ?>
+
+    <!-- Check Auth script -->
+    <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
 
 <body>

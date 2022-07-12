@@ -87,10 +87,4 @@ if (isset($_FILES['avatar_image'])) {
 			    exit();
 			}
 		}
-
 }
-
-
-
-
-?>
