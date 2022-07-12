@@ -256,8 +256,9 @@ body {
 .project_member_photo {
   width: 40px;
   height: 40px;
-  background-color: #428af7;
   border-radius: 100%;
+  background-position: center;
+  background-size: cover;
 }
 
 .create_project button {

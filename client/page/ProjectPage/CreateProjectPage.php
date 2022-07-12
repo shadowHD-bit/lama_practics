@@ -49,106 +49,16 @@
                         <div class="create_project_members">
                             <p>Добавить участников:</p>
                             <div class="project_add_member_btn"></div>
-                            <div class="project_invite_members">
-                                <div class="project_member">
+                            <div class="project_invite_members" id="invite_block">
+                                <!-- <div class="project_member">
                                     <div class="project_member_photo"></div>
                                     <label class="project_member_fullname">
                                         Pupkin vasiliy Ivanovich
                                         <input type="checkbox">
                                     </label>
-                                </div>
+                                </div> -->
 
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-                                <div class="project_member">
-                                    <div class="project_member_photo"></div>
-                                    <label class="project_member_fullname">
-                                        Pupkin vasiliy Ivanovich
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -167,6 +77,9 @@
 
     <!-- Create Project script -->
     <script src="../../scripts/ajax/create/create.project.js"></script>
+
+    <!-- Get Users Scripts -->
+    <script src="../../scripts/ajax/get/get.users.js"></script>
 
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
