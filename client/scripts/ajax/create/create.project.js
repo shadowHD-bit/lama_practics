@@ -21,6 +21,6 @@ btn.addEventListener("click", () => {
       return response.json();
     })
     .then(function (body) {
-      console.log(body);
+      window.location.href = "./ProjectPage.php"
     });
 });
