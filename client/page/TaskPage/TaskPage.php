@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="TaskPage.css?v1">
-
+    <?php require('../../assets/libraries/font_awesome.php') ?>
 
     <!-- Check Auth script -->
     <script src="../../scripts/ajax/CheckAuth.js"></script>
@@ -110,6 +110,7 @@
 
             <div class="header_content_task">
                 <a id="task_list">Подзадачи</a>
+                <a href="#"><i id="plus_icon" class="fas fa-plus-circle"></i></a>
             </div>
 
             <div class="task_subtasks">

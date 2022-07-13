@@ -294,3 +294,12 @@ body::-webkit-scrollbar {
   background-color: #428af7;
   border-radius: 100%;
 }
+
+#plus_icon{
+  font-style: normal !important;
+  font-size: 40px;
+
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+  color: #fcfcfc !important;
+}
