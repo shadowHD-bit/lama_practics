@@ -26,7 +26,7 @@ $data = json_decode(file_get_contents('php://input'));
 //Get data on client part
 $_titleProject = '';
 $_descriptionProject = '';
-$_dateProject;
+$_dateProject = '';
 
 //Get id user from cookie
 $cookieUserId = $_COOKIE['user_id'];
@@ -40,7 +40,7 @@ if(isset($data)){
 }
 
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$insertProject = $mysqlConnectForQuery->query("INSERT INTO `$projectTable` (id_user, id_status, project_name, project_deadline, project_description) VALUES ('$cookieUserId',1,'$_titleProject', '$_dateProject', '$_descriptionProject')");
+$insertProject = $mysqlConnectForQuery->query("INSERT INTO `$projectTable` (id_status, project_name, project_deadline, project_description) VALUES (1,'$_titleProject', '$_dateProject', '$_descriptionProject')");
 
 
 $mysqlConnectForQueryGetNameProject = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);

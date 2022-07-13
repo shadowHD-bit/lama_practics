@@ -25,18 +25,26 @@ $userProjectTable = $configTableDatabase['UserProjectTable'];
 $cookieUserId = $_COOKIE['user_id'];
 
 //Connect data user in SQL Server
-$mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$GetProject = $mysqlConnectForQuery->query("SELECT * FROM `$projectTable` 
+$mysqlConnectForQuery1 = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
+$mysqlConnectForQuery2 = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
+$GetProject = $mysqlConnectForQuery1->query("SELECT * FROM `$projectTable` 
                                             INNER JOIN `$statusTable` ON `$projectTable`.id_status = `$statusTable`.id_status
                                             INNER JOIN `$userProjectTable` ON `$userProjectTable`.id_project = `$projectTable`.id_project
                                             INNER JOIN `$userTable` ON `$userTable`.id_user = `$userProjectTable`.id_user
-                                            WHERE `$userProjectTable`.isCreator = 1 OR `$userProjectTable`.id_user = '$cookieUserId'");
+                                            WHERE `$userProjectTable`.id_user = '$cookieUserId'");
+$GetCreator = $mysqlConnectForQuery2->query("SELECT * FROM `$projectTable` 
+                                            INNER JOIN `$statusTable` ON `$projectTable`.id_status = `$statusTable`.id_status
+                                            INNER JOIN `$userProjectTable` ON `$userProjectTable`.id_project = `$projectTable`.id_project
+                                            INNER JOIN `$userTable` ON `$userTable`.id_user = `$userProjectTable`.id_user
+                                            WHERE `$userProjectTable`.isCreator = 1");
 
 //Get result in right format
 $resultGetProject = mysqli_fetch_all($GetProject, MYSQLI_ASSOC);
+$resultGetCreator = mysqli_fetch_all($GetCreator, MYSQLI_ASSOC);
+$result = array_merge($resultGetCreator, $resultGetProject);
 
 //Display error
 echo json_encode($resultGetProject);
 
-$mysqlConnectForQuery->close();
+$mysqlConnectForQuery1->close();
 ?>

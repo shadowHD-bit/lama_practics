@@ -52,7 +52,7 @@ function get_project_user() {
             <tr>
                 <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
                     <span class="title">
-                        ${el.project_name}
+                        <a href="../ProjectItemPage/ProjectItemPage.php?${el.id_project}">${el.project_name}</a>
                      </span>
                 </td>
                 <td>
