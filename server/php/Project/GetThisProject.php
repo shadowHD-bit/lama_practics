@@ -21,16 +21,22 @@ $statusTable = $configTableDatabase['StatusTable'];
 $userTable = $configTableDatabase['UserTable'];
 $userProjectTable = $configTableDatabase['UserProjectTable'];
 
-//Get id user from cookie
-$cookieUserId = $_COOKIE['user_id'];
+//Variables data url server
+$data = json_decode(file_get_contents('php://input'));
+
+//Get data on client part
+$_idProjectPHP = '';
+
+//Check data
+if(isset($data)){
+    $_idProjectPHP = $data -> dataId;
+}
 
 //Connect data user in SQL Server
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$GetProject = $mysqlConnectForQuery->query("SELECT * FROM `$projectTable` 
-                                            INNER JOIN `$statusTable` ON `$projectTable`.id_status = `$statusTable`.id_status
-                                            INNER JOIN `$userProjectTable` ON `$userProjectTable`.id_project = `$projectTable`.id_project
-                                            INNER JOIN `$userTable` ON `$userTable`.id_user = `$userProjectTable`.id_user
-                                            WHERE `$userProjectTable`.isCreator = 1 OR `$userProjectTable`.id_user = '$cookieUserId'");
+$GetProject = $mysqlConnectForQuery->query("SELECT * FROM `$projectTable`
+                                            INNER JOIN `$statusTable` ON `$statusTable`.id_status = `$projectTable`.id_status
+                                            WHERE id_project = '$_idProjectPHP'");
 
 //Get result in right format
 $resultGetProject = mysqli_fetch_all($GetProject, MYSQLI_ASSOC);

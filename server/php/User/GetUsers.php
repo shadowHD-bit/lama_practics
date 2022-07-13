@@ -22,7 +22,7 @@ $cookieUserId = $_COOKIE['user_id'];
 
 //Connect data user in SQL Server
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$GetUser = $mysqlConnectForQuery->query("SELECT * FROM `$userTable`");
+$GetUser = $mysqlConnectForQuery->query("SELECT * FROM `$userTable` WHERE id_user != '$cookieUserId'");
 
 //Get result in right format
 $dataUser = mysqli_fetch_all($GetUser, MYSQLI_ASSOC);
