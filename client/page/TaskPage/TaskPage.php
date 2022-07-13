@@ -56,6 +56,7 @@
                         замариновать его в уксусе и майонезе</p>
                 </div>
                 <hr>
+
                 <div class="task_director">
                     <p class="task_title">Постановщик:</p>
                     <div class="task_member">
@@ -63,13 +64,17 @@
                         <p class="task_member_fullname task_info">Pupkin vasiliy Ivanovich</p>
                     </div>
                 </div>
+
                 <div class="task_performer">
                     <p class="task_title">Исполнитель:</p>
+
                     <div class="task_member">
                         <div class="task_member_photo"></div>
                         <p class="task_member_fullname task_info">Pupkin vasiliy Ivanovich</p>
                     </div>
+
                 </div>
+
             </div>
 
             <div class="header_content_task">

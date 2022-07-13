@@ -186,8 +186,9 @@ body::-webkit-scrollbar {
   background: #FFFCFC;
   border-radius: 10px;
   padding: 20px;
-  width: auto;
+
 }
+
 .task_cheklist {
   background: #FFFCFC;
   border-radius: 10px;
