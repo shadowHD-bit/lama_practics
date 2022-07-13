@@ -49,15 +49,15 @@
                     </div>
                     <div class="name_user">
                         <label for="user_name_input" class="user_label">Имя:</label>
-                        <input id="user_name_input" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" value="Alexey" disabled>
+                        <input id="user_name_input" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" value="Имя" disabled>
                     </div>
                     <div class="last_name_user">
                         <label for="user_name_input" class="user_label">Фамилия:</label>
-                        <input id="user_lastname_input" type="text" class="form-control" placeholder="UserLastname" aria-describedby="basic-addon2" value="Navalnyi" disabled>
+                        <input id="user_lastname_input" type="text" class="form-control" placeholder="UserLastname" aria-describedby="basic-addon2" value="Фамилия" disabled>
                     </div>
                     <div class="second_name_user">
                         <label for="user_name_input" class="user_label">Отчество:</label>
-                        <input id="user_secondname_input" type="text" class="form-control" placeholder="UserSecondname" aria-describedby="basic-addon7" value="Vasilievich" disabled>
+                        <input id="user_secondname_input" type="text" class="form-control" placeholder="UserSecondname" aria-describedby="basic-addon7" value="Отчество" disabled>
                     </div>
                     <div class="data_birthday">
                         <label for="user_name_input" class="user_label">Дата рождения:</label>
@@ -67,7 +67,7 @@
                 <div class="otherinfo_section">
                     <div class="name_user">
                         <label for="user_name_input" class="user_label">Почта:</label>
-                        <input id="user_mail_input" type="email" class="form-control" placeholder="mailUser" aria-describedby="basic-addon4" value="ebobo@mail.ru" disabled>
+                        <input id="user_mail_input" type="email" class="form-control" placeholder="mailUser" aria-describedby="basic-addon4" value="Почта" disabled>
                     </div>
                     <div class="last_name_user">
                         <label for="user_name_input" class="user_label">Номер телефона:</label>
