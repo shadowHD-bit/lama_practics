@@ -219,7 +219,7 @@ body::-webkit-scrollbar {
 .checklist_item {
   display: flex;
   justify-content: space-between;
-  margin:  0px 0px 20px 0px;
+  margin:  0px 0px 13px 0px;
   padding: 10px;
   border-radius: 8px;
   background-color: #e8e8e8;
@@ -229,22 +229,22 @@ body::-webkit-scrollbar {
   margin-left: 10px;
 }
 
-.block_C2 {
+.checklist_item2 {
   width: auto;
 }
 
-.block_C3 {
-  width: auto;
+.checklist_item3 {
   margin-top: 6px;
 }
 
-.delete_item_btn {
+.delete_item_btn, .add_btn {
   width: 25px;
   height: 25px;
   border-radius: 100%;
   background-color: transparent;
   border: black 1px solid;
   display: inline-block;
+  font-size: 20px;
 }
 
 .delete_item_btn:hover {
@@ -253,20 +253,27 @@ body::-webkit-scrollbar {
   color: white;
 }
 
-.input_field {
-  width: 437px;
-  height: 41px;
-  background: #AED6D6;
-  border-radius: 10px;
+.delete_item_btn p {
+  transform: rotate(45grad);
 }
 
-.button_add {
-  width: 35px;
-  height: 35px;
-  background: #D9D9D9;
-  border-radius: 49.5px;
-  margin-left: 5px;
+.add_btn:hover {
+  border: #428af7 1px solid;
+  background-color: #428af7;
+  color: white;
 }
+
+.input_field {
+  width: 40%;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  padding: 6px 6px;
+}
+.input_field:focus {
+  outline: 2px solid grey;
+}
+
 
 .task_member {
   display: flex;
