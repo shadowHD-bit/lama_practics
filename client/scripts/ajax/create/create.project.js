@@ -27,10 +27,8 @@ btn.addEventListener("click", () => {
       "Content-Type": "application/json; charset=UTF-8",
     },
   })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (body) {
+    .then(function () {
       window.location.href = './ProjectPage.php'
-    });
+    })
+    
 });

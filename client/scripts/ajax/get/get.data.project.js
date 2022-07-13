@@ -62,7 +62,7 @@ function get_project_user() {
                 </td>
                 <td>
                     <span class="creator">
-                        ${el.project_name}
+                        ${el.first_name + ' ' + el.second_name + ' ' + el.last_name}
                     </span>
                 </td>
                 <td>

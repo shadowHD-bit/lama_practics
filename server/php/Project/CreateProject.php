@@ -38,10 +38,9 @@ if(isset($data)){
     $_dateProject = $data -> deadlineProjectJS;
     $_usersArray = $data -> usersProjectJS;
 }
-$sqldate = $_dateProject;
 
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$insertProject = $mysqlConnectForQuery->query("INSERT INTO `$projectTable` (id_user, id_status, project_name, project_deadline, project_description) VALUES ('$cookieUserId',1,'$_titleProject', '$sqldate', '$_descriptionProject')");
+$insertProject = $mysqlConnectForQuery->query("INSERT INTO `$projectTable` (id_user, id_status, project_name, project_deadline, project_description) VALUES ('$cookieUserId',1,'$_titleProject', '$_dateProject', '$_descriptionProject')");
 
 
 $mysqlConnectForQueryGetNameProject = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
@@ -50,14 +49,14 @@ $nameProject = $mysqlConnectForQueryGetNameProject->query("SELECT id_project FRO
 //Get result in right format
 $idProjectFromDatabase = $nameProject -> fetch_assoc();
 
-
 $mysqlQueryForAddDataInProjectUser = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
 $projectID = $idProjectFromDatabase['id_project'];
+
 foreach ($_usersArray as $userID) {
-    $mysqlQueryForAddDataInProjectUser->query("INSERT INTO `$projectUserTable` (id_user, id_project) VALUES ('$userID', '$projectID')");
+    $mysqlQueryForAddDataInProjectUser->query("INSERT INTO `$projectUserTable` (id_user, id_project, isCreator) VALUES ('$userID', '$projectID', 0)");
 }
 //Creator project
-$mysqlQueryForAddDataInProjectUser->query("INSERT INTO `$projectUserTable` (id_user, id_project) VALUES ('$cookieUserId', '$projectID')");
+$mysqlQueryForAddDataInProjectUser->query("INSERT INTO `$projectUserTable` (id_user, id_project, isCreator) VALUES ('$cookieUserId', '$projectID', 1)");
 
 
 
