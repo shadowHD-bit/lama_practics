@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Проекты</title>
     <link rel="stylesheet" href="CreateProjectPage.css?v1">
+    <?php require('../../assets/libraries/head.lib.php') ?>
     <!-- Check Auth script -->
     <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
@@ -17,8 +18,15 @@
             <div class="profile_wrapper">
                 <div class="Button_profile" id="photo_navs"></div>
                 <!-- BIO user -->
-                <a id="bio_user" class="profile_name"></a>
+                <a id="bio_user" class="profile_name">
+                    <p class="card-text placeholder-glow w-100">
+                        <span class="placeholder col-12"></span>
+                        <span class="placeholder col-12"></span>
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </a>
             </div>
+
             <div class="menu_btn_wrapper">
                 <a href="../ProfilePage/ProfilePage.php" class="button_menu_text" id="Profile">Профиль</a>
                 <a href="../MainPage/MainPage.php" class="button_menu_text" id="Tasks"> Задачи</a>
@@ -58,7 +66,7 @@
                                     </label>
                                 </div> -->
 
-                                
+
                             </div>
                         </div>
                     </div>
