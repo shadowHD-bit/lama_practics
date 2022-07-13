@@ -178,7 +178,7 @@ body::-webkit-scrollbar {
   margin-bottom: 30px;
 }
 
-.tasks_page hr {
+.tasks_page .hr {
   display: block;
   background-color: #428af6;
   height: 1px;
@@ -292,4 +292,31 @@ body::-webkit-scrollbar {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.placeholder {
+  display: inline-block;
+  width: 40%;
+  height: 35px;
+  background-color: #7ea7f3;
+  border-radius: 3px;
+  animation: glowing 1.6s infinite;
+}
+
+.placeholder_description {
+  height: 150px;
+}
+
+@keyframes glowing {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
 }

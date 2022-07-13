@@ -274,5 +274,9 @@ body {
   background-color: #428af6;
 }
 
+.task_field .placeholder {
+  background-color: #295705;
+}
+
 
 
