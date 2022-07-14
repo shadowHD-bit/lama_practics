@@ -176,6 +176,11 @@ body::-webkit-scrollbar {
 .header_content_task{
   position: relative;
   margin-bottom: 30px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .tasks_page hr {
