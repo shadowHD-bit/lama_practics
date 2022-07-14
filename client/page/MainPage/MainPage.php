@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="MainPage.css?v1">
-    <? require('../../assets/libraries/head.lib.php') ?>
+
 
     <!-- Check Auth script -->
     <script src="../../scripts/ajax/CheckAuth.js"></script>
@@ -17,12 +17,20 @@
     <section class="main_page">
         <div class="Menu">
             <div class="profile_wrapper">
-                <div class="Button_profile" id="photo_navs"></div>
+                <a href="../ProfilePage/ProfilePage.php">
+                    <div class="Button_profile" id="photo_navs">
+                    </div>
+                </a>
+
                 <!-- BIO user -->
-                <a id="bio_user" class="profile_name"></a>
+                <a id="bio_user" class="profile_name" href="../ProfilePage/ProfilePage.php">
+                    <span class="menu_fullname_placeholder"></span>
+                    <span class="menu_fullname_placeholder"></span>
+                    <span class="menu_fullname_placeholder"></span>
+                </a>
             </div>
             <div class="menu_btn_wrapper">
-                <a href="../ProfilePage/ProfilePage.php" class="button_menu_text" id="Profile">Профиль</a>
+
                 <a href="../MainPage/MainPage.php" class="button_menu_text" id="Tasks"> Задачи</a>
                 <a href="../ProjectPage/ProjectPage.php" class="button_menu_text" id="Projects">Проекты</a>
                 <button class="Exit" id="logout">
@@ -50,7 +58,7 @@
     </section>
 
 
-    <? require('../../assets/libraries/scripts.lib.php') ?>
+
     <!-- Get task script -->
     <script type="module" src="../../scripts/ajax/get/get.data.task.js"></script>
 

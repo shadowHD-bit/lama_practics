@@ -57,17 +57,40 @@ body {
 }
 
 
+@keyframes glowing {
+  0% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+  50% {
+    background-color: rgba(217, 217, 217, 1);
+  }
+  100% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+}
+
 .Button_profile {
   display: inline-block;
   width: 85px;
   height: 85px;
   margin-top: 39px;
+  background: #D9D9D9;
   border-radius: 67px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  animation: infinite 1.8s glowing;
 }
 
+.menu_fullname_placeholder {
+  display: block;
+  height: 24px;
+  background-color: #D9D9D9;
+  width: 130px;
+  margin: 3px;
+  border-radius: 3px;
+  animation: infinite 1.8s glowing;
+}
 .profile_wrapper {
   height: 20%;
   margin: 0px auto;
@@ -78,13 +101,12 @@ body {
 .profile_name {
   display: inline-block;
   width: 100px;
-  height: auto;
+  height: 85px;
   top: 40px;
   text-decoration: none;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 22px;
   cursor: pointer;
   color: #FFFFFF;
 }
