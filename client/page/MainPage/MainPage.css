@@ -104,6 +104,7 @@ body {
   top: 40px;
   text-decoration: none;
   font-style: normal;
+  line-height: 35px;
   font-weight: 400;
   font-size: 22px;
   cursor: pointer;
@@ -196,6 +197,7 @@ color: white;
 
 .header_content_task{
   position: relative;
+  margin-bottom: 20px;
 }
 
 .Exit_field {

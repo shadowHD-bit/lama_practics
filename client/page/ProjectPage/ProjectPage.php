@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Проекты</title>
     <link rel="stylesheet" href="ProjectPage.css?v1">
-
+    <?php require('../../assets/libraries/font_awesome.php') ?>
     <!-- Check Auth script -->
     <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>

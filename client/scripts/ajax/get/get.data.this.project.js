@@ -1,4 +1,3 @@
-
 let idProjectFromURL = location.search.substring(1);
 
 let dataThisProject = {
@@ -10,6 +9,7 @@ let deadlineProject = document.getElementById("deadline_project");
 let descriptionProject = document.getElementById("project_description");
 let creatorProject = document.getElementById("creatorProject");
 let playersProject = document.getElementById("ispolnitels");
+let tasksProject = document.querySelector(".task_subtasks");
 
 //Get data project
 
@@ -51,6 +51,7 @@ fetch("../../../../server/php/Project/GetCreatorProject.php", {
         return response.json();
     })
     .then(function (body) {
+        console.log(body);
         body.map((el) => {
             creatorProject.innerHTML = `
         <div style="background-image: url('../../../../server/uploads/${
@@ -86,6 +87,30 @@ fetch("../../../../server/php/Project/GetPlayersProject.php", {
                 el.last_name + " " + el.first_name + " " + el.second_name
             }</p>
         </div>
+        `;
+        });
+    });
+
+//Get tasks
+fetch("../../../../server/php/Project/GetTasksProject.php", {
+    method: "POST",
+    body: JSON.stringify(dataThisProject),
+    header: {
+        "Content-Type": "application/json; charset=UTF-8",
+    },
+})
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (body) {
+        console.log(body);
+        console.log("Сверху такси");
+        body.map((el) => {
+            tasksProject.innerHTML += `
+                 <div class="project_task">
+                    <span><a href="#">${el.task_name}</a></span>
+                    <span>${el.task_deadline}</span>
+                </div>
         `;
         });
     });

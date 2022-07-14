@@ -86,6 +86,16 @@
 
             </div>
 
+            <div class="header_content_task">
+                <a id="task_list">Задачи проекта</a>
+                <a href="#"><i id="plus_icon" class="fas fa-plus-circle"></i></a>
+            </div>
+
+            <div class="task_subtasks">
+                <!--Live search will be here-->
+
+            </div>
+
         </div>
 
     </div>

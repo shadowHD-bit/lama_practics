@@ -107,6 +107,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
+  line-height: 35px;
   cursor: pointer;
   color: #FFFFFF;
 }
@@ -186,6 +187,10 @@ body::-webkit-scrollbar {
   color: black;
 }
 
+.task_field, .task_cheklist, .task_subtasks {
+  margin-bottom: 20px;
+}
+
 .task_title {
   color: #428af6;
   font-weight: bold;
@@ -195,6 +200,7 @@ body::-webkit-scrollbar {
 
 .header_content_task{
   position: relative;
+  margin-bottom: 20px;
 }
 
 .tasks_page hr {
