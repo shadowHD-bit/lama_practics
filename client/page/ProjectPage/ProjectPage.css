@@ -10,10 +10,6 @@
 
 }
 
-a:visited {
-    color: black;
-}
-
 body {
     background: linear-gradient(242.06deg, #428AF7 15.6%, rgba(41, 206, 196, 0) 101.16%);
     width: 100%;
@@ -197,6 +193,10 @@ body {
 table {
     width: 100%;
     border-spacing: 0px 3px;
+}
+
+table a:visited {
+    color: black;
 }
 
 table td {
