@@ -210,6 +210,10 @@ table {
   border-spacing: 0px 3px;
 }
 
+table a:visited {
+  color: black;
+}
+
 table td {
   padding: 5px 16px;
 }
