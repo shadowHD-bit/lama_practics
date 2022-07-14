@@ -27,6 +27,7 @@ $data = json_decode(file_get_contents('php://input'));
 $_titleProject = '';
 $_descriptionProject = '';
 $_dateProject;
+$_startDateProject;
 
 //Get id user from cookie
 $cookieUserId = $_COOKIE['user_id'];
@@ -36,11 +37,12 @@ if(isset($data)){
     $_titleProject = $data -> titleProjectJS;
     $_descriptionProject = $data -> descProjectJS;
     $_dateProject = $data -> deadlineProjectJS;
+    $_startDateProject = $data -> startDateProjectJS;
     $_usersArray = $data -> usersProjectJS;
 }
 
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$insertProject = $mysqlConnectForQuery->query("INSERT INTO `$projectTable` (id_user, id_status, project_name, project_deadline, project_description) VALUES ('$cookieUserId',1,'$_titleProject', '$_dateProject', '$_descriptionProject')");
+$insertProject = $mysqlConnectForQuery->query("INSERT INTO `$projectTable` (id_user, id_status, project_name, project_start, project_deadline, project_description) VALUES ('$cookieUserId',1,'$_titleProject', '$_startDateProject', '$_dateProject', '$_descriptionProject')");
 
 
 $nameProject = $mysqlConnectForQuery->query("SELECT id_project FROM `$projectTable` WHERE project_name = '$_titleProject'");

@@ -50,8 +50,17 @@
                             <p>Описание проекта:</p>
                             <textarea id="description_project" class="create_project_input" placeholder="Введите описание проекта" name="" id="" rows="10" style="resize: none"></textarea>
 
-                            <p>Сроки выполнения проекта:</p>
+                            <p><label for="date_project_start" style="display: flex; flex-direction:row; align-items:center">
+                                    <input style="margin-right: 10px;" type="checkbox" id="name3activaitor" class="form-check-input" onclick="var input = document.getElementById('date_project_start'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+                                    Дата начала проекта:
+                                </label></p>
+                            <div style="display: flex; flex-direction:row; align-items:center">
+                                <input id="date_project_start" value="<?php echo date('Y-m-d\TH:i'); ?>" class="create_project_input" type="datetime-local" disabled>
+
+                            </div>
+                            <p>Дата выполнения проекта:</p>
                             <input id="date_project" class="create_project_input" type="datetime-local">
+
                         </div>
 
                         <div class="create_project_members">
