@@ -199,6 +199,10 @@ body {
   width: 90%;
 }
 
+.create_project_main input{
+  height: 30px !important;
+}
+
 .create_project_input::placeholder {
   color: #428af6;
 }
@@ -222,13 +226,13 @@ body {
 }
 
 .create_project_main input {
-  height: 30px;
   padding: 5px 7px;
 }
 
 .create_project_main textarea {
   padding: 10px 7px;
 }
+
 
 .project_invite_members {
   width: 90%;

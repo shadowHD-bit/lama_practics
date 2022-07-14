@@ -10,6 +10,6 @@ fetch("../../../server/php/Auth/CheckAuth.php", {
   .then(function (body) {
     console.log(body);
     if (!body.access) {
-        window.location.href = "../AuthPage/AuthPage.php";
-    } 
+      window.location.href = "../AuthPage/AuthPage.php";
+    }
   });

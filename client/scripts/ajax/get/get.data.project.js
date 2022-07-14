@@ -46,36 +46,44 @@ function get_project_user() {
                             Статус
                         </span>
                     </td>
-                </tr>`
-            body.map((el) => {
-                table_body_project.innerHTML += `
-            <tr>
-                <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
-                    <span class="title">
-                        <a href="../ProjectItemPage/ProjectItemPage.php?${el.id_project}">${el.project_name}</a>
-                     </span>
-                </td>
-                <td>
-                     <span class="description">
-                        ${el.project_description}
-                    </span>
-                </td>
-                <td>
-                    <span class="creator">
-                        ${el.last_name + ' ' + el.first_name + ' ' + el.second_name}
-                    </span>
-                </td>
-                <td>
-                    <span class="date">
-                        ${el.project_deadline}
-                    </span>
-                 </td>
-                 <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
-                     <span class="status">
-                        ${el.status_name}
-                    </span>
-                </td>
-            </tr>
+                </tr>`;
+      body.map((el) => {
+        table_body_project.innerHTML += `
+                    <tr>
+                        <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
+                            <span class="title">
+                            <a href="../ProjectItemPage/ProjectItemPage.php?${
+                              el.id_project
+                            }">  ${el.project_name} </a>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="description">
+                                ${el.project_description}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="creator">
+                                ${
+                                  el.first_name +
+                                  " " +
+                                  el.second_name +
+                                  " " +
+                                  el.last_name
+                                }
+                            </span>
+                        </td>
+                        <td>
+                            <span class="date">
+                                ${el.project_deadline}
+                            </span>
+                        </td>
+                        <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
+                            <span class="status">
+                                ${el.status_name}
+                            </span>
+                        </td>
+                    </tr>
             `;
       });
     });

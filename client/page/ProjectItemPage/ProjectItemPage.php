@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Проекты</title>
     <link rel="stylesheet" href="./ProjectItemPage.css?v1">
+    <?php require('../../assets/libraries/head.lib.php') ?>
 
 
     <!-- Check Auth script -->
@@ -34,7 +35,10 @@
             <div class="tasks_page">
 
                 <div class="header_content_task">
-                    <a id="task_list">Информация о проекте</a>
+                    <div> <a id="task_list">Информация о проекте</a>
+                    </div>
+                    <div id="btn_owner"> 
+                    </div>
                 </div>
 
 
@@ -64,19 +68,10 @@
 
                     <div class="task_performer">
                         <p class="task_title">Участники:</p>
-
                         <div id="ispolnitels" class="players">
-                            
-
                         </div>
-
-
-
                     </div>
-
                 </div>
-
-
             </div>
         </div>
     </section>
