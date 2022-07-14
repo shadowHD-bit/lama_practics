@@ -57,6 +57,9 @@
                         <div class="create_project_members">
                             <p>Добавить участников:</p>
                             <div class="project_add_member_btn"></div>
+                            <div class="live_search_members_project">
+                                <input type="text" id="live_search_member" style="width: 90%; margin-bottom: 10px" class="form-control" placeholder="Начните вводить данные...">
+                            </div>
                             <div class="project_invite_members" id="invite_block">
                                 <!-- <div class="project_member">
                                     <div class="project_member_photo"></div>
@@ -65,8 +68,6 @@
                                         <input type="checkbox">
                                     </label>
                                 </div> -->
-
-
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@ btn.addEventListener("click", () => {
     cBox.push($(this).attr("value"));
   });
 
-  cBoxNumber = cBox.map( s => +s )
+  cBoxNumber = cBox.map((s) => +s);
 
   //Post data
   let dataProject = {
@@ -26,9 +26,7 @@ btn.addEventListener("click", () => {
     header: {
       "Content-Type": "application/json; charset=UTF-8",
     },
-  })
-    .then(function () {
-      window.location.href = './ProjectPage.php'
-    })
-    
+  }).then(function () {
+    window.location.href = "./ProjectPage.php";
+  });
 });

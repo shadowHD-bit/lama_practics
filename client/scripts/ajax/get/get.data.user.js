@@ -14,6 +14,5 @@ fetch("../../../../server/php/User/GetDataUser.php", {
     bio_user.innerHTML = `${
       body.last_name + " " + body.first_name + " " + body.second_name
     }`;
-    bio_photo.style.backgroundImage = `url('../../../../server/uploads/${body.photo}')`
-
+    bio_photo.style.backgroundImage = `url('../../../../server/uploads/${body.photo}')`;
   });

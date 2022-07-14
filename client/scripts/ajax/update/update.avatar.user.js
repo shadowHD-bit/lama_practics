@@ -29,18 +29,15 @@ updateAvatarBtn.addEventListener("click", () => {
       return response.json();
     })
     .then(function (body) {
-        console.log(body);
       if (body.error) {
         errorBlock.innerHTML = `
             <div class="alert alert-danger" role="alert">
             ${body.em}
           </div>
             `;
-      }
-      else{
+      } else {
         $("#exampleModalCenter").modal("hide");
         location.reload();
       }
-
     });
 });

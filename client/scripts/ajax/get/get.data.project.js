@@ -52,7 +52,9 @@ function get_project_user() {
                     <tr>
                         <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
                             <span class="title">
-                            <a href="../ProjectItemPage/ProjectItemPage.php?${el.id_project}">  ${el.project_name} </a>
+                            <a href="../ProjectItemPage/ProjectItemPage.php?${
+                              el.id_project
+                            }">  ${el.project_name} </a>
                             </span>
                         </td>
                         <td>
@@ -63,11 +65,11 @@ function get_project_user() {
                         <td>
                             <span class="creator">
                                 ${
-                                el.first_name +
-                                " " +
-                                el.second_name +
-                                " " +
-                                el.last_name
+                                  el.first_name +
+                                  " " +
+                                  el.second_name +
+                                  " " +
+                                  el.last_name
                                 }
                             </span>
                         </td>
