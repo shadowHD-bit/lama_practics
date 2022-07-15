@@ -48,6 +48,8 @@ if ($resultAuthUser->num_rows == 0) {
         'message' => 'User not found!',
     ]);
 
+    $mysqlConnectForQuery->close();
+
 } else {
     //HTTP code
     http_response_code(200);
