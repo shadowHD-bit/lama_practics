@@ -13,9 +13,9 @@ let tasksProject = document.querySelector(".task_subtasks");
 
 //Get data project
 
-fetch("../../../../server/php/Project/GetThisProject.php", {
-    method: "POST",
-    body: JSON.stringify(dataThisProject),
+fetch(`../../../../server/php/Project/GetThisProject.php?dataId=${idProjectFromURL}`, {
+    method: "GET",
+
     header: {
         "Content-Type": "application/json; charset=UTF-8",
     },
@@ -40,9 +40,8 @@ fetch("../../../../server/php/Project/GetThisProject.php", {
 
 //Get Creator
 
-fetch("../../../../server/php/Project/GetCreatorProject.php", {
-    method: "POST",
-    body: JSON.stringify(dataThisProject),
+fetch(`../../../../server/php/Project/GetCreatorProject.php?dataId=${idProjectFromURL}`, {
+    method: "GET",
     header: {
         "Content-Type": "application/json; charset=UTF-8",
     },
@@ -65,9 +64,8 @@ fetch("../../../../server/php/Project/GetCreatorProject.php", {
     });
 
 //Get players
-fetch("../../../../server/php/Project/GetPlayersProject.php", {
+fetch(`../../../../server/php/Project/GetPlayersProject.php?dataId=${idProjectFromURL}`, {
     method: "POST",
-    body: JSON.stringify(dataThisProject),
     header: {
         "Content-Type": "application/json; charset=UTF-8",
     },
@@ -92,9 +90,8 @@ fetch("../../../../server/php/Project/GetPlayersProject.php", {
     });
 
 //Get tasks
-fetch("../../../../server/php/Project/GetTasksProject.php", {
-    method: "POST",
-    body: JSON.stringify(dataThisProject),
+fetch(`../../../../server/php/Project/GetTasksProject.php?dataId=${idProjectFromURL}`, {
+    method: "GET",
     header: {
         "Content-Type": "application/json; charset=UTF-8",
     },
@@ -110,6 +107,7 @@ fetch("../../../../server/php/Project/GetTasksProject.php", {
                  <div class="project_task">
                     <span><a href="#">${el.task_name}</a></span>
                     <span>${el.task_deadline}</span>
+                    <span>${el.status_name}</span>
                 </div>
         `;
         });

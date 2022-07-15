@@ -21,16 +21,14 @@ $statusTable = $configTableDatabase['StatusTable'];
 $userTable = $configTableDatabase['UserTable'];
 $userProjectTable = $configTableDatabase['UserProjectTable'];
 
-//Variables data url server
-$data = json_decode(file_get_contents('php://input'));
+$data = $_GET['dataId'];
+//$data = file_get_contents('php://input');
 
 //Get data on client part
-$_idProjectPHP = '';
+$_idProjectPHP = $data;
 
 //Check data
-if(isset($data)){
-    $_idProjectPHP = $data -> dataId;
-}
+
 
 //Connect data user in SQL Server
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);

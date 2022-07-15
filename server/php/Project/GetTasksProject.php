@@ -21,21 +21,19 @@ $statusTable = $configTableDatabase['StatusTable'];
 $taskTable = $configTableDatabase['TaskTable'];
 
 //Variables data url server
-//$data = $_POST["idProjectFromURL"];
-$data = json_decode(file_get_contents('php://input'));
+
+//Variables data url server
+$data = $_GET['dataId'];
+//$data = file_get_contents('php://input');
 
 //Get data on client part
-$_idProjectPHP = '';
-
-//Check data
-if(isset($data)){
-    $_idProjectPHP = $data -> dataId;
-}
+$_idProjectPHP = $data;
 
 //Connect data user in SQL Server
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$GetProject = $mysqlConnectForQuery->query("SELECT task_name, task_deadline FROM `$taskTable`
-                                            WHERE id_project = '$_idProjectPHP'");
+$GetProject = $mysqlConnectForQuery->query("SELECT task_name, task_deadline, status_name FROM `$taskTable`
+                                            INNER JOIN `$statusTable` on `$statusTable`.id_status = `$taskTable`.id_status
+                                            WHERE `$taskTable`.id_project = '$_idProjectPHP'");
 
 //Get result in right format
 $resultGetProject = mysqli_fetch_all($GetProject, MYSQLI_ASSOC);
