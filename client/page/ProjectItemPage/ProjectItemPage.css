@@ -224,7 +224,26 @@ body::-webkit-scrollbar {
     padding: 20px;
     background: #FFFCFC;
     border-radius: 10px;
+    font-size: 20px;
+    max-height: 800px;
+    overflow: auto;
+}
 
+.task_subtasks > * {
+    display: block;
+    background-color: grey;
+    margin: 10px 0px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e8e8e8;
+}
+
+.task_subtasks * {
+    padding-right: 5px;
+}
+
+.task_subtasks a:visited {
+    color: inherit;
 }
 
 .field_text {
@@ -313,7 +332,8 @@ body::-webkit-scrollbar {
 }
 
 .placeholder {
-    display: inline-block;
+    display: block;
+    margin: 6px 0px;
     width: 40%;
     height: 35px;
     background-color: #7ea7f3;

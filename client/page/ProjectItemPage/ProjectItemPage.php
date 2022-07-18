@@ -79,8 +79,7 @@
                     <div id="ispolnitels" class="players">
                         <span class="placeholder"></span>
                         <span class="placeholder"></span>
-                        <span class="placeholder"></span>
-                        <span class="placeholder"></span>
+
                     </div>
                 </div>
 
@@ -93,7 +92,8 @@
 
             <div class="task_subtasks">
                 <!--Live search will be here-->
-
+                <span class="placeholder"></span>
+                <span class="placeholder"></span>
             </div>
 
         </div>

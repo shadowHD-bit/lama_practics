@@ -102,13 +102,17 @@ fetch(`../../../../server/php/Project/GetTasksProject.php?dataId=${idProjectFrom
     .then(function (body) {
         console.log(body);
         console.log("Сверху такси");
+        tasksProject.innerHTML = `<div class="cleaner"></div>`;
+        tasksProject.removeChild(document.querySelector(".cleaner"))
         body.map((el) => {
             tasksProject.innerHTML += `
                  <div class="project_task">
                     <span><a href="#">${el.task_name}</a></span>
+                    <span>|</span>
                     <span>${el.task_deadline}</span>
+                    <span>|</span>
                     <span>${el.status_name}</span>
-                </div>
+                 </div>
         `;
         });
     });
