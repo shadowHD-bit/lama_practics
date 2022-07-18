@@ -10,7 +10,7 @@ let descriptionTask = document.getElementById("description_task");
 let directorTask = document.getElementById("director_task");
 let performerTask = document.getElementById("performer_task");
 let taskSubtasks = document.querySelector(".task_subtasks");
-
+let taskChecklist = document.querySelector(".checklist_points")
 //Get data project
 
 fetch(`../../../../server/php/Task/GetThisTask.php?dataId=${idProjectFromURL}`, {
@@ -88,6 +88,37 @@ fetch(`../../../../server/php/Task/GetPerformerTask.php?dataId=${idProjectFromUR
         `;
         });
     });
+
+//Get checklist
+fetch(`../../../../server/php/Task/GetTaskChecklist.php?dataId=${idProjectFromURL}`, {
+    method: "GET",
+    header: {
+        "Content-Type": "application/json; charset=UTF-8",
+    },
+})
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (body) {
+        console.log("Чеклист:");
+        console.log(body);
+        body.map((el) => {
+            taskChecklist.innerHTML += `
+                 <div class="checklist_item">
+                    <div class="checklist_item_text">
+                        <label>
+                            <input type="checkbox">
+                            <p class="task_info">${el.point_name}</p>
+                        </label>
+                    </div>
+                    <button class="delete_item_btn">
+                        <p> + </p>
+                    </button>
+                </div>
+        `;
+        });
+    });
+
 
 //Get subtasks
 fetch(`../../../../server/php/Task/GetTaskSubtasks.php?dataId=${idProjectFromURL}`, {

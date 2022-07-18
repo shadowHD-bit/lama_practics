@@ -94,18 +94,22 @@
 
             <div class="task_cheklist">
                 <p class="task_title">Пункты:</p>
+                <div class="checklist_points">
 
-                <div class="checklist_item">
-                    <div class="checklist_item_text">
-                        <label>
-                            <input type="checkbox">
-                            <p class="task_info">Задача</p>
-                        </label>
+                    <div class="checklist_item">
+                        <div class="checklist_item_text">
+                            <label>
+                                <input type="checkbox">
+                                <p class="task_info">Задача</p>
+                            </label>
+                        </div>
+                        <button class="delete_item_btn">
+                            <p> + </p>
+                        </button>
                     </div>
-                    <button class="delete_item_btn">
-                        <p> + </p>
-                    </button>
+
                 </div>
+
 
                 <div class="checklist_item">
                     <button class="add_btn">
