@@ -50,35 +50,38 @@
 
                 <div class="task_name">
                     <p class="task_title">Тема:</p>
-                    <p class="task_info">Задача 1</p>
+                    <p class="task_info" id="title_task">
+                        <span class="placeholder"></span>
+                    </p>
                 </div>
                 <hr>
                 <div class="task_deadline">
                     <p class="task_title">Сроки:</p>
-                    <p class="task_info">C 35 июля по 35 июня</p>
+                    <p class="task_info" id="deadline_task">
+                        <span class="placeholder"></span>
+                    </p>
                 </div>
                 <hr>
                 <div class="task_description">
                     <p class="task_title">Описание:</p>
-                    <p class="task_info">Необходимо сходить в магазин и закупить мясо к шашлыкам, после чего
-                        замариновать его в уксусе и майонезе</p>
+                    <p class="task_info" id="description_task">
+                        <span class="placeholder placeholder_description"></span>
+                    </p>
                 </div>
                 <hr>
 
                 <div class="task_director">
                     <p class="task_title">Постановщик:</p>
-                    <div class="task_member">
-                        <div class="task_member_photo"></div>
-                        <p class="task_member_fullname task_info">Pupkin vasiliy Ivanovich</p>
+                    <div class="task_member" id="director_task">
+                        <span class="placeholder"></span>
                     </div>
                 </div>
 
                 <div class="task_performer">
                     <p class="task_title">Исполнитель:</p>
 
-                    <div class="task_member">
-                        <div class="task_member_photo"></div>
-                        <p class="task_member_fullname task_info">Pupkin vasiliy Ivanovich</p>
+                    <div class="task_member" id="performer_task">
+                        <span class="placeholder"></span>
                     </div>
 
                 </div>
@@ -136,7 +139,8 @@
 
 <!-- Get user script -->
 <script src="../../scripts/ajax/get/get.data.user.js"></script>
-
+<!-- Get project script -->
+<script type="module" src="../../scripts/ajax/get/get.data.this.task.js"></script>
 <!-- Logout func script -->
 <script src="../../scripts/ajax/Logout.js"></script>
 

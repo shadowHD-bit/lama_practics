@@ -107,7 +107,7 @@ fetch(`../../../../server/php/Project/GetTasksProject.php?dataId=${idProjectFrom
         body.map((el) => {
             tasksProject.innerHTML += `
                  <div class="project_task">
-                    <span><a href="#">${el.task_name}</a></span>
+                    <span><a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a></span>
                     <span>|</span>
                     <span>${el.task_deadline}</span>
                     <span>|</span>

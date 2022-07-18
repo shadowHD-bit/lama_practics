@@ -11,7 +11,6 @@
     <!-- Check Auth script -->
     <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
-
 <body>
 <section class="main_page">
     <div class="Menu">

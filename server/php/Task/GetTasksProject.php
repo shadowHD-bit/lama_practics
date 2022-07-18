@@ -31,7 +31,7 @@ $_idProjectPHP = $data;
 
 //Connect data user in SQL Server
 $mysqlConnectForQuery = new mysqli($config['HostDatabase'], $config['UserNameInDatabase'], $config['PasswordUserInDatabase'], $config['NameDatabase']);
-$GetProject = $mysqlConnectForQuery->query("SELECT id_task, task_name, task_deadline, status_name FROM `$taskTable`
+$GetProject = $mysqlConnectForQuery->query("SELECT task_name, task_deadline, status_name FROM `$taskTable`
                                             INNER JOIN `$statusTable` on `$statusTable`.id_status = `$taskTable`.id_status
                                             WHERE `$taskTable`.id_project = '$_idProjectPHP'");
 

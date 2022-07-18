@@ -57,7 +57,7 @@ function get_task_user() {
             <tr>
                 <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
                     <span class="title">
-                        ${el.task_name}
+                     <a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a>
                      </span>
                 </td>
                 <td>

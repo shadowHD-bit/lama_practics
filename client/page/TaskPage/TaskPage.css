@@ -57,7 +57,7 @@ body {
 }
 
 
-@keyframes glowing {
+@keyframes menu_glowing{
   0% {
     background-color: rgba(217, 217, 217, 0.51);
   }
@@ -79,7 +79,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  animation: infinite 1.8s glowing;
+  animation: infinite 1.8s menu_glowing;
 }
 
 .menu_fullname_placeholder {
@@ -321,7 +321,11 @@ body::-webkit-scrollbar {
   height: 40px;
   background-color: #428af7;
   border-radius: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 
 #plus_icon{
   font-style: normal !important;
@@ -330,4 +334,62 @@ body::-webkit-scrollbar {
   text-align: center;
   text-shadow: 1px 1px 1px #000;
   color: #fcfcfc !important;
+}
+
+/* Placeholder */
+
+.placeholder {
+  display: block;
+  margin: 6px 0px;
+  width: 40%;
+  height: 35px;
+  background-color: #7ea7f3;
+  border-radius: 3px;
+  animation: glowing 1.6s infinite;
+}
+
+.placeholder_description {
+  height: 150px;
+}
+
+@keyframes glowing {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* Task's Subtasks*/
+
+.task_subtasks {
+  padding: 20px;
+  background: #FFFCFC;
+  border-radius: 10px;
+  font-size: 20px;
+  max-height: 800px;
+  overflow: auto;
+}
+
+.task_subtasks > * {
+  display: block;
+  background-color: grey;
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #e8e8e8;
+}
+
+.task_subtasks * {
+  padding-right: 5px;
+}
+
+.task_subtasks a:visited {
+  color: inherit;
 }
