@@ -26,12 +26,12 @@ function get_task_user() {
                         </span>
                     </td>
                     <td>
-                        <span className="poster">
+                        <span className="director">
                             Постановщик
                         </span>
                     </td>
                     <td>
-                        <span className="mainer">
+                        <span className="executor">
                             Ответственный
                         </span>
                     </td>
@@ -60,18 +60,18 @@ function get_task_user() {
                      </span>
                 </td>
                 <td>
-                     <span class="poster">
-                        ${el.task_name}
+                     <span class="director">
+                        ${el.director}
                     </span>
                 </td>
                 <td>
-                    <span class="mainer">
-                        ${el.task_name}
+                    <span class="executor">
+                        ${el.executor}
                     </span>
                 </td>
                 <td>
                      <span class="project">
-                        ${el.id_project}
+                        ${el.project_name}
                     </span>
                  </td>
                 <td>

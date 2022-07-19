@@ -88,7 +88,7 @@ function get_project_user() {
                 </td>
                 <td>
                     <span class="description">
-                    ${el.project_description.substr(0, 40)}...
+                    ${el.project_description.substring(0, 40)}...
                     </span>
                 </td>
                 <td>
