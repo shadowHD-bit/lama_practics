@@ -6,5 +6,5 @@ require_once '../../utils/headers.php';
 require_once '../../classes/User.class.php';
 $User = new User();
 
-//Update body
-echo $User->updateAvatar($_FILES['avatar_image']);
+//Query body
+echo $User->getCookieIdUser();
