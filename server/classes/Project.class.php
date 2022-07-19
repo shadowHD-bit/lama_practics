@@ -292,4 +292,19 @@ class Project
         $mysql_connect_for_query->query("DELETE FROM `$userProjectTable`
                                         WHERE `$userProjectTable`.id_user = '$id_user' AND `$userProjectTable`.id_project = '$id_project'");
     }
+
+    function deleteProject($id_project){
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+        $userProjectTable = $tables_database['UserProjectTable'];
+        $userTable = $tables_database['UserTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query("DELETE FROM `$userProjectTable`
+                                        WHERE `$userProjectTable`.id_project = '$id_project'");
+        $mysql_connect_for_query->query("DELETE FROM `$projectTable`
+                                        WHERE `$projectTable`.id_project = '$id_project'");
+    }
 }

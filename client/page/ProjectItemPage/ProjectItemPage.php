@@ -167,6 +167,23 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-xl" id="exampleModalCenterdelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Вы действительно хотите удалить данный проект?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+          <button type="button" class="btn btn-danger" id="delete_this_project">Да</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Get task script -->
   <?php require('../../assets/libraries/scripts.lib.php') ?>
 
@@ -180,6 +197,7 @@
   <script src="../../scripts/ajax/update/change.status.project.js"></script>
   <script src="../../scripts/ajax/update/update.data.project.js"></script>
   <script src="../../scripts/ajax/update/update.user.project.js"></script>
+  <script src="../../scripts/ajax/delete/delete.project.js"></script>
 
 </body>
 
