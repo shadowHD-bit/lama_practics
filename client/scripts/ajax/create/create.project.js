@@ -18,9 +18,10 @@ btn.addEventListener("click", () => {
     titleProjectJS: inputTitleProject.value,
     descProjectJS: inputDescriptionProject.value,
     deadlineProjectJS: inputDateProject.value,
-    startDateProjectJS : inputStartDate.value,
+    startDateProjectJS: inputStartDate.value,
     usersProjectJS: cBoxNumber,
   };
+
 
   fetch("../../../../server/php/Project/CreateProject.php", {
     method: "POST",
@@ -28,7 +29,11 @@ btn.addEventListener("click", () => {
     header: {
       "Content-Type": "application/json; charset=UTF-8",
     },
-  }).then(function () {
+  }).then(function (response) {
+    console.log(response.json());
+  })
+  .then(function (body) {
+    console.log(body);
     window.location.href = "./ProjectPage.php";
   });
 });
