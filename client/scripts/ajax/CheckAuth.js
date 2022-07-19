@@ -1,5 +1,5 @@
 fetch("../../../server/php/Auth/CheckAuth.php", {
-  method: "POST",
+  method: "GET",
   header: {
     "Content-Type": "application/json; charset=UTF-8",
   },
@@ -8,8 +8,7 @@ fetch("../../../server/php/Auth/CheckAuth.php", {
     return response.json();
   })
   .then(function (body) {
-    console.log(body);
     if (!body.access) {
-      window.location.href = "../AuthPage/AuthPage.php";
-    }
+        window.location.href = "../AuthPage/AuthPage.php";
+    } 
   });

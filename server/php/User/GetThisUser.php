@@ -1,9 +1,10 @@
 <?php
 //Headers
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
-header('Access-Control-Allow-Headers: *');
-header('Content-Type: application/json; charset=UTF-8');
+require_once '../../utils/headers.php';
 
-//Get id
-echo $_COOKIE['user_id'];
+//User class
+require_once '../../classes/User.class.php';
+$User = new User();
+
+//Query body
+echo $User->getCookieIdUser();

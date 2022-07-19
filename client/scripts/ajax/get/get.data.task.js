@@ -7,7 +7,7 @@ let table_head_task = document.getElementById("task_head");
 //Func get tasks users
 function get_task_user() {
     document.querySelector('.tasks_page').appendChild(Loader);
-    fetch("../../../../server/php/Task/GetTaskUser.php", {
+    fetch("../../../../server/php/Task/GetAllTasks.php", {
         method: "GET",
         header: {
             "Content-Type": "application/json; charset=UTF-8",
@@ -17,7 +17,6 @@ function get_task_user() {
             return response.json();
         })
         .then(function (body) {
-            console.log(body);
             document.querySelector('.tasks_page').removeChild(Loader);
             table_head_task.innerHTML += `
                  <tr>
@@ -62,17 +61,17 @@ function get_task_user() {
                 </td>
                 <td>
                      <span class="poster">
-                        ${el.last_name + ' ' + el.first_name + ' ' + el.second_name}
+                        ${el.task_name}
                     </span>
                 </td>
                 <td>
                     <span class="mainer">
-                        ${el.last_name + ' ' + el.first_name + ' ' + el.second_name}
+                        ${el.task_name}
                     </span>
                 </td>
                 <td>
                      <span class="project">
-                        ${el.project_name}
+                        ${el.id_project}
                     </span>
                  </td>
                 <td>

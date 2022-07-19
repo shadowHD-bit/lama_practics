@@ -2,91 +2,178 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Проекты</title>
-    <link rel="stylesheet" href="./ProjectItemPage.css?v1">
-    <?php require('../../assets/libraries/head.lib.php') ?>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Проекты</title>
+  <link rel="stylesheet" href="./ProjectItemPage.css?v1" />
+  <?php require('../../assets/libraries/head.lib.php') ?>
+  <?php require('../../assets/libraries/bootstrap.link.php') ?>
 
-
-    <!-- Check Auth script -->
-    <script src="../../scripts/ajax/CheckAuth.js"></script>
+  <!-- Check Auth script -->
+  <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
 
 <body>
-    <section class="main_page">
-        <div class="Menu">
-            <div class="profile_wrapper">
-                <div class="Button_profile" id="photo_navs"></div>
-                <!-- BIO user -->
-                <a id="bio_user" class="profile_name"></a>
-            </div>
-            <div class="menu_btn_wrapper">
-                <a href="../ProfilePage/ProfilePage.php" class="button_menu_text" id="Profile">Профиль</a>
-                <a href="../MainPage/MainPage.php" class="button_menu_text" id="Tasks"> Задачи</a>
-                <a href="../ProjectPage/ProjectPage.php" class="button_menu_text" id="Projects">Проекты</a>
-                <button class="Exit" id="logout">
-                    Выход
-                </button>
-            </div>
+  <section class="main_page">
+    <!-- include navbar -->
+    <?php include('../../components/Bar/Bar.php'); ?>
+    <div class="main_content">
+      <div class="tasks_page">
+        <div class="header_content_task">
+          <a id="task_list">Информация о проекте</a>
+          <div id="btn_owner">
+
+          </div>
         </div>
-        <div class="main_content">
-            <div class="tasks_page">
 
-                <div class="header_content_task">
-                    <div> <a id="task_list">Информация о проекте</a>
-                    </div>
-                    <div id="btn_owner"> 
-                    </div>
-                </div>
+        <div class="task_field">
+          <div class="task_name">
+            <p class="task_title">Название проекта:</p>
+            <p class="task_info" id="title_project"></p>
+          </div>
+          <hr />
+          <div class="task_start">
+            <p class="task_title">Дата начала проекта:</p>
+            <p id="start_project" class="task_info"></p>
+          </div>
+          <hr />
+          <div class="task_deadline">
+            <p class="task_title">Дата окончания проекта:</p>
+            <p id="deadline_project" class="task_info"></p>
+          </div>
+          <hr />
+          <div class="task_description">
+            <p class="task_title">Описание:</p>
+            <p id="project_description" class="task_info"></p>
+          </div>
+          <hr />
+          <div class="task_status">
+            <p class="task_title">Статус проекта:
+            <div id="btn_status" class="btn_status">
 
-
-                <div class="task_field">
-
-                    <div class="task_name">
-                        <p class="task_title">Название проекта: </p>
-                        <p class="task_info" id="title_project"></p>
-                    </div>
-                    <hr>
-                    <div class="task_deadline">
-                        <p class="task_title">Дата окончания проекта:</p>
-                        <p id="deadline_project" class="task_info"></p>
-                    </div>
-                    <hr>
-                    <div class="task_description">
-                        <p class="task_title">Описание:</p>
-                        <p id="project_description" class="task_info"></p>
-                    </div>
-                    <hr>
-
-                    <div class="task_director">
-                        <p class="task_title">Создатель:</p>
-                        <div id="creatorProject" class="task_member">
-                        </div>
-                    </div>
-
-                    <div class="task_performer">
-                        <p class="task_title">Участники:</p>
-                        <div id="ispolnitels" class="players">
-                        </div>
-                    </div>
-                </div>
             </div>
+            </p>
+            <p id="project_status" class="task_info"></p>
+          </div>
+          <hr />
+          <div class="task_director">
+            <p class="task_title">Создатель:</p>
+            <div id="creatorProject" class="task_member"></div>
+          </div>
+
+          <div class="task_performer">
+            <p class="task_title">Участники:
+            <div id="btn_adder" class="btn_adder">
+
+            </div>
+            </p>
+            <div id="ispolnitels" class="players"></div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-xl" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Изменение данных проекта</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Тема проекта:</p>
+          <input id="title_project_update" class="create_project_input" type="text" />
 
-    <!-- Get task script -->
+          <p>Описание проекта:</p>
+          <textarea id="description_project_update" class="create_project_input" name="" id="" cols="100" rows="10" style="resize: none"></textarea>
 
+          <p>Дата начала проекта:</p>
+          <input id="date_project_start_update" class="create_project_input" type="datetime-local">
 
-    <!-- Get user script -->
-    <script src="../../scripts/ajax/get/get.data.user.js"></script>
-    <!-- Get project script -->
-    <script src="../../scripts/ajax/get/get.data.this.project.js"></script>
-    <!-- Logout func script -->
-    <script src="../../scripts/ajax/Logout.js"></script>
+          <p>Дата окончания проекта:</p>
+          <input id="date_project_update" class="create_project_input" type="datetime-local" />
 
+          <p>Статус проекта:</p>
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              В процессе
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item">Action</a>
+              <a class="dropdown-item">Another action</a>
+              <a class="dropdown-item">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <button type="button" class="btn btn-primary">Сохранить изменения</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-xl" id="exampleModalCenterUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Изменение участников проекта</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <button type="button" class="btn btn-primary">Сохранить изменения</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-xl" id="exampleModalCenterStatus" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Изменение статуса проекта</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Выберите новый статус для этого проекта:</p>
+          <div id="block_change_status" class="list-group">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Get task script -->
+  <?php require('../../assets/libraries/scripts.lib.php') ?>
+
+  <!-- Get user script -->
+  <script src="../../scripts/ajax/get/get.data.user.js"></script>
+  <!-- Get project script -->
+  <script src="../../scripts/ajax/get/get.data.this.project.js"></script>
+  <!-- Logout func script -->
+  <script src="../../scripts/ajax/Logout.js"></script>
+
+  <script src="../../scripts/ajax/update/change.status.project.js"></script>
 </body>
 
 </html>
