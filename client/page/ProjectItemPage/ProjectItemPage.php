@@ -98,7 +98,7 @@
           <p>Дата окончания проекта:</p>
           <input id="date_project_update" class="create_project_input" type="datetime-local" />
 
-    
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
@@ -119,11 +119,26 @@
           </button>
         </div>
         <div class="modal-body">
-
+          <div class="players_change">
+            <div class="added_players">
+            <p>Выберите участника, чтобы удалить его из проекта:</p>
+            <div id="already_invite" class="already_invite">
+              
+            </div>
+            </div>
+            <div class="change_players">
+              <div class="live_search_members_project">
+                <p>Выберите участника, чтобы добавить его в проект:</p>
+                <input type="text" id="live_search_member_update" style="width: 90%; margin-bottom: 10px" class="form-control" placeholder="Начните вводить данные...">
+              </div>
+              <div class="project_invite_members" id="invite_block_update">
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="button" class="btn btn-primary">Сохранить изменения</button>
+          <button type="button" class="btn btn-primary" id="save_change_members">Сохранить изменения</button>
         </div>
       </div>
     </div>
@@ -164,6 +179,7 @@
 
   <script src="../../scripts/ajax/update/change.status.project.js"></script>
   <script src="../../scripts/ajax/update/update.data.project.js"></script>
+  <script src="../../scripts/ajax/update/update.user.project.js"></script>
 
 </body>
 
