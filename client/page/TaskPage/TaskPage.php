@@ -94,6 +94,7 @@
 
             <div class="task_cheklist">
                 <p class="task_title">Пункты:</p>
+
                 <div class="checklist_points">
 
                     <div class="checklist_item">
@@ -110,13 +111,15 @@
 
                 </div>
 
+                <div class="checklist_item input_checklist" style="display: none">
+
+                </div>
 
                 <div class="checklist_item">
-                    <button class="add_btn" id="add_checklist_item_btn">
+                    <button onclick="createChecklist()" class="add_btn " id="add_checklist_item_btn">
                         <p> + </p>
                     </button>
                 </div>
-
             </div>
 
             <div class="header_content_task">
