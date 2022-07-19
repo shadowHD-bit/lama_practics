@@ -117,10 +117,6 @@
                     </button>
                 </div>
 
-                <div class="checklist_item">
-                    <input placeholder="Введите задачу" class="input_field">
-                </div>
-
             </div>
 
             <div class="header_content_task">

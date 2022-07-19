@@ -30,7 +30,6 @@ fetch(`../../../../server/php/Task/GetThisTask.php?dataId=${idProjectFromURL}`, 
             titleTask.innerHTML = `
         ${el.task_name}
         `;
-
             deadlineTask.innerHTML = `
         ${el.task_deadline}
         `;
@@ -38,72 +37,33 @@ fetch(`../../../../server/php/Task/GetThisTask.php?dataId=${idProjectFromURL}`, 
         ${el.description}
         `;
         });
-    });
 
-//Get director
-
-fetch(`../../../../server/php/Task/GetDirectorTask.php?dataId=${idProjectFromURL}`, {
-    method: "GET",
-    header: {
-        "Content-Type": "application/json; charset=UTF-8",
-    },
-})
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (body) {
-        console.log('Запрос на директора');
-        console.log(body);
+        //Get director
         body.map((el) => {
             directorTask.innerHTML = `
                 <div class="task_member_photo" style="background-image: url('../../../../server/uploads/${
-                el.photo}')"></div>
+                el.director.avatar}')"></div>
                 <p class="task_member_fullname task_info">
-                    ${el.last_name + " " + el.first_name + " " + el.second_name}
+                    ${el.director.full_name}
                 </p>
                 `
         });
-    });
 
-//Get performer
-fetch(`../../../../server/php/Task/GetPerformerTask.php?dataId=${idProjectFromURL}`, {
-    method: "GET",
-    header: {
-        "Content-Type": "application/json; charset=UTF-8",
-    },
-})
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (body) {
-        performerTask.innerHTML = '';
+        //Get performer
         body.map((el) => {
             performerTask.innerHTML = `
-         <div class="task_member_photo" style="background-image: url('../../../../server/uploads/${
-                el.photo}')"></div>
+                <div class="task_member_photo" style="background-image: url('../../../../server/uploads/${
+                el.performer.avatar}')"></div>
                 <p class="task_member_fullname task_info">
-                    ${el.last_name + " " + el.first_name + " " + el.second_name}
+                    ${el.performer.full_name}
                 </p>
-                
-        `;
+                `
         });
-    });
 
-//Get checklist
-fetch(`../../../../server/php/Task/GetTaskChecklist.php?dataId=${idProjectFromURL}`, {
-    method: "GET",
-    header: {
-        "Content-Type": "application/json; charset=UTF-8",
-    },
-})
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (body) {
-        console.log("Чеклист:");
-        console.log(body);
+        //get checklist
         body.map((el) => {
-            taskChecklist.innerHTML += `
+            el.checklist.map((el) => {
+                taskChecklist.innerHTML += `
                  <div class="checklist_item">
                     <div class="checklist_item_text">
                         <label>
@@ -116,27 +76,16 @@ fetch(`../../../../server/php/Task/GetTaskChecklist.php?dataId=${idProjectFromUR
                     </button>
                 </div>
         `;
-        });
-    });
+            });
+        })
 
-
-//Get subtasks
-fetch(`../../../../server/php/Task/GetTaskSubtasks.php?dataId=${idProjectFromURL}`, {
-    method: "GET",
-    header: {
-        "Content-Type": "application/json; charset=UTF-8",
-    },
-})
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (body) {
-        console.log("Подзадачи:");
-        console.log(body);
+        //get subtasks
         taskSubtasks.innerHTML = `<div class="cleaner"></div>`;
         taskSubtasks.removeChild(document.querySelector(".cleaner"))
         body.map((el) => {
-            taskSubtasks.innerHTML += `
+            el.subtasks.map((el) => {
+
+                taskSubtasks.innerHTML += `
                  <div class="task_subtask">
                     <span><a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a></span>
                     <span>|</span>
@@ -145,5 +94,6 @@ fetch(`../../../../server/php/Task/GetTaskSubtasks.php?dataId=${idProjectFromURL
                     <span>${el.status_name}</span>
                  </div>
         `;
+            });
         });
     });

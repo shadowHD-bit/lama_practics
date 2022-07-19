@@ -12,7 +12,7 @@ header('Content-Type: application/json; charset=UTF-8');
 $configTableDatabase = require('../configTableDatabase.php');
 
 //Import metadata database
-$config = require('../config.php');
+$config = require('../configDatabase.php');
 
 //Get name project table
 $taskTable = $configTableDatabase['TaskTable'];

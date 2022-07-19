@@ -9,10 +9,10 @@ header('Content-Type: application/json; charset=UTF-8');
 // require('../connect.php');
 
 //Import metadata database table
-$configTableDatabase = require('../configTableDatabase.php');
+$configTableDatabase = require('../configTableDataBase.php');
 
 //Import metadata database
-$config = require('../config.php');
+$config = require('../configDatabase.php');
 
 //Get name project table
 $projectTable = $configTableDatabase['ProjectTable'];

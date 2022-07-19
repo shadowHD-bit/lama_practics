@@ -7,7 +7,7 @@ let table_head_task = document.getElementById("task_head");
 //Func get tasks users
 function get_task_user() {
     document.querySelector('.tasks_page').appendChild(Loader);
-    fetch("../../../../server/php/Task/GetTaskUser.php", {
+    fetch("../../../../server/php/Task/GetAllTasks.php", {
         method: "GET",
         header: {
             "Content-Type": "application/json; charset=UTF-8",

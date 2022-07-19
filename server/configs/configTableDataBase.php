@@ -5,4 +5,6 @@ return array(
     'StatusTable' => 'status',
     'ProjectTable' => 'project',
     'UserProjectTable' => 'user_project',
+    'TaskRoleTable' => 'task_role',
+    'ChecklistTable' => 'checklist_point',
 );
