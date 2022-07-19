@@ -112,7 +112,7 @@
 
 
                 <div class="checklist_item">
-                    <button class="add_btn">
+                    <button class="add_btn" id="add_checklist_item_btn">
                         <p> + </p>
                     </button>
                 </div>
@@ -143,6 +143,8 @@
 
 <!-- Get user script -->
 <script src="../../scripts/ajax/get/get.data.user.js"></script>
+<!-- Add new checklist item script -->
+<script src="../../scripts/ajax/create/create.task.checklist.js"></script>
 <!-- Get project script -->
 <script type="module" src="../../scripts/ajax/get/get.data.this.task.js"></script>
 <!-- Logout func script -->

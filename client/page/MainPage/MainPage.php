@@ -58,7 +58,6 @@
     </section>
 
 
-
     <!-- Get task script -->
     <script type="module" src="../../scripts/ajax/get/get.data.task.js"></script>
 
