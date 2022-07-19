@@ -98,22 +98,11 @@
           <p>Дата окончания проекта:</p>
           <input id="date_project_update" class="create_project_input" type="datetime-local" />
 
-          <p>Статус проекта:</p>
-          <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              В процессе
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item">Action</a>
-              <a class="dropdown-item">Another action</a>
-              <a class="dropdown-item">Something else here</a>
-            </div>
-          </div>
+    
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="button" class="btn btn-primary">Сохранить изменения</button>
+          <button type="button" id="update_data_project_btn" class="btn btn-primary">Сохранить изменения</button>
         </div>
       </div>
     </div>
@@ -174,6 +163,8 @@
   <script src="../../scripts/ajax/Logout.js"></script>
 
   <script src="../../scripts/ajax/update/change.status.project.js"></script>
+  <script src="../../scripts/ajax/update/update.data.project.js"></script>
+
 </body>
 
 </html>

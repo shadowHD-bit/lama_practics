@@ -11,6 +11,8 @@ let btn_status = document.getElementById("btn_status");
 let btn_adder = document.getElementById("btn_adder");
 let statusProject = document.getElementById("project_status");
 
+let global_data;
+
 //Get data project
 
 fetch(
@@ -26,6 +28,7 @@ fetch(
     return response.json();
   })
   .then(function (body) {
+    global_data = body;
     body.map((el) => {
       titleProject.innerHTML = `
         ${el.project_name}

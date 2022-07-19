@@ -206,4 +206,21 @@ class Project
         $status = mysqli_fetch_all($status_all, MYSQLI_ASSOC);
         return json_encode($status);
     }
+
+    function updateDataProject($id_project, $new_title, $new_descr, $new_date, $new_start)
+    {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query("UPDATE `$projectTable` SET `$projectTable`.project_start = '$new_start',
+                                                                    `$projectTable`.project_deadline = '$new_date',
+                                                                    `$projectTable`.project_description = '$new_descr',
+                                                                    `$projectTable`.project_name = '$new_title'
+                                        WHERE `$projectTable`.id_project = '$id_project'
+        ");
+    }
 }
