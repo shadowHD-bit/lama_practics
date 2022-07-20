@@ -1,3 +1,5 @@
+import {deleteItem} from "../delete/delete.task.checklist.point.js";
+
 let idProjectFromURL = location.search.substring(1);
 
 let dataThisProject = {
@@ -64,7 +66,7 @@ fetch(`../../../../server/php/Task/GetThisTask.php?dataId=${idProjectFromURL}`, 
         body.map((el) => {
             el.checklist.map((el) => {
                 taskChecklist.innerHTML += `
-                 <div class="checklist_item">
+                 <div class="checklist_item" id="${el.id_point} checklist_item">
                     <div class="checklist_item_text">
                         <label>
                             <input type="checkbox">
@@ -78,7 +80,7 @@ fetch(`../../../../server/php/Task/GetThisTask.php?dataId=${idProjectFromURL}`, 
         `;
             });
         })
-
+        deleteItem();
         //get subtasks
         taskSubtasks.innerHTML = `<div class="cleaner"></div>`;
         taskSubtasks.removeChild(document.querySelector(".cleaner"))
@@ -97,3 +99,6 @@ fetch(`../../../../server/php/Task/GetThisTask.php?dataId=${idProjectFromURL}`, 
             });
         });
     });
+
+
+

@@ -96,18 +96,18 @@
                 <p class="task_title">Пункты:</p>
 
                 <div class="checklist_points">
-
-                    <div class="checklist_item">
-                        <div class="checklist_item_text">
-                            <label>
-                                <input type="checkbox">
-                                <p class="task_info">Задача</p>
-                            </label>
-                        </div>
-                        <button class="delete_item_btn">
-                            <p> + </p>
-                        </button>
-                    </div>
+<!---->
+<!--                    <div class="checklist_item">-->
+<!--                        <div class="checklist_item_text">-->
+<!--                            <label>-->
+<!--                                <input type="checkbox">-->
+<!--                                <p class="task_info">Задача</p>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        <button class="delete_item_btn">-->
+<!--                            <p> + </p>-->
+<!--                        </button>-->
+<!--                    </div>-->
 
                 </div>
 
@@ -137,18 +137,16 @@
 </section>
 
 
-<!-- Get task script -->
-
-
 <!-- Get user script -->
 <script src="../../scripts/ajax/get/get.data.user.js"></script>
+<!-- Get task script -->
+<script type="module" type="module" src="../../scripts/ajax/get/get.data.this.task.js"></script>
 <!-- Add new checklist item script -->
 <script src="../../scripts/ajax/create/create.task.checklist.js"></script>
-<!-- Get project script -->
-<script type="module" src="../../scripts/ajax/get/get.data.this.task.js"></script>
 <!-- Logout func script -->
 <script src="../../scripts/ajax/Logout.js"></script>
-
+<!-- Delete checklist item script -->
+<!--<script type="module" src="../../scripts/ajax/delete/delete.task.checklist.point.js"></script>-->
 </body>
 
 </html>

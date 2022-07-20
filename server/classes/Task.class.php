@@ -152,4 +152,20 @@ class Task
         );
 
     }
+
+    function deleteChecklistPoint($id_point) {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $checklistTable = $tables_database['ChecklistTable'];
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        //Query get one project
+        $mysql_connect_for_query->query(
+            "DELETE FROM `$checklistTable` WHERE `$checklistTable`.id_point = $id_point "
+        );
+
+    }
+
+
 }
