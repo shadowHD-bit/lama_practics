@@ -243,7 +243,8 @@ class Task
         return $row['id_user'];
     }
 
-    function changeStatusTask($id_status, $id_task){
+    function changeStatusTask($id_status, $id_task)
+    {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $taskTable = $tables_database['TaskTable'];
@@ -255,5 +256,42 @@ class Task
             WHERE `$taskTable`.id_task = $id_task
             "
         );
+    }
+
+    function createTask($title, $descr, $deadline, $invite, $proj, $creator)
+    {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $taskTable = $tables_database['TaskTable'];
+        //Get other tables
+        $taskRoleTable = $tables_database['TaskRoleTable'];
+        //$roleTable = $tables_database['RoleTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        //Query get one task
+        if ($proj == 'null') {
+            $mysql_connect_for_query->query(
+                "INSERT INTO `$taskTable` (id_status, task_name, task_deadline, task_description) 
+                VALUES (1, '$title', '$deadline', '$descr')"
+            );
+        } else {
+            $mysql_connect_for_query->query(
+                "INSERT INTO `$taskTable` (id_project, id_status, task_name, task_deadline, task_description) 
+                VALUES ('$proj', 1, '$title', '$deadline', '$descr')"
+            );
+        }
+
+        //Get id inserted task
+        $id_inserted_task = $mysql_connect_for_query->query("SELECT `$taskTable`.id_task FROM `$taskTable` WHERE `$taskTable`.task_name = '$title'");
+        //Get result in right format
+        $id_task_from_database = mysqli_fetch_assoc($id_inserted_task);
+        $task_ID = $id_task_from_database['id_task'];
+        //inserted members
+        $mysql_connect_for_query->query("INSERT INTO `$taskRoleTable` (id_task, id_user, id_role) VALUES ('$task_ID', '$invite', 2)");
+
+        //Creator project
+        $mysql_connect_for_query->query("INSERT INTO `$taskRoleTable` (id_task, id_user, id_role) VALUES ('$task_ID', '$creator', 1)");
     }
 }

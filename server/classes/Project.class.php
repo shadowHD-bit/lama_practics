@@ -307,4 +307,20 @@ class Project
         $mysql_connect_for_query->query("DELETE FROM `$projectTable`
                                         WHERE `$projectTable`.id_project = '$id_project'");
     }
+
+    function GetProjectUserCreator($id_user){
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+        $userProjectTable = $tables_database['UserProjectTable'];
+        $userTable = $tables_database['UserTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $project_user_result = $mysql_connect_for_query->query("SELECT * FROM `$projectTable`
+                                                                INNER JOIN `$userProjectTable` ON `$userProjectTable`.id_project = `$projectTable`.id_project
+                                                                WHERE `$userProjectTable`.id_user = '$id_user' AND `$userProjectTable`.isCreator = 1");
+        $projects = mysqli_fetch_all($project_user_result, MYSQLI_ASSOC);
+        return json_encode($projects);
+    }
 }

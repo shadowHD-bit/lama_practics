@@ -20,6 +20,8 @@
         <div class="tasks_page">
           <div class="header_content_task">
             <a id="Task_list"> Список задач </a>
+            <a href="../TaskPage/CreateTaskPage.php"><i id="plus_icon" class="fas fa-plus-circle"></i></a>
+
           </div>
           <div class="table_task">
             <table>
