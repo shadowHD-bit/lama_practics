@@ -188,4 +188,27 @@ class User
         //Display data
         return json_encode($users);
     }
+
+    //Check Admin method
+    function checkAdmin()
+    {
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $userTable = $tables_database['UserTable'];
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        //Query
+        $checked = $mysql_connect_for_query->query("SELECT `$userTable`.id_user FROM `$userTable` WHERE `$userTable`.isAdmin = 1");
+        $admin = $checked->fetch_assoc();
+        //Display data
+        if ($_COOKIE['user_id'] != $admin['id_user']) {
+            return json_encode([
+                'access' => false,
+            ]);
+        } else {
+            return json_encode([
+                'access' => true,
+            ]);
+        }
+    }
 }

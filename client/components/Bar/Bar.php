@@ -8,6 +8,9 @@
         <a href="../MainPage/MainPage.php" class="button_menu_text" id="Tasks">
             Задачи</a>
         <a href="../ProjectPage/ProjectPage.php" class="button_menu_text" id="Projects">Проекты</a>
+        <div id="for_admin_btn" class="for_admin_btn">
+
+        </div>
         <button class="Exit" id="logout">Выход</button>
     </div>
 </div>
