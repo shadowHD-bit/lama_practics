@@ -135,4 +135,21 @@ class Task
 
         return json_encode($result_get_task);
     }
+
+    function createChecklistItem($task_id, $checklistPointValue) {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $taskTable = $tables_database['TaskTable'];
+        $checklistTable = $tables_database['ChecklistTable'];
+        echo $task_id;
+        echo $checklistPointValue;
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        //Query get one project
+        $mysql_connect_for_query->query(
+            "INSERT INTO `$checklistTable` (id_task, point_name) VALUES ('$task_id', '$checklistPointValue')"
+        );
+
+    }
 }
