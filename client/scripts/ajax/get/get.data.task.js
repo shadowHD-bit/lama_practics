@@ -72,7 +72,11 @@ function get_task_user() {
                 </td>
                 <td>
                      <span class="project">
-                        <a href="../ProjectItemPage/ProjectItemPage.php?${el.id_project}"> ${el.project_name}</a>
+                     ${el.project_name ?
+                        `<a href="../ProjectItemPage/ProjectItemPage.php?${el.id_project}">${el.project_name}</a>`
+                            :
+                        `Нет проекта`
+                        }
                     </span>
                  </td>
                 <td>

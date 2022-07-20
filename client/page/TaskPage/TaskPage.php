@@ -8,6 +8,7 @@
     <title>Главная</title>
     <link rel="stylesheet" href="TaskPage.css?v1">
     <?php require('../../assets/libraries/font_awesome.php') ?>
+    <?php require('../../assets/libraries/bootstrap.link.php') ?>
 
     <!-- Check Auth script -->
     <script src="../../scripts/ajax/CheckAuth.js"></script>
@@ -22,6 +23,7 @@
 
                 <div class="header_content_task">
                     <a id="task_list">Информация о задаче</a>
+                    <div id="btn_owner"></div>
                 </div>
 
 
@@ -35,7 +37,7 @@
                     </div>
                     <hr>
                     <div class="task_deadline">
-                        <p class="task_title">Сроки:</p>
+                        <p class="task_title">Дата окончания задачи:</p>
                         <p class="task_info" id="deadline_task">
                             <span class="placeholder"></span>
                         </p>
@@ -45,6 +47,21 @@
                         <p class="task_title">Описание:</p>
                         <p class="task_info" id="description_task">
                             <span class="placeholder placeholder_description"></span>
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="task_status">
+                        <p class="task_title">Статус:</p>
+                        <div id="btn_status"></div>
+                        <p class="task_info" id="status_task">
+                            <span class="placeholder"></span>
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="task_project">
+                        <p class="task_title">Проект:</p>
+                        <p class="task_info" id="project_task">
+                            <span class="placeholder"></span>
                         </p>
                     </div>
                     <hr>
@@ -115,6 +132,30 @@
         </div>
     </section>
 
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-xl" id="exampleModalCenterStatus" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Изменение статуса проекта</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Выберите новый статус для этого проекта:</p>
+                    <div id="block_change_status" class="list-group">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php require('../../assets/libraries/scripts.lib.php') ?>
 
     <!-- Get user script -->
     <script src="../../scripts/ajax/get/get.data.user.js"></script>
@@ -122,6 +163,7 @@
     <script type="module" src="../../scripts/ajax/get/get.data.this.task.js"></script>
     <!-- Add new checklist item script -->
     <script src="../../scripts/ajax/create/create.task.checklist.js"></script>
+    <script src="../../scripts/ajax/update/change.status.task.js"></script>
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
     <!-- Delete checklist item script -->

@@ -40,10 +40,10 @@ class Task
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
         //Query get all task
         $result_get_tasks = $mysql_connect_for_query->query(
-            "SELECT `$taskTable`.id_task, `$taskTable`.task_name, `$projectTable`.project_name, `$taskTable`.task_deadline, `$statusTable`.status_name 
+            "SELECT `$taskTable`.id_task, `$taskTable`.task_name, `$projectTable`.id_project, `$projectTable`.project_name, `$taskTable`.task_deadline, `$statusTable`.status_name 
             FROM `$taskTable` 
             INNER JOIN `$statusTable` ON `$taskTable`.id_status = `$statusTable`.id_status
-            INNER JOIN `$projectTable` ON `$taskTable`.id_project = `$projectTable`.id_project
+            LEFT JOIN `$projectTable` ON `$taskTable`.id_project = `$projectTable`.id_project
             INNER JOIN `$taskRoleTable` ON `$taskTable`.id_task = `$taskRoleTable`.id_task
             WHERE `$taskRoleTable`.id_user = '$auth_user_id'
             "
@@ -103,9 +103,7 @@ class Task
         $userTable = $tables_database['UserTable'];
         $taskRoleTable = $tables_database['TaskRoleTable'];
         $checklistTable = $tables_database['ChecklistTable'];
-
-        $taskDirector = 1;
-        $taskPerformer = 3;
+        $projectTable = $tables_database['ProjectTable'];
 
         //Get connect
         $database_connect = new Connection();
@@ -114,6 +112,7 @@ class Task
         //Query get task
         $task_data = $mysql_connect_for_query->query("SELECT * FROM `$taskTable`
                                             INNER JOIN `$statusTable` ON `$statusTable`.id_status = `$taskTable`.id_status
+                                            LEFT JOIN `$projectTable` ON `$projectTable`.id_project = `$taskTable`.id_project
                                             WHERE id_task = '$task_id'");
         //To object data
         $result_get_task = mysqli_fetch_all($task_data, MYSQLI_ASSOC);
@@ -214,6 +213,47 @@ class Task
         //Query get one project
         $mysql_connect_for_query->query(
             "DELETE FROM `$checklistTable` WHERE `$checklistTable`.id_point = $id_point "
+        );
+    }
+
+    function getCreatorTaskByIdTask($id_task)
+    {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $taskTable = $tables_database['TaskTable'];
+        //Get other tables
+        $statusTable = $tables_database['StatusTable'];
+        $taskRoleTable = $tables_database['TaskRoleTable'];
+        $roleTable = $tables_database['RoleTable'];
+        $userTable = $tables_database['UserTable'];
+        $projectTable = $tables_database['ProjectTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        //Query get creator
+        $result_get_creator_this_project = $mysql_connect_for_query->query(
+            "SELECT `$taskRoleTable`.id_user
+            FROM `$taskRoleTable`
+            INNER JOIN `$roleTable` ON `$roleTable`.id_role = `$taskRoleTable`.id_role
+            WHERE `$taskRoleTable`.id_task = $id_task AND `$roleTable`.role_name = 'Постановщик'
+            "
+        );
+        $row = mysqli_fetch_assoc($result_get_creator_this_project);
+        return $row['id_user'];
+    }
+
+    function changeStatusTask($id_status, $id_task){
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $taskTable = $tables_database['TaskTable'];
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query(
+            "UPDATE `$taskTable` SET `$taskTable`.id_status = $id_status
+            WHERE `$taskTable`.id_task = $id_task
+            "
         );
     }
 }
