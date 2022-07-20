@@ -7,4 +7,5 @@ return array(
     'UserProjectTable' => 'user_project',
     'TaskRoleTable' => 'task_role',
     'ChecklistTable' => 'checklist_point',
+    'RoleTable' => 'role',
 );

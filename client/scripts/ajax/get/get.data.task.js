@@ -62,12 +62,12 @@ function get_task_user() {
                 </td>
                 <td>
                      <span class="poster">
-                        ${el.last_name + ' ' + el.first_name + ' ' + el.second_name}
+                        ${el.director}
                     </span>
                 </td>
                 <td>
                     <span class="mainer">
-                        ${el.last_name + ' ' + el.first_name + ' ' + el.second_name}
+                        ${el.executor}
                     </span>
                 </td>
                 <td>

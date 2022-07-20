@@ -29,19 +29,65 @@ class Task
         $taskTable = $tables_database['TaskTable'];
         //Get other tables
         $statusTable = $tables_database['StatusTable'];
-
-        // $taskRoleTable = $tables_database['TaskRoleTable'];
-        // $userTable = $tables_database['UserTable'];
-        // $roleTable = $tables_database['RoleTable'];
-        // $projectTable = $tables_database['ProjectTable'];
-
+        $taskRoleTable = $tables_database['TaskRoleTable'];
+        $roleTable = $tables_database['RoleTable'];
+        $userTable = $tables_database['UserTable'];
+        $projectTable = $tables_database['ProjectTable'];
+        //Get auth user id
+        $auth_user_id = $_COOKIE['user_id'];
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
         //Query get all task
-        $result_get_tasks = $mysql_connect_for_query->query("SELECT * FROM `$taskTable` INNER JOIN `$statusTable` ON `$taskTable`.id_status = `$statusTable`.id_status");
+        $result_get_tasks = $mysql_connect_for_query->query(
+            "SELECT `$taskTable`.id_task, `$taskTable`.task_name, `$projectTable`.project_name, `$taskTable`.task_deadline, `$statusTable`.status_name 
+            FROM `$taskTable` 
+            INNER JOIN `$statusTable` ON `$taskTable`.id_status = `$statusTable`.id_status
+            INNER JOIN `$projectTable` ON `$taskTable`.id_project = `$projectTable`.id_project
+            INNER JOIN `$taskRoleTable` ON `$taskTable`.id_task = `$taskRoleTable`.id_task
+            WHERE `$taskRoleTable`.id_user = '$auth_user_id'
+            " 
+        );
+
         //To object data
         $tasks = mysqli_fetch_all($result_get_tasks, MYSQLI_ASSOC);
+
+        //Query get director
+        foreach ($tasks as $key => $value) {
+            $this_id_task = $tasks[$key]['id_task'];
+            $result_get_director_this_task = $mysql_connect_for_query->query(
+                "SELECT `$userTable`.first_name, `$userTable`.second_name, `$userTable`.last_name
+                FROM `$userTable`
+                INNER JOIN `$taskRoleTable` ON `$userTable`.id_user = `$taskRoleTable`.id_user
+                INNER JOIN `$roleTable` ON `$roleTable`.id_role = `$taskRoleTable`.id_role
+                INNER JOIN `$taskTable` ON `$taskTable`.id_task = `$taskRoleTable`.id_task
+                WHERE `$taskTable`.id_task = $this_id_task AND `$roleTable`.role_name = 'Ответственный'
+                "
+            );
+            $row = mysqli_fetch_assoc($result_get_director_this_task);
+            $full_name_director = $row['last_name'] . ' ' . $row['first_name'] . ' ' . $row['second_name'];
+            $value['director'] = $full_name_director;
+            $tasks[$key] = $value;
+        }
+
+        //Query get executor
+        foreach ($tasks as $key => $value) {
+            $this_id_task = $tasks[$key]['id_task'];
+            $result_get_executor_this_project = $mysql_connect_for_query->query(
+                "SELECT `$userTable`.first_name, `$userTable`.second_name, `$userTable`.last_name
+                FROM `$userTable`
+                INNER JOIN `$taskRoleTable` ON `$userTable`.id_user = `$taskRoleTable`.id_user
+                INNER JOIN `$roleTable` ON `$roleTable`.id_role = `$taskRoleTable`.id_role
+                INNER JOIN `$taskTable` ON `$taskTable`.id_task = `$taskRoleTable`.id_task
+                WHERE `$taskTable`.id_task = $this_id_task AND `$taskRoleTable`.id_role = 1
+                "
+            );
+            $row = mysqli_fetch_assoc($result_get_executor_this_project);
+            $full_name_executor = $row['last_name'] . ' ' . $row['first_name'] . ' ' . $row['second_name'];
+            $value['executor'] = $full_name_executor;
+            $tasks[$key] = $value;
+        }
+
         return json_encode($tasks);
     }
 
@@ -136,7 +182,8 @@ class Task
         return json_encode($result_get_task);
     }
 
-    function createChecklistItem($task_id, $checklistPointValue) {
+    function createChecklistItem($task_id, $checklistPointValue)
+    {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $taskTable = $tables_database['TaskTable'];
@@ -150,10 +197,10 @@ class Task
         $mysql_connect_for_query->query(
             "INSERT INTO `$checklistTable` (id_task, point_name) VALUES ('$task_id', '$checklistPointValue')"
         );
-
     }
 
-    function deleteChecklistPoint($id_point) {
+    function deleteChecklistPoint($id_point)
+    {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $checklistTable = $tables_database['ChecklistTable'];
@@ -164,8 +211,5 @@ class Task
         $mysql_connect_for_query->query(
             "DELETE FROM `$checklistTable` WHERE `$checklistTable`.id_point = $id_point "
         );
-
     }
-
-
 }
