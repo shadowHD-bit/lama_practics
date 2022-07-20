@@ -56,8 +56,8 @@ class Task
         $taskRoleTable = $tables_database['TaskRoleTable'];
         $checklistTable = $tables_database['ChecklistTable'];
 
-        $taskDirector = 2;
-        $taskPerformer = 1;
+        $taskDirector = 1;
+        $taskPerformer = 3;
 
         //Get connect
         $database_connect = new Connection();

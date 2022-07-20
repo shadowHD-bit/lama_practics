@@ -2,6 +2,6 @@
 return array(
     'UserNameInDatabase' => 'root',
     'PasswordUserInDatabase' => '',
-    'HostDatabase' => 'localhost',
-    'NameDatabase' => 'lama'
+    'HostDatabase' => '127.0.0.1',
+    'NameDatabase' => 'lamapractics'
 );
