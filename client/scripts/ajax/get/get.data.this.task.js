@@ -36,7 +36,7 @@ fetch(`../../../../server/php/Task/GetThisTask.php?dataId=${idProjectFromURL}`, 
         ${el.task_deadline}
         `;
             descriptionTask.innerHTML = `
-        ${el.description}
+        ${el.task_description}
         `;
         });
 

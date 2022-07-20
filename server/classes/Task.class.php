@@ -46,7 +46,7 @@ class Task
             INNER JOIN `$projectTable` ON `$taskTable`.id_project = `$projectTable`.id_project
             INNER JOIN `$taskRoleTable` ON `$taskTable`.id_task = `$taskRoleTable`.id_task
             WHERE `$taskRoleTable`.id_user = '$auth_user_id'
-            " 
+            "
         );
 
         //To object data
@@ -61,7 +61,7 @@ class Task
                 INNER JOIN `$taskRoleTable` ON `$userTable`.id_user = `$taskRoleTable`.id_user
                 INNER JOIN `$roleTable` ON `$roleTable`.id_role = `$taskRoleTable`.id_role
                 INNER JOIN `$taskTable` ON `$taskTable`.id_task = `$taskRoleTable`.id_task
-                WHERE `$taskTable`.id_task = $this_id_task AND `$roleTable`.role_name = 'Ответственный'
+                WHERE `$taskTable`.id_task = $this_id_task AND `$roleTable`.role_name = 'Постановщик'
                 "
             );
             $row = mysqli_fetch_assoc($result_get_director_this_task);
@@ -79,7 +79,7 @@ class Task
                 INNER JOIN `$taskRoleTable` ON `$userTable`.id_user = `$taskRoleTable`.id_user
                 INNER JOIN `$roleTable` ON `$roleTable`.id_role = `$taskRoleTable`.id_role
                 INNER JOIN `$taskTable` ON `$taskTable`.id_task = `$taskRoleTable`.id_task
-                WHERE `$taskTable`.id_task = $this_id_task AND `$taskRoleTable`.id_role = 1
+                WHERE `$taskTable`.id_task = $this_id_task AND `$roleTable`.role_name = 'Ответственный'
                 "
             );
             $row = mysqli_fetch_assoc($result_get_executor_this_project);
@@ -96,6 +96,8 @@ class Task
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $taskTable = $tables_database['TaskTable'];
+        $roleTable = $tables_database['RoleTable'];
+
         //Get other tables
         $statusTable = $tables_database['StatusTable'];
         $userTable = $tables_database['UserTable'];
@@ -123,8 +125,9 @@ class Task
                 "SELECT `$userTable`.id_user, `$userTable`.first_name, `$userTable`.second_name, `$userTable`.last_name, `$userTable`.photo
                 FROM `$userTable`
                 INNER JOIN `$taskRoleTable` ON `$userTable`.id_user = `$taskRoleTable`.id_user
-                INNER JOIN `$taskTable` ON `$taskTable`.id_task = `$taskTable`.id_task
-                WHERE `$taskTable`.id_task = $task_id AND `$taskRoleTable`.id_role = $taskDirector
+                INNER JOIN `$taskTable` ON `$taskTable`.id_task = `$taskRoleTable`.id_task
+                INNER JOIN `$roleTable` ON `$roleTable`.id_role =  `$taskRoleTable`.id_role
+                WHERE `$taskTable`.id_task = $task_id AND `$roleTable`.role_name = 'Постановщик'
                 "
             );
             $row = mysqli_fetch_assoc($result_get_director_this_task);
@@ -142,8 +145,9 @@ class Task
                 "SELECT `$userTable`.id_user, `$userTable`.first_name, `$userTable`.second_name, `$userTable`.last_name, `$userTable`.photo
                 FROM `$userTable`
                 INNER JOIN `$taskRoleTable` ON `$userTable`.id_user = `$taskRoleTable`.id_user
-                INNER JOIN `$taskTable` ON `$taskTable`.id_task = `$taskTable`.id_task
-                WHERE `$taskTable`.id_task = $task_id AND `$taskRoleTable`.id_role = $taskPerformer
+                INNER JOIN `$taskTable` ON `$taskTable`.id_task = `$taskRoleTable`.id_task
+                INNER JOIN `$roleTable` ON `$roleTable`.id_role =  `$taskRoleTable`.id_role
+                WHERE `$taskTable`.id_task = $task_id AND `$roleTable`.role_name = 'Ответственный'
                 "
             );
             $row = mysqli_fetch_assoc($result_get_performer_this_task);
