@@ -2,154 +2,176 @@
 
 
 * {
-  margin: 0px;
-  padding: 0px;
-  font-family: "Montserrat", sans-serif;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
-  background: linear-gradient(242.06deg, #428AF7 15.6%, rgba(41, 206, 196, 0) 101.16%);
-  width: 100%;
-  height: 100%;
+    background: linear-gradient(242.06deg, #428AF7 15.6%, rgba(41, 206, 196, 0) 101.16%);
+    width: 100%;
+    height: 100%;
 }
 
 .Menu {
-  position: fixed;
-  width: 18vw;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
+    position: fixed;
+    width: 18vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
 }
 
 .menu_btn_wrapper {
-  width: 100%;
-  height: 80%;
+    width: 100%;
+    height: 80%;
 }
 
 .button_menu_text {
-  display: block;
-  margin: 10px auto;
-  width: 80%;
-  cursor: pointer;
-  text-decoration: none;
-  color: #000;
-  background: #FFFFFF;
-  border-radius: 10px;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 32px;
-  text-align: center;
-  border: none;
-  padding: 4px 0px;
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    background: #FFFFFF;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+    border: none;
+    padding: 4px 0px;
 
 }
 
 .button_menu_text:hover {
-  cursor: pointer;
-  text-decoration: none;
-  color: #000;
-  background: #d6d6d6;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    background: #d6d6d6;
 }
 
+@keyframes glowing {
+    0% {
+        background-color: rgba(217, 217, 217, 0.51);
+    }
+    50% {
+        background-color: rgba(217, 217, 217, 1);
+    }
+    100% {
+        background-color: rgba(217, 217, 217, 0.51);
+    }
+}
 
 .Button_profile {
-  display: inline-block;
-  width: 85px;
-  height: 85px;
-  margin-top: 39px;
-  background: #D9D9D9;
-  border-radius: 67px;
+    display: inline-block;
+    width: 85px;
+    height: 85px;
+    margin-top: 39px;
+    background: #D9D9D9;
+    border-radius: 67px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    animation: infinite 1.8s glowing;
+}
+
+.menu_fullname_placeholder {
+    display: block;
+    height: 24px;
+    background-color: #D9D9D9;
+    width: 130px;
+    margin: 3px;
+    border-radius: 3px;
+    animation: infinite 1.8s glowing;
 }
 
 .profile_wrapper {
-  height: 20%;
-  margin: 0px auto;
-  width: 80%;
+    height: 20%;
+    margin: 0px auto;
+    width: 80%;
 
 }
 
 .profile_name {
-  display: inline-block;
-  width: 100px;
-  height: auto;
-  top: 40px;
-  text-decoration: none;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-  cursor: pointer;
-  color: #FFFFFF;
+    display: inline-block;
+    width: 100px;
+    height: 85px;
+    top: 40px;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    cursor: pointer;
+    color: #FFFFFF;
 }
 
 .profile_name:hover {
-  cursor: pointer;
-  color: #cfcfcf;
-  text-decoration: none;
+    cursor: pointer;
+    color: #cfcfcf;
+    text-decoration: none;
 }
 
 .Exit {
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  bottom: 5%;
-  text-align: center;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 5%;
+    text-align: center;
 
-  display: block;
-  width: 80%;
+    display: block;
+    width: 80%;
 
-  background: #F33B3B;
-  border-radius: 10px;
-  border: none;
-  padding: 6px 0px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 32px;
-  /* identical to box height */
+    background: #F33B3B;
+    border-radius: 10px;
+    border: none;
+    padding: 6px 0px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    /* identical to box height */
 
-  text-align: center;
+    text-align: center;
 
-  color: white;
+    color: white;
 }
 
 .Exit:hover {
-background: #c93030;
-color: white;
+    background: #c93030;
+    color: white;
 }
+
 
 #Task_list {
 
-  width: 378px;
-  height: 70px;
+    width: 378px;
+    height: 70px;
 
 
-  font-style: normal;
-  font-weight: 500;
-  font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
 
-  text-align: center;
-  text-shadow: 1px 1px 1px #000;
-  color: #fcfcfc;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+    color: #fcfcfc;
 
 
 }
 
 .main_content {
-  display: inline-block;
-  width: 82vw;
-  min-height: 100vh;
-  float: right;
+    display: inline-block;
+    width: 82vw;
+    min-height: 100vh;
+    float: right;
 }
 
-.profile_card{
+.profile_card {
     width: auto;
     height: auto;
     background-color: white;
@@ -163,21 +185,23 @@ color: white;
 
 }
 
-.photo_section{
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  justify-content: center;
-  align-items: center;
-}
-.bioinfo_section{
-  width: 30%;
-}
-.otherinfo_section{
-  width: 30%;
+.photo_section {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
 }
 
-.photo_block{
+.bioinfo_section {
+    width: 30%;
+}
+
+.otherinfo_section {
+    width: 30%;
+}
+
+.photo_block {
     border-radius: 50%;
     height: 200px;
     width: 200px;
@@ -186,44 +210,44 @@ color: white;
     background-repeat: no-repeat;
 }
 
-.section_btn{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
+.section_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
-.change_photo{
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #428AF7;
-  color: white;
+.change_photo {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #428AF7;
+    color: white;
 
 }
 
-.form-control{
-  margin: 10px 0px;
-  width: 90%;
+.form-control {
+    margin: 10px 0px;
+    width: 90%;
 }
 
-.user_label{
-  padding: 0;
-  margin: 0;
-  margin-top: 10px;
+.user_label {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
 }
 
-.bioinfo_title p{
-  font-size: 30px;
-  color: #000;
+.bioinfo_title p {
+    font-size: 30px;
+    color: #000;
 }
 
-.change_btn{
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #f74242;
-  color: white;
-  margin-top: 10px;
+.change_btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f74242;
+    color: white;
+    margin-top: 10px;
 }

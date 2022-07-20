@@ -17,6 +17,7 @@ function get_task_user() {
             return response.json();
         })
         .then(function (body) {
+            console.log(body);
             document.querySelector('.tasks_page').removeChild(Loader);
             table_head_task.innerHTML += `
                  <tr>
@@ -56,22 +57,22 @@ function get_task_user() {
             <tr>
                 <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
                     <span class="title">
-                        ${el.task_name}
+                     <a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a>
                      </span>
                 </td>
                 <td>
                      <span class="poster">
-                        ${el.task_name}
+                        ${el.last_name + ' ' + el.first_name + ' ' + el.second_name}
                     </span>
                 </td>
                 <td>
                     <span class="mainer">
-                        ${el.task_name}
+                        ${el.last_name + ' ' + el.first_name + ' ' + el.second_name}
                     </span>
                 </td>
                 <td>
                      <span class="project">
-                        ${el.id_project}
+                        <a href="../ProjectItemPage/ProjectItemPage.php?${el.id_project}"> ${el.project_name}</a>
                     </span>
                  </td>
                 <td>
