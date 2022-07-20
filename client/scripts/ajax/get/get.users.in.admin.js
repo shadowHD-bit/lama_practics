@@ -70,6 +70,9 @@ let input_new_user_date = document.getElementById("new_date");
 let input_new_user_login = document.getElementById("new_login");
 let input_new_user_password = document.getElementById("new_pass");
 
+//user phone mask
+$("#new_tel").mask("+7(999)999-99-99");
+
 function addUser() {
   //Post data
   let dataUser = {

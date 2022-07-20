@@ -1,6 +1,7 @@
 //href on profile user in left menu
 let bio_user = document.getElementById("bio_user");
 let bio_photo = document.getElementById("photo_navs");
+
 fetch("../../../../server/php/User/GetDataUser.php", {
   method: "GET",
   header: {

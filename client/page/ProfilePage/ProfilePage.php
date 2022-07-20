@@ -231,5 +231,6 @@
 
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
+
   </body>
 </html>
