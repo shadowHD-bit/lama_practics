@@ -294,4 +294,22 @@ class Task
         //Creator project
         $mysql_connect_for_query->query("INSERT INTO `$taskRoleTable` (id_task, id_user, id_role) VALUES ('$task_ID', '$creator', 1)");
     }
+
+
+    function deleteTask($id_task)
+    {
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $taskTable = $tables_database['TaskTable'];
+        //Get other tables
+        $taskRoleTable = $tables_database['TaskRoleTable'];
+        //$roleTable = $tables_database['RoleTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query("DELETE FROM `$taskRoleTable`
+                                        WHERE `$taskRoleTable`.id_task = '$id_task'");
+        $mysql_connect_for_query->query("DELETE FROM `$taskTable`
+                                        WHERE `$taskTable`.id_project = '$id_task' OR `$taskTable`.id_uppertask = '$id_task'");
+    }
 }

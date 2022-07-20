@@ -139,7 +139,7 @@ fetch(
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
         Редактировать
       </button>
-      <button data-toggle="modal" data-target="#exampleModalCenterdelete" type="button" class="btn btn-danger">
+      <button data-toggle="modal" data-target="#exampleModalCenterdeleteTask" type="button" class="btn btn-danger">
         Удалить
       </button>`;
 

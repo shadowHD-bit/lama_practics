@@ -155,6 +155,25 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-xl" id="exampleModalCenterdeleteTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Вы действительно хотите удалить эту задачу?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+                    <button type="button" class="btn btn-danger" id="delete_this_task">Да</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <?php require('../../assets/libraries/scripts.lib.php') ?>
 
     <!-- Get user script -->
@@ -164,6 +183,7 @@
     <!-- Add new checklist item script -->
     <script src="../../scripts/ajax/create/create.task.checklist.js"></script>
     <script src="../../scripts/ajax/update/change.status.task.js"></script>
+    <script src="../../scripts/ajax/delete/delete.task.js"></script>
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
     <!-- Delete checklist item script -->
