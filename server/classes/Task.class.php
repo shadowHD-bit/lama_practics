@@ -312,4 +312,20 @@ class Task
         $mysql_connect_for_query->query("DELETE FROM `$taskTable`
                                         WHERE `$taskTable`.id_project = '$id_task' OR `$taskTable`.id_uppertask = '$id_task'");
     }
+
+
+    function delegate($id_user, $id_task){
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        //Get other tables
+        $taskRoleTable = $tables_database['TaskRoleTable'];
+        //$roleTable = $tables_database['RoleTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query("UPDATE `$taskRoleTable` 
+                                        SET `$taskRoleTable`.id_user = '$id_user'
+                                        WHERE `$taskRoleTable`.id_task = '$id_task' AND `$taskRoleTable`.id_role = 2");
+        
+    }
 }

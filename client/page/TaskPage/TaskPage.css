@@ -29,6 +29,36 @@ body {
   height: 80%;
 }
 
+.project_invite_members {
+  width: 90%;
+  border: #428af6 solid 1px;
+  border-radius: 5px;
+  padding: 10px;
+  max-height: 44vh;
+  overflow: auto;
+}
+
+.project_member {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 300;
+  color: #428af6;
+}
+
+.project_member * {
+  display: inline-block;
+  margin: 3px;
+}
+
+.project_member_photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
 .button_menu_text {
   display: block;
   margin: 10px auto;

@@ -75,7 +75,9 @@
 
                     <div class="task_performer">
                         <p class="task_title">Исполнитель:</p>
-
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterDelegate">
+                            Делегировать
+                        </button>
                         <div class="task_member" id="performer_task">
                             <span class="placeholder"></span>
                         </div>
@@ -173,6 +175,30 @@
         </div>
     </div>
 
+    <div class="modal fade" id="exampleModalCenterDelegate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Выберите пользователя для делегирования:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="live_search_members_project">
+                        <input type="text" id="live_search_delegate" style="width: 90%; margin-bottom: 10px" class="form-control" placeholder="Начните вводить данные...">
+                    </div>
+                    <div id="delegate_block">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <?php require('../../assets/libraries/scripts.lib.php') ?>
 
@@ -184,6 +210,8 @@
     <script src="../../scripts/ajax/create/create.task.checklist.js"></script>
     <script src="../../scripts/ajax/update/change.status.task.js"></script>
     <script src="../../scripts/ajax/delete/delete.task.js"></script>
+    <script src="../../scripts/ajax/update/delegate.task.js"></script>
+
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
     <!-- Delete checklist item script -->
