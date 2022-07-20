@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
-
 * {
   margin: 0px;
   padding: 0px;
@@ -8,7 +7,11 @@
 }
 
 body {
-  background: linear-gradient(242.06deg, #428AF7 15.6%, rgba(41, 206, 196, 0) 101.16%);
+  background: linear-gradient(
+    242.06deg,
+    #428af7 15.6%,
+    rgba(41, 206, 196, 0) 101.16%
+  );
   width: 100%;
   height: 100%;
 }
@@ -33,9 +36,9 @@ body {
   cursor: pointer;
   text-decoration: none;
   color: #000;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -43,7 +46,6 @@ body {
   text-align: center;
   border: none;
   padding: 4px 0px;
-
 }
 
 .button_menu_text:hover {
@@ -52,7 +54,6 @@ body {
   color: #000;
   background: #d6d6d6;
 }
-
 
 .Button_profile {
   display: inline-block;
@@ -69,7 +70,6 @@ body {
   height: 20%;
   margin: 0px auto;
   width: 80%;
-
 }
 
 .profile_name {
@@ -83,7 +83,7 @@ body {
   font-size: 24px;
   line-height: 28px;
   cursor: pointer;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .profile_name:hover {
@@ -104,7 +104,7 @@ body {
   display: block;
   width: 80%;
 
-  background: #F33B3B;
+  background: #f33b3b;
   border-radius: 10px;
   border: none;
   padding: 6px 0px;
@@ -120,25 +120,8 @@ body {
 }
 
 .Exit:hover {
-background: #c93030;
-color: white;
-}
-
-#Task_list {
-
-  width: 378px;
-  height: 70px;
-
-
-  font-style: normal;
-  font-weight: 500;
-  font-size: 40px;
-
-  text-align: center;
-  text-shadow: 1px 1px 1px #000;
-  color: #fcfcfc;
-
-
+  background: #c93030;
+  color: white;
 }
 
 .main_content {
@@ -148,6 +131,21 @@ color: white;
   float: right;
 }
 
-.admin_page{
+.admin_page {
   padding: 20px;
+}
+
+.admin_page_content {
+  width: auto;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px 10px;
+}
+
+.admin_title {
+  font-size: 20px;
+  font-weight: 300;
+  color: #428af6;
+  font-weight: 600;
 }
