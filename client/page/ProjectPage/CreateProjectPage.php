@@ -53,6 +53,9 @@
           </div>
 
           <hr />
+          <div id="error_message" class="error_message">
+            
+          </div>
           <button class="create_project_confirm" id="accept_project_btn">
             Принять
           </button>

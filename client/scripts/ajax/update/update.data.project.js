@@ -7,7 +7,6 @@ let update_data_project_btn = document.getElementById(
 );
 let idProjectFromURLThis = location.search.substring(1);
 
-
 function mysqlTimeStampToDate(timestamp) {
   //function parses mysql datetime string and returns javascript Date object
   //input has to be in this format: 2007-06-05 15:26:02
@@ -61,6 +60,8 @@ update_data_project_btn.addEventListener("click", () => {
     startDateProjectJS: deadline_input.value,
   };
 
+  let error_message = document.getElementById("error_message");
+
   fetch(`../../../../server/php/Project/UpdateDataProject.php`, {
     method: "POST",
     body: JSON.stringify(dataProjectUpdate),
@@ -68,9 +69,22 @@ update_data_project_btn.addEventListener("click", () => {
       "Content-Type": "application/json; charset=UTF-8",
     },
   })
-    .then(function (body) {
-        console.log(body);
-        $("#exampleModalCenter").modal("hide");
-        location.reload();
-    });
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (body) {
+    if (body.error) {
+      error_message.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" id="error_alert" style="width: 100%" role="alert">
+              <strong>Заполните все поля!</strong>
+              <a type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </a>
+            </div>
+        `;
+    } else {
+      $("#exampleModalCenter").modal("hide");
+      location.reload();
+    }
+  });
 });

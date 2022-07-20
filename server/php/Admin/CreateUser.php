@@ -21,4 +21,15 @@ if (isset($data)) {
     $_password = $data->password;
 }
 
-echo $Admin->addNewUser($_name, $_lastname,$_secondname,$_tel,$_mail,$_date,$_login,$_password);
+if(!$_name || !$_lastname || !$_tel || !$_secondname || !$_mail || !$_date| !$_login || !$_password){
+    echo json_encode([
+        'error' => true,
+        'message' => 'Заполните все поля!',
+    ]);
+}
+else{
+    $Admin->addNewUser($_name, $_lastname,$_secondname,$_tel,$_mail,$_date,$_login,$_password);
+    echo json_encode([
+        'error' => false,
+    ]);
+}

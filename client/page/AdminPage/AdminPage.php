@@ -66,35 +66,31 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Укажите имя пользователя:
-                        <input type="text" id="new_name">
-                    </p>
-                    <p>Укажите фамилию пользователя:
-                        <input type="text" id="new_last_name">
-                    </p>
-                    <p>Укажите отчество пользователя:
-                        <input type="text" id="new_second_name">
-                    </p>
-                    <p>Укажите номер телефона:
-                        <input type="tel" id="new_tel">
-                    </p>
-                    <p>Укажите почту:
-                        <input type="email" id="new_mail">
-                    </p>
-                    <p>Укажите дату рождения:
-                        <input type="datetime-local" id="new_date">
-                    </p>
-                    <hr/>
-                    <p>Укажите логин пользователя:
-                        <input type="text" id="new_login">
-                    </p>
-                    <p>Укажите пароль пользователя:
-                        <input type="password" id="new_pass">
-                    </p>
+                    <p>Укажите имя пользователя:</p>
+                    <input class="create_project_input" type="text" id="new_name">
+                    <p>Укажите фамилию пользователя:</p>
+                    <input class="create_project_input" type="text" id="new_last_name">
+                    <p>Укажите отчество пользователя:</p>
+                    <input class="create_project_input" type="text" id="new_second_name">
+                    <p>Укажите номер телефона:</p>
+                    <input class="create_project_input" type="tel" id="new_tel">
+                    <p>Укажите почту:</p>
+                    <input class="create_project_input" type="email" id="new_mail">
+                    <p>Укажите дату рождения:</p>
+                    <input class="create_project_input" type="datetime-local" id="new_date">
+                    <hr />
+                    <p>Укажите логин пользователя:</p>
+                    <input class="create_project_input" type="text" id="new_login">
+                    <p>Укажите пароль пользователя:</p>
+                    <input class="create_project_input" type="password" id="new_pass">
+
+                    <div id="error_message" style="margin-top: 20px;" class="error_message">
+
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                    <button type="button" id="added_new_admin_user" class="btn btn-success" data-dismiss="modal">Добавить</button>
+                    <button type="button" id="added_new_admin_user" class="btn btn-success">Добавить</button>
                 </div>
             </div>
         </div>

@@ -21,5 +21,15 @@ if (isset($data)) {
     $_usersArray = $data->usersProjectJS;
 }
 
-//Get tasks
-echo $Project->createProject($_titleProject, $_descriptionProject, $_startDateProject, $_dateProject, $cookieUserId, $_usersArray);
+if(!$_titleProject || !$_descriptionProject || !$_dateProject || !$_startDateProject){
+    echo json_encode([
+        'error' => true,
+        'message' => 'Заполните все поля!',
+    ]);
+}
+else{
+    $Project->createProject($_titleProject, $_descriptionProject, $_startDateProject, $_dateProject, $cookieUserId, $_usersArray);
+    echo json_encode([
+        'error' => false,
+    ]);
+}

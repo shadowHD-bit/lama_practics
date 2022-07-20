@@ -98,7 +98,9 @@
           <p>Дата окончания проекта:</p>
           <input id="date_project_update" class="create_project_input" type="datetime-local" />
 
+          <div id="error_message" style="margin-top: 20px;" class="error_message">
 
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
@@ -121,10 +123,10 @@
         <div class="modal-body">
           <div class="players_change">
             <div class="added_players">
-            <p>Выберите участника, чтобы удалить его из проекта:</p>
-            <div id="already_invite" class="already_invite">
-              
-            </div>
+              <p>Выберите участника, чтобы удалить его из проекта:</p>
+              <div id="already_invite" class="already_invite">
+
+              </div>
             </div>
             <div class="change_players">
               <div class="live_search_members_project">

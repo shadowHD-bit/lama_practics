@@ -40,6 +40,7 @@ body {
   font-size: 20px;
   color: #428af6;
   width: 90%;
+  padding: 5px 10px;
 }
 
 .modal-body .create_project_input::placeholder {

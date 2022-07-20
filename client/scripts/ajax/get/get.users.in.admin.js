@@ -30,7 +30,7 @@ function showUser() {
             <tr>
               <td>${user.id_user}</td>
               <td>${
-                user.first_name + " " + user.last_name + " " + user.second_name
+                user.last_name + " " + user.first_name + " " + user.second_name
               }</td>
               <td><div class="project_member_photo" style="width: 50px; height: 50px; border-radius: 50%;background-image: url('../../../../server/uploads/${
                 user.photo
@@ -83,6 +83,8 @@ function addUser() {
     password: input_new_user_password.value,
   };
 
+  let error_message = document.getElementById("error_message");
+
   fetch("../../../../server/php/Admin/CreateUser.php", {
     method: "POST",
     body: JSON.stringify(dataUser),
@@ -90,9 +92,23 @@ function addUser() {
       "Content-Type": "application/json; charset=UTF-8",
     },
   })
-    .then(function () {
-      $("#exampleModalAdded").modal("hide");
-      showUser();
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (body) {
+      if (body.error) {
+        error_message.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" id="error_alert" style="width: 100%" role="alert">
+              <strong>Заполните все поля!</strong>
+              <a type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </a>
+            </div>
+        `;
+      } else {
+        $("#exampleModalCenterAdded").modal("hide");
+        showUser();
+      }
     });
 }
 

@@ -18,5 +18,16 @@ if (isset($data)) {
     $_startDateProject = $data->startDateProjectJS;
 }
 
-//Get tasks
-echo $Project->updateDataProject($_id_project, $_titleProject, $_descriptionProject, $_dateProject, $_startDateProject);
+
+if (!$_id_project || !$_titleProject || !$_descriptionProject || !$_dateProject || !$_startDateProject) {
+    echo json_encode([
+        'error' => true,
+        'message' => 'Заполните все поля!',
+    ]);
+} else {
+    //Get tasks
+    $Project->updateDataProject($_id_project, $_titleProject, $_descriptionProject, $_dateProject, $_startDateProject);
+    echo json_encode([
+        'error' => false,
+    ]);
+}

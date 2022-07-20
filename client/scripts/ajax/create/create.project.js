@@ -22,6 +22,7 @@ btn.addEventListener("click", () => {
     usersProjectJS: cBoxNumber,
   };
 
+  let error_message = document.getElementById("error_message");
 
   fetch("../../../../server/php/Project/CreateProject.php", {
     method: "POST",
@@ -29,11 +30,22 @@ btn.addEventListener("click", () => {
     header: {
       "Content-Type": "application/json; charset=UTF-8",
     },
-  }).then(function (response) {
-    console.log(response.json());
   })
-  .then(function (body) {
-    console.log(body);
-    window.location.href = "./ProjectPage.php";
-  });
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (body) {
+      if (body.error) {
+        error_message.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" id="error_alert" style="width: 100%" role="alert">
+              <strong>Заполните все поля!</strong>
+              <a type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </a>
+            </div>
+        `;
+      } else {
+        window.location.href = "./ProjectPage.php";
+      }
+    });
 });
