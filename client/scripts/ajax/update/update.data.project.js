@@ -69,12 +69,12 @@ update_data_project_btn.addEventListener("click", () => {
       "Content-Type": "application/json; charset=UTF-8",
     },
   })
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (body) {
-    if (body.error) {
-      error_message.innerHTML = `
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (body) {
+      if (body.error) {
+        error_message.innerHTML = `
         <div class="alert alert-danger alert-dismissible fade show" id="error_alert" style="width: 100%" role="alert">
               <strong>Заполните все поля!</strong>
               <a type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -82,9 +82,9 @@ update_data_project_btn.addEventListener("click", () => {
               </a>
             </div>
         `;
-    } else {
-      $("#exampleModalCenter").modal("hide");
-      location.reload();
-    }
-  });
+      } else {
+        $("#exampleModalCenter").modal("hide");
+        location.reload();
+      }
+    });
 });

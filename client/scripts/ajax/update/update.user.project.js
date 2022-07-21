@@ -137,14 +137,12 @@ function deleteUserInProject(id_user) {
   });
 }
 
-let save_change_members = document.getElementById('save_change_members')
+let save_change_members = document.getElementById("save_change_members");
 
-save_change_members.addEventListener('click', () => {
-    $("#exampleModalCenterUser").modal("hide");
-    location.reload();
-})
+save_change_members.addEventListener("click", () => {
+  $("#exampleModalCenterUser").modal("hide");
+  location.reload();
+});
 
 writeUserNotAdded();
 writeAlreadyUsers();
-
-

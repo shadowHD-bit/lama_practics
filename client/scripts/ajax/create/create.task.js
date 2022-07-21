@@ -10,8 +10,12 @@ btn_access.addEventListener("click", () => {
     titleTaskJS: inputTitleTask.value,
     descTaskJS: inputDescriptionTask.value,
     deadlineTaskJS: inputDateTask.value,
-    inviteJS: document.querySelector('input[name="user_task"]:checked') ? document.querySelector('input[name="user_task"]:checked').value : '',
-    projectJS: document.querySelector('input[name="task_project"]:checked') ? document.querySelector('input[name="task_project"]:checked').value : 'null',
+    inviteJS: document.querySelector('input[name="user_task"]:checked')
+      ? document.querySelector('input[name="user_task"]:checked').value
+      : "",
+    projectJS: document.querySelector('input[name="task_project"]:checked')
+      ? document.querySelector('input[name="task_project"]:checked').value
+      : "null",
   };
 
   let error_message = document.getElementById("error_message");

@@ -1,4 +1,4 @@
-import {Loader} from "../../../components/Loader/Loader.js";
+import { Loader } from "../../../components/Loader/Loader.js";
 
 //Get element tbody in main page
 let table_body_task = document.getElementById("task_user");
@@ -6,93 +6,95 @@ let table_head_task = document.getElementById("task_head");
 
 //Func get tasks users
 function get_task_user() {
-    document.querySelector('.tasks_page').appendChild(Loader);
-    fetch("../../../../server/php/Task/GetAllTasks.php", {
-        method: "GET",
-        header: {
-            "Content-Type": "application/json; charset=UTF-8",
-        },
+  document.querySelector(".tasks_page").appendChild(Loader);
+  fetch("../../../../server/php/Task/GetAllTasks.php", {
+    method: "GET",
+    header: {
+      "Content-Type": "application/json; charset=UTF-8",
+    },
+  })
+    .then(function (response) {
+      return response.json();
     })
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (body) {
-            console.log(body);
-            document.querySelector('.tasks_page').removeChild(Loader);
-            table_head_task.innerHTML += `
-                 <tr>
-                    <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
-                        <span className="title">
-                            Название
-                        </span>
-                    </td>
-                    <td>
-                        <span className="poster">
-                            Постановщик
-                        </span>
-                    </td>
-                    <td>
-                        <span className="mainer">
-                            Ответственный
-                        </span>
-                    </td>
-                    <td>
-                        <span className="project">
-                            Проект
-                        </span>
-                    </td>
-                    <td>
-                        <span className="date">
-                            Сроки
-                        </span>
-                    </td>
-                    <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
-                        <span className="status">
-                            Статус
-                        </span>
-                    </td>
-                </tr>`
-            body.map((el) => {
-                table_body_task.innerHTML += `
+    .then(function (body) {
+      console.log(body);
+      document.querySelector(".tasks_page").removeChild(Loader);
+      table_head_task.innerHTML += `
+        <tr>
+        <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
+            <span className="title">
+                Название
+            </span>
+        </td>
+        <td>
+            <span className="poster">
+                Постановщик
+            </span>
+        </td>
+        <td>
+            <span className="mainer">
+                Ответственный
+            </span>
+        </td>
+        <td>
+            <span className="project">
+                Проект
+            </span>
+        </td>
+        <td>
+            <span className="date">
+                Сроки
+            </span>
+        </td>
+        <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
+            <span className="status">
+                Статус
+            </span>
+        </td>
+    </tr>`;
+      body.map((el) => {
+        table_body_task.innerHTML += `
             <tr>
                 <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
                     <span class="title">
-                     <a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a>
-                     </span>
+                     <a href="../TaskPage/TaskPage.php?${el.id_task}">${
+          el.task_name
+        }</a>
+                    </span>
+            </td>
+            <td>
+                    <span class="poster">
+                    ${el.director}
+                </span>
+            </td>
+            <td>
+                <span class="mainer">
+                    ${el.executor}
+                </span>
+            </td>
+            <td>
+                    <span class="project">
+                    ${
+                      el.project_name
+                        ? `<a href="../ProjectItemPage/ProjectItemPage.php?${el.id_project}">${el.project_name}</a>`
+                        : `Нет проекта`
+                    }
+                </span>
                 </td>
-                <td>
-                     <span class="poster">
-                        ${el.director}
-                    </span>
+            <td>
+                <span class="date">
+                    ${el.task_deadline}
+                </span>
                 </td>
-                <td>
-                    <span class="mainer">
-                        ${el.executor}
-                    </span>
-                </td>
-                <td>
-                     <span class="project">
-                     ${el.project_name ?
-                        `<a href="../ProjectItemPage/ProjectItemPage.php?${el.id_project}">${el.project_name}</a>`
-                            :
-                        `Нет проекта`
-                        }
-                    </span>
-                 </td>
-                <td>
-                    <span class="date">
-                        ${el.task_deadline}
-                    </span>
-                 </td>
-                 <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
-                     <span class="status">
-                        ${el.status_name}
-                    </span>
-                </td>
-            </tr>
-            `;
-            });
-        });
+                <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
+                    <span class="status">
+                    ${el.status_name}
+                </span>
+            </td>
+        </tr>
+        `;
+      });
+    });
 }
 
 get_task_user();

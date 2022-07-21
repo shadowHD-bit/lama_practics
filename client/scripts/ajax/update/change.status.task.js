@@ -20,20 +20,19 @@ function loadStatusInChange() {
     });
 }
 
-loadStatusInChange()
+loadStatusInChange();
 
 function changeStatus(id_status) {
-fetch(
-  `../../../../server/php/Task/ChangeStatus.php?id_task=${idTaskFromURL}&id_status=${id_status}`,
-  {
-    method: "GET",
-    header: {
-      "Content-Type": "application/json; charset=UTF-8",
-    },
-  }
-).then(function (response) {
-  $("#exampleModalCenterStatus").modal("hide");
-  location.reload();
-});
+  fetch(
+    `../../../../server/php/Task/ChangeStatus.php?id_task=${idTaskFromURL}&id_status=${id_status}`,
+    {
+      method: "GET",
+      header: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    }
+  ).then(function (response) {
+    $("#exampleModalCenterStatus").modal("hide");
+    location.reload();
+  });
 }
-

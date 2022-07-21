@@ -12,7 +12,6 @@ btn.addEventListener("click", () => {
   });
 
   cBoxNumber = cBox.map((s) => +s);
-
   //Post data
   let dataProject = {
     titleProjectJS: inputTitleProject.value,

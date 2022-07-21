@@ -71,32 +71,32 @@ fetch(
     //Get performer
     body.map((el) => {
       performerTask.innerHTML = `
-                <div class="task_member_photo" style="background-image: url('../../../../server/uploads/${el.performer.avatar}')"></div>
-                <p class="task_member_fullname task_info">
-                    ${el.performer.full_name}
-                </p>
-                `;
+        <div class="task_member_photo" style="background-image: url('../../../../server/uploads/${el.performer.avatar}')"></div>
+        <p class="task_member_fullname task_info">
+            ${el.performer.full_name}
+        </p>
+        `;
     });
 
     //get checklist
     body.map((el) => {
       el.checklist.map((el) => {
         taskChecklist.innerHTML += `
-                 <div class="checklist_item" id="${el.id_point} checklist_item">
-                    <div class="checklist_item_text">
-                        <label>
-                            ${
-                              Number(el.isChecked)
-                                ? `<input class="point_checkbox" type="checkbox" checked>`
-                                : `<input class="point_checkbox" type="checkbox">`
-                            }
-                            <p class="task_info">${el.point_name}</p>
-                        </label>
-                    </div>
-                    <button class="delete_item_btn">
-                        <p> + </p>
-                    </button>
-                </div>
+            <div class="checklist_item" id="${el.id_point} checklist_item">
+              <div class="checklist_item_text">
+                  <label>
+                      ${
+                        Number(el.isChecked)
+                          ? `<input class="point_checkbox" type="checkbox" checked>`
+                          : `<input class="point_checkbox" type="checkbox">`
+                      }
+                      <p class="task_info">${el.point_name}</p>
+                  </label>
+              </div>
+              <button class="delete_item_btn">
+                  <p> + </p>
+              </button>
+          </div>
         `;
         updateItemCheckbox();
       });
@@ -111,13 +111,13 @@ fetch(
     body.map((el) => {
       el.subtasks.map((el) => {
         taskSubtasks.innerHTML += `
-                 <div class="task_subtask">
-                    <span><a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a></span>
-                    <span>|</span>
-                    <span>${el.task_deadline}</span>
-                    <span>|</span>
-                    <span>${el.status_name}</span>
-                 </div>
+          <div class="task_subtask">
+            <span><a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a></span>
+            <span>|</span>
+            <span>${el.task_deadline}</span>
+            <span>|</span>
+            <span>${el.status_name}</span>
+          </div>
         `;
       });
     });

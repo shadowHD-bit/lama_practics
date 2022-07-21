@@ -1,9 +1,7 @@
 let title_input = document.getElementById("title_task_update");
 let description_input = document.getElementById("description_task_update");
 let date_input = document.getElementById("date_task_start_update");
-let update_data_task_btn = document.getElementById(
-  "update_data_task_btn"
-);
+let update_data_task_btn = document.getElementById("update_data_task_btn");
 let idTaskFromURLThis = location.search.substring(1);
 
 function mysqlTimeStampToDate(timestamp) {
@@ -65,11 +63,11 @@ update_data_task_btn.addEventListener("click", () => {
       "Content-Type": "application/json; charset=UTF-8",
     },
   })
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (body) {
-    if (body.error) {
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (body) {
+      if (body.error) {
         error_message_update.innerHTML = `
         <div class="alert alert-danger alert-dismissible fade show" id="error_alert" style="width: 100%" role="alert">
               <strong>Заполните все поля!</strong>
@@ -78,9 +76,9 @@ update_data_task_btn.addEventListener("click", () => {
               </a>
             </div>
         `;
-    } else {
-      $("#exampleModalCenterUpdateTask").modal("hide");
-      location.reload();
-    }
-  });
- });
+      } else {
+        $("#exampleModalCenterUpdateTask").modal("hide");
+        location.reload();
+      }
+    });
+});

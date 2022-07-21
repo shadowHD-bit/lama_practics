@@ -1,9 +1,10 @@
+// Import loader
 import { Loader } from "../../../components/Loader/Loader.js";
 
 //Get element tbody in main page
 let table_body_project = document.getElementById("project_user");
 let table_head_project = document.getElementById("project_head");
-let global_data;
+
 //Func get tasks users
 function get_project_user() {
   document.querySelector(".projects_page").appendChild(Loader);
@@ -21,61 +22,61 @@ function get_project_user() {
       document.querySelector(".projects_page").removeChild(Loader);
       table_head_project.innerHTML = `
         <tr>
-            <td id="sort_title" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
-                <span className="title">
-                    Название
-                    <i id="sort_title_icon" class="fas fa-sort"></i>
-                </span>
-            </td>
-            <td>
-                <span className="description">
-                    Описание
-                </span>
-            </td>
-            <td>
-                <span className="creator">
-                    Организатор
-                </span>
-            </td>
-            <td>
-                <span id="sort_date" className="date">
-                    Сроки
-                    <i id="sort_date_icon" class="fas fa-sort"></i>
-                </span>
-            </td>
-            <td id="sort_status" style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
-                <span className="status">
-                    Статус
-                </span>
-            </td>
-        </tr>
-        <tr class="sort_head_table">
-            <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
-                <span>
-                    <input class="lives_project" id="live_search_title" type="text" />
-                </span>
-            </td>
-            <td>
-                <span>
-                    <input class="lives_project" id="live_search_description" type="text" />
-                </span>
-            </td>
-            <td>
-                <span>
-                    <input class="lives_project" id="live_search_creator" type="text" />
-                </span>
-            </td>
-            <td>
-                <span>
-                    <input class="lives_project" id="live_search_date" type="text" />
-                </span>
-            </td>
-            <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
-                <span>
-                    <input class="lives_project" id="live_search_status" type="text" />
-                </span>
-            </td>
-        </tr>`;
+          <td id="sort_title" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
+              <span className="title">
+                  Название
+                  <i id="sort_title_icon" class="fas fa-sort"></i>
+              </span>
+          </td>
+          <td>
+              <span className="description">
+                  Описание
+              </span>
+          </td>
+          <td>
+              <span className="creator">
+                  Организатор
+              </span>
+          </td>
+          <td>
+              <span id="sort_date" className="date">
+                  Сроки
+                  <i id="sort_date_icon" class="fas fa-sort"></i>
+              </span>
+          </td>
+          <td id="sort_status" style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
+              <span className="status">
+                  Статус
+              </span>
+          </td>
+      </tr>
+      <tr class="sort_head_table">
+          <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
+              <span>
+                  <input class="lives_project" id="live_search_title" type="text" />
+              </span>
+          </td>
+          <td>
+              <span>
+                  <input class="lives_project" id="live_search_description" type="text" />
+              </span>
+          </td>
+          <td>
+              <span>
+                  <input class="lives_project" id="live_search_creator" type="text" />
+              </span>
+          </td>
+          <td>
+              <span>
+                  <input class="lives_project" id="live_search_date" type="text" />
+              </span>
+          </td>
+          <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
+              <span>
+                  <input class="lives_project" id="live_search_status" type="text" />
+              </span>
+          </td>
+      </tr>`;
       body.map((el) => {
         table_body_project.innerHTML += `
             <tr>
@@ -111,9 +112,6 @@ function get_project_user() {
       });
 
       let data_project = body;
-
-      //------------------live sort data
-
       let live_sort_data;
 
       let live_search_title = document.getElementById("live_search_title");
@@ -158,15 +156,11 @@ function get_project_user() {
       let sort_data = data_project;
       let sort_title = document.getElementById("sort_title");
       let sort_date = document.getElementById("sort_date");
-      //let sort_status = document.getElementById("sort_title");
-
       let sort_title_icon = document.getElementById("sort_title_icon");
       let sort_date_icon = document.getElementById("sort_date_icon");
-      //let sort_status_icon = document.getElementById("sort_title_icon");
 
       //Sort in title
       sort_title.addEventListener("click", () => {
-        //check other field
         if (
           sort_date_icon.classList.contains("fa-sort-up") ||
           sort_date_icon.classList.contains("fa-sort-down")
@@ -218,7 +212,6 @@ function get_project_user() {
 
       //Sort in date
       sort_date.addEventListener("click", () => {
-        //check other field
         if (
           sort_title_icon.classList.contains("fa-sort-up") ||
           sort_title_icon.classList.contains("fa-sort-down")
@@ -270,39 +263,40 @@ function get_project_user() {
     });
 }
 
+//Func write sort data
 function write_sort_data(data) {
   table_body_project.innerHTML = ``;
   data.map((el) => {
     table_body_project.innerHTML += `
         <tr style="margin-bottom: 10px">
-            <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
-                <span class="title">
-                <a href="../ProjectItemPage/ProjectItemPage.php?${
-                  el.id_project
-                }">  ${el.project_name} </a>
-                </span>
-            </td>
-            <td>
-                <span class="description">
-                    ${el.project_description.substring(0, 40)}...
-                </span>
-            </td>
-            <td>
-                <span class="creator">
-                    ${el.creator}
-                </span>
-            </td>
-            <td>
-                <span class="date">
-                    ${el.project_deadline}
-                </span>
-            </td>
-            <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
-                <span class="status">
-                    ${el.status_name}
-                </span>
-            </td>
-        </tr>
+          <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
+              <span class="title">
+              <a href="../ProjectItemPage/ProjectItemPage.php?${
+                el.id_project
+              }">  ${el.project_name} </a>
+              </span>
+          </td>
+          <td>
+              <span class="description">
+                  ${el.project_description.substring(0, 40)}...
+              </span>
+          </td>
+          <td>
+              <span class="creator">
+                  ${el.creator}
+              </span>
+          </td>
+          <td>
+              <span class="date">
+                  ${el.project_deadline}
+              </span>
+          </td>
+          <td style="border-bottom-right-radius: 10px; border-top-right-radius: 10px">
+              <span class="status">
+                  ${el.status_name}
+              </span>
+          </td>
+      </tr>
     `;
   });
 }

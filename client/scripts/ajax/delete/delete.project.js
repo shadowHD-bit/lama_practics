@@ -1,5 +1,4 @@
 let idProject = location.search.substring(1);
-
 let delete_btn = document.getElementById("delete_this_project");
 
 delete_btn.addEventListener("click", () => {
