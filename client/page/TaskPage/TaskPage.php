@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="TaskPage.css?v1">
+    <!-- Import head libs -->
     <?php require('../../assets/libraries/font_awesome.php') ?>
     <?php require('../../assets/libraries/bootstrap.link.php') ?>
     <!-- Check Auth script -->
@@ -19,13 +20,10 @@
         <?php include('../../components/Bar/Bar.php'); ?>
         <div class="main_content">
             <div class="tasks_page">
-
                 <div class="header_content_task">
                     <a id="task_list">Информация о задаче</a>
                     <div id="btn_owner"></div>
                 </div>
-
-
                 <div class="task_field">
 
                     <div class="task_name">
@@ -64,27 +62,22 @@
                         </p>
                     </div>
                     <hr>
-
                     <div class="task_director">
                         <p class="task_title">Постановщик:</p>
                         <div class="task_member" id="director_task">
                             <span class="placeholder"></span>
                         </div>
                     </div>
-
                     <div class="task_performer">
                         <p class="task_title">Исполнитель:</p>
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterDelegate">
-                            Делегировать
+                            <i class="fas fa-user-cog"></i> Делегировать
                         </button>
                         <div class="task_member" id="performer_task">
                             <span class="placeholder"></span>
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="header_content_task">
                     <a id="task_list">Чек-лист</a>
                 </div>
@@ -124,7 +117,6 @@
                 <div class="modal-body">
                     <p>Выберите новый статус для этого проекта:</p>
                     <div id="block_change_status" class="list-group">
-
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -149,14 +141,11 @@
                         <div class="create_project_main">
                             <p>Тема подзадачи:</p>
                             <input id="title_uppertask" class="create_project_input" type="text" placeholder="Введите тематику задачи" />
-
                             <p>Описание подзадачи:</p>
                             <textarea id="description_uppertask" class="create_project_input" placeholder="Введите описание задачи" name="" id="" rows="10" style="resize: none"></textarea>
-
                             <p>Дата окончания подзадачи:</p>
                             <input id="date_uppertask_start" value="<?php echo date('Y-m-d\TH:i'); ?>" class="create_project_input" type="datetime-local">
                         </div>
-
                         <div class="create_project_members">
                             <p>Выбрать исполнителя подзадачи:</p>
                             <div class="project_add_member_btn"></div>
@@ -164,7 +153,6 @@
                                 <input type="text" id="live_search_upper" style="width: 90%; margin-bottom: 10px" class="form-control" placeholder="Начните вводить данные...">
                             </div>
                             <div class="project_invite_members" id="invite_block_upper">
-
                             </div>
                         </div>
                     </div>
@@ -220,41 +208,35 @@
         </div>
     </div>
 
-     <!-- Modal -->
-  <div class="modal fade bd-example-modal-xl" id="exampleModalCenterUpdateTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Изменение данных проекта</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-xl" id="exampleModalCenterUpdateTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Изменение данных проекта</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Тема задачи:</p>
+                    <input id="title_task_update" class="create_project_input" type="text" />
+                    <p>Описание задачи:</p>
+                    <textarea id="description_task_update" class="create_project_input" name="" id="" cols="100" rows="10" style="resize: none"></textarea>
+                    <p>Дата окончания задачи:</p>
+                    <input id="date_task_start_update" class="create_project_input" type="datetime-local" />
+                    <div id="error_message" style="margin-top: 20px;" class="error_message">
+                    </div>
+                    <div id="error_message_update" style="margin-top: 20px;" class="error_message">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" id="update_data_task_btn" class="btn btn-primary">Сохранить изменения</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <p>Тема задачи:</p>
-          <input id="title_task_update" class="create_project_input" type="text" />
-
-          <p>Описание задачи:</p>
-          <textarea id="description_task_update" class="create_project_input" name="" id="" cols="100" rows="10" style="resize: none"></textarea>
-
-          <p>Дата окончания задачи:</p>
-          <input id="date_task_start_update" class="create_project_input" type="datetime-local" />
-
-          <div id="error_message" style="margin-top: 20px;" class="error_message">
-
-          </div>
-
-          <div id="error_message_update" style="margin-top: 20px;" class="error_message">
-
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="button" id="update_data_task_btn" class="btn btn-primary">Сохранить изменения</button>
-        </div>
-      </div>
     </div>
-  </div>
 
     <?php require('../../assets/libraries/scripts.lib.php') ?>
     <script src="../../scripts/ajax/update/update.data.task.js"></script>

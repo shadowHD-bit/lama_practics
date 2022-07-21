@@ -1,20 +1,26 @@
-/* Table Style */
-
+/* import font */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
-
+/* main style */
 * {
   margin: 0px;
   padding: 0px;
   font-family: "Montserrat", sans-serif;
-
 }
 
 body {
-  background: linear-gradient(242.06deg, #428AF7 15.6%, rgba(41, 206, 196, 0) 101.16%);
+  background: linear-gradient(
+    242.06deg,
+    #428af7 15.6%,
+    rgba(41, 206, 196, 0) 101.16%
+  );
   width: 100%;
   height: 100%;
 }
+
+/* end main style */
+
+/* bar style */
 
 .Menu {
   position: fixed;
@@ -28,6 +34,122 @@ body {
   width: 100%;
   height: 80%;
 }
+
+.button_menu_text {
+  display: block;
+  margin: 10px auto;
+  width: 80%;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  background: #ffffff;
+  border-radius: 10px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  border: none;
+  padding: 4px 0px;
+}
+
+.button_menu_text:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  background: #d6d6d6;
+}
+
+@keyframes glowing {
+  0% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+  50% {
+    background-color: rgba(217, 217, 217, 1);
+  }
+  100% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+}
+
+.Button_profile {
+  display: inline-block;
+  width: 85px;
+  height: 85px;
+  margin-top: 39px;
+  background: #d9d9d9;
+  border-radius: 67px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: infinite 1.8s glowing;
+}
+
+.menu_fullname_placeholder {
+  display: block;
+  height: 24px;
+  background-color: #d9d9d9;
+  width: 130px;
+  margin: 3px;
+  border-radius: 3px;
+  animation: infinite 1.8s glowing;
+}
+.profile_wrapper {
+  height: 20%;
+  margin: 0px auto;
+  width: 80%;
+}
+
+.profile_name {
+  display: inline-block;
+  width: 100px;
+  height: 85px;
+  top: 40px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.profile_name:hover {
+  cursor: pointer;
+  color: #cfcfcf;
+  text-decoration: none;
+}
+
+.Exit {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+  text-align: center;
+  display: block;
+  width: 80%;
+  background: #f33b3b;
+  border-radius: 10px;
+  border: none;
+  padding: 6px 0px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  color: white;
+}
+
+.Exit:hover {
+  background: #c93030;
+  color: white;
+}
+
+/* end bar style */
+
+/* task page style */
 
 .project_invite_members {
   width: 90%;
@@ -59,142 +181,16 @@ body {
   background-size: cover;
 }
 
-.button_menu_text {
-  display: block;
-  margin: 10px auto;
-  width: 80%;
-  cursor: pointer;
-  text-decoration: none;
-  color: #000;
-  background: #FFFFFF;
-  border-radius: 10px;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 32px;
-  text-align: center;
-  border: none;
-  padding: 4px 0px;
-
-}
-
-.button_menu_text:hover {
-  cursor: pointer;
-  text-decoration: none;
-  color: #000;
-  background: #d6d6d6;
-}
-
-
-@keyframes menu_glowing{
-  0% {
-    background-color: rgba(217, 217, 217, 0.51);
-  }
-  50% {
-    background-color: rgba(217, 217, 217, 1);
-  }
-  100% {
-    background-color: rgba(217, 217, 217, 0.51);
-  }
-}
-
-.Button_profile {
-  display: inline-block;
-  width: 85px;
-  height: 85px;
-  margin-top: 39px;
-  background: #D9D9D9;
-  border-radius: 67px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  animation: infinite 1.8s menu_glowing;
-}
-
-.menu_fullname_placeholder {
-  display: block;
-  height: 24px;
-  background-color: #D9D9D9;
-  width: 130px;
-  margin: 3px;
-  border-radius: 3px;
-  animation: infinite 1.8s glowing;
-}
-.profile_wrapper {
-  height: 20%;
-  margin: 0px auto;
-  width: 80%;
-
-}
-
-.profile_name {
-  display: inline-block;
-  width: 100px;
-  height: 85px;
-  top: 40px;
-  text-decoration: none;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 35px;
-  cursor: pointer;
-  color: #FFFFFF;
-}
-
-.profile_name:hover {
-  cursor: pointer;
-  color: #cfcfcf;
-  text-decoration: none;
-}
-
-.Exit {
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  bottom: 5%;
-  text-align: center;
-
-  display: block;
-  width: 80%;
-
-  background: #F33B3B;
-  border-radius: 10px;
-  border: none;
-  padding: 6px 0px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 32px;
-  /* identical to box height */
-
-  text-align: center;
-
-  color: white;
-}
-
-.Exit:hover {
-background: #c93030;
-color: white;
-}
 
 #task_list {
-
   width: 378px;
   height: 70px;
-
-
   font-style: normal;
   font-weight: 500;
   font-size: 40px;
-
   text-align: center;
   text-shadow: 1px 1px 1px #000;
   color: #fcfcfc;
-
-
 }
 
 .main_content {
@@ -268,9 +264,6 @@ body::-webkit-scrollbar {
   font-weight: 500;
   font-size: 50px;
   line-height: 61px;
-
-
-
   color: #FFFFFF;
 }
 

@@ -1,5 +1,5 @@
-import {deleteItem} from "../delete/delete.task.checklist.point.js";
-import {updateItemCheckbox} from "../update/update.task.checklist.item.js";
+import { deleteItem } from "../delete/delete.task.checklist.point.js";
+import { updateItemCheckbox } from "../update/update.task.checklist.item.js";
 
 let idProjectFromURL = location.search.substring(1);
 
@@ -85,9 +85,11 @@ fetch(
                  <div class="checklist_item" id="${el.id_point} checklist_item">
                     <div class="checklist_item_text">
                         <label>
-                            ${ Number(el.isChecked)? 
-                                `<input class="point_checkbox" type="checkbox" checked>` : 
-                                `<input class="point_checkbox" type="checkbox">`}
+                            ${
+                              Number(el.isChecked)
+                                ? `<input class="point_checkbox" type="checkbox" checked>`
+                                : `<input class="point_checkbox" type="checkbox">`
+                            }
                             <p class="task_info">${el.point_name}</p>
                         </label>
                     </div>
@@ -96,20 +98,19 @@ fetch(
                     </button>
                 </div>
         `;
-                updateItemCheckbox();
-            });
-        })
+        updateItemCheckbox();
+      });
+    });
 
-        //Delete checklist item script
-        deleteItem();
+    //Delete checklist item script
+    deleteItem();
 
-        //get subtasks
-        taskSubtasks.innerHTML = `<div class="cleaner"></div>`;
-        taskSubtasks.removeChild(document.querySelector(".cleaner"))
-        body.map((el) => {
-            el.subtasks.map((el) => {
-
-                taskSubtasks.innerHTML += `
+    //get subtasks
+    taskSubtasks.innerHTML = `<div class="cleaner"></div>`;
+    taskSubtasks.removeChild(document.querySelector(".cleaner"));
+    body.map((el) => {
+      el.subtasks.map((el) => {
+        taskSubtasks.innerHTML += `
                  <div class="task_subtask">
                     <span><a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a></span>
                     <span>|</span>
@@ -118,9 +119,8 @@ fetch(
                     <span>${el.status_name}</span>
                  </div>
         `;
-          });
-        })
-
+      });
+    });
   });
 
 //For creator
@@ -146,22 +146,18 @@ fetch(
     console.log(body);
     if (body == "UserCreator") {
       btn_block.innerHTML = `
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterUpdateTask">
-        Редактировать
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterUpperTask">
+        <i class="fas fa-plus"></i> Добавить подзадачу
+      </button>
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenterUpdateTask">
+        <i class="fas fa-pen"></i> Редактировать
+      </button>
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenterStatus">
+        <i class="fas fa-sync"></i> Изменить статус
       </button>
       <button data-toggle="modal" data-target="#exampleModalCenterdeleteTask" type="button" class="btn btn-danger">
-        Удалить
-      </button>`;
-
-      btn_status.innerHTML = `
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterStatus">
-        Изменить
+        <i class="fas fa-trash-alt"></i> Удалить
       </button>
       `;
-
-      add_uppertask_btn.innerHTML = `
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterUpperTask">
-      Добавить
-    </button>`;
     }
   });

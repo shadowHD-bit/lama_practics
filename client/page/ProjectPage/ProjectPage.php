@@ -7,10 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Проекты</title>
   <link rel="stylesheet" href="ProjectPage.css?v1" />
+  <!-- Get head lib -->
   <?php require('../../assets/libraries/head.lib.php') ?>
   <!-- Check Auth script -->
   <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
+
 <body>
   <section class="project_page">
     <!-- include navbar -->
@@ -19,22 +21,9 @@
       <div class="projects_page">
         <div class="header_content_project">
           <a id="project_list"> Список проектов </a>
-          <a href="./CreateProjectPage.php"><i id="plus_icon" class="fas fa-plus-circle"></i></a>
+          <a href="./CreateProjectPage.php"><i id="plus_icon" class="fas fa-plus-square"></i></a>
         </div>
         <div class="filters_project">
-          <!-- Filter
-          <div id="filter">
-            <ul>
-              <li>
-                <input type="checkbox" checked>
-                <i></i>
-                <h2>Фильтры</h2>
-                <div class="filter_body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore sunt ut eum consectetur itaque officiis cumque totam aliquam eius perferendis. Facere dolorem id corrupti. Quasi pariatur ea perferendis dolor saepe.</p>
-                </div>
-              </li>
-            </ul>
-          </div> -->
         </div>
         <div class="table_project">
           <table>
@@ -48,10 +37,10 @@
     </div>
   </section>
 
+  <!-- Get head lib -->
   <script type="module" src="../../scripts/ajax/get/get.data.project.js"></script>
   <!-- Get user script -->
   <script src="../../scripts/ajax/get/get.data.user.js"></script>
-
   <!-- Logout func script -->
   <script src="../../scripts/ajax/Logout.js"></script>
 
