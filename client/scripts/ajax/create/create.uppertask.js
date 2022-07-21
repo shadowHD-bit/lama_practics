@@ -1,7 +1,7 @@
 let inputTitleupperTask = document.getElementById("title_uppertask");
 let inputDescriptionupperTask = document.getElementById("description_uppertask");
 let inputDateupperTask = document.getElementById("date_uppertask_start");
-let idTask = location.search.substring(1);
+let idTaskUpper = location.search.substring(1);
 
 let btn_upper_task = document.getElementById("uppertask_btn");
 
@@ -11,11 +11,10 @@ btn_upper_task.addEventListener("click", () => {
     titleTaskJS: inputTitleupperTask.value,
     descTaskJS: inputDescriptionupperTask.value,
     deadlineTaskJS: inputDateupperTask.value,
-    thisTaskJS: idTask,
+    thisTaskJS: idTaskUpper,
     inviteJS: document.querySelector('input[name="user_uppertask"]:checked') ? document.querySelector('input[name="user_uppertask"]:checked').value : '',
   };
 
-  console.log(data_task);
 
   let error_message = document.getElementById("error_message");
 

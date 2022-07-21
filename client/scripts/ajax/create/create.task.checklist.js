@@ -1,8 +1,13 @@
-function createChecklist() {
-    let idTaskFromURL = location.search.substring(1);
-    let add_item_btn = document.getElementById("add_checklist_item_btn");
-    let new_checklist_item = document.querySelector(".input_checklist");
-    let checklist = document.querySelector(".checklist_points");
+import {deleteItem} from "../delete/delete.task.checklist.point.js";
+import {updateItemCheckbox} from "../update/update.task.checklist.item.js";
+
+let idTaskFromURL = location.search.substring(1);
+let add_item_btn = document.getElementById("add_checklist_item_btn");
+let new_checklist_item = document.querySelector(".input_checklist");
+let checklist = document.querySelector(".checklist_points");
+
+
+add_item_btn.addEventListener("click", () => {
 
     //input field when click on btn
     new_checklist_item.style.display = "block";
@@ -14,63 +19,52 @@ function createChecklist() {
     let checklist_input = document.getElementById("checklist_input");
     checklist_input.focus();
     checklist_input.onblur = () => {
-        checklist_input.disabled = true;
-
         let dataChecklist = {
             valueJS: checklist_input.value,
             taskId: Number(idTaskFromURL),
         };
-        //There will be POST query
-        fetch(`../../../../server/php/Task/CreateTaskChecklistItem.php`, {
-            method: "POST",
-            body: JSON.stringify(dataChecklist),
-            header: {
-                "Content-Type": "application/json; charset=UTF-8",
-            },
-        })
-            .then((response) => {
-                console.log(response);
-
-                new_checklist_item.style.display = "none";
-                new_checklist_item.innerHTML = "";
-                checklist.innerHTML += `
-                <div class="checklist_item">
+        if (checklist_input.value !== "") {
+            checklist_input.disabled = true;
+            //There will be POST query
+            fetch(`../../../../server/php/Task/CreateTaskChecklistItem.php`, {
+                method: "POST",
+                body: JSON.stringify(dataChecklist),
+                header: {
+                    "Content-Type": "application/json; charset=UTF-8",
+                },
+            })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((body) => {
+                    let el = body[body.length - 1];
+                    new_checklist_item.style.display = "none";
+                    new_checklist_item.innerHTML = "";
+                    checklist.innerHTML += `
+                <div class="checklist_item" id="${el.id_point} checklist_item">
                     <div class="checklist_item_text">
                         <label>
-                            <input type="checkbox">
+                            <input type="checkbox" class="point_checkbox">
                             <p class="task_info">${checklist_input.value}</p>
                         </label>
                     </div>
                     <button class="delete_item_btn">
                         <p> + </p>
                     </button>
-                </div>
-                `
-                deleteItem();
-            })
+                </div>`
 
-        function deleteItem() {
-            console.log("zhopa");
-            let btns = document.querySelectorAll('.delete_item_btn');
-            console.log(btns)
-            // Проходим по массиву
-            btns.forEach(function (btn) {
-                // Вешаем событие клик
-                btn.addEventListener('click', function () {
-                    let pointId = parseInt(btn.parentElement.id);
-                    fetch(`../../../../server/php/Task/DeleteTaskChecklistItem.php?pointId=${pointId}`, {
-                        method: "DELETE",
-                        header: {
-                            "Content-Type": "application/json; charset=UTF-8",
-                        },
-                    })
-                        .then(function (response) {
-                            btn.parentElement.remove();
-                        })
+                    //Delete checklist item script
+                    deleteItem();
+                    //Update checklist item script
+                    updateItemCheckbox()
                 })
-            })
 
         }
-    }
+
+
 }
+
+
+}
+)
 
