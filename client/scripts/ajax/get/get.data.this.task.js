@@ -1,4 +1,5 @@
 import {deleteItem} from "../delete/delete.task.checklist.point.js";
+import {updateItemCheckbox} from "../update/update.task.checklist.item.js";
 
 let idProjectFromURL = location.search.substring(1);
 
@@ -69,7 +70,9 @@ fetch(`../../../../server/php/Task/GetThisTask.php?dataId=${idProjectFromURL}`, 
                  <div class="checklist_item" id="${el.id_point} checklist_item">
                     <div class="checklist_item_text">
                         <label>
-                            <input type="checkbox">
+                            ${ Number(el.isChecked)? 
+                                `<input class="point_checkbox" type="checkbox" checked>` : 
+                                `<input class="point_checkbox" type="checkbox">`}
                             <p class="task_info">${el.point_name}</p>
                         </label>
                     </div>
@@ -78,9 +81,13 @@ fetch(`../../../../server/php/Task/GetThisTask.php?dataId=${idProjectFromURL}`, 
                     </button>
                 </div>
         `;
+                updateItemCheckbox();
             });
         })
+
+        //Delete checklist item script
         deleteItem();
+
         //get subtasks
         taskSubtasks.innerHTML = `<div class="cleaner"></div>`;
         taskSubtasks.removeChild(document.querySelector(".cleaner"))

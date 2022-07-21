@@ -141,17 +141,21 @@ class Task
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $taskTable = $tables_database['TaskTable'];
         $checklistTable = $tables_database['ChecklistTable'];
-        echo $task_id;
-        echo $checklistPointValue;
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
         //Query get one project
-        $mysql_connect_for_query->query(
+        $set_checklist = $mysql_connect_for_query->query(
             "INSERT INTO `$checklistTable` (id_task, point_name) VALUES ('$task_id', '$checklistPointValue')"
         );
 
-    }
+            $result_get_checklist_this_task = $mysql_connect_for_query->query(
+                "SELECT * FROM `$checklistTable`
+                        WHERE id_task = '$task_id'"
+            );
+            $row_checklist = mysqli_fetch_all($result_get_checklist_this_task, MYSQLI_ASSOC);
+            return json_encode($row_checklist);
+        }
 
     function deleteChecklistPoint($id_point) {
         //Get User table
@@ -163,6 +167,20 @@ class Task
         //Query get one project
         $mysql_connect_for_query->query(
             "DELETE FROM `$checklistTable` WHERE `$checklistTable`.id_point = $id_point "
+        );
+
+    }
+
+    function updateChecklistItem($id_point, $checkbox_status) {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $checklistTable = $tables_database['ChecklistTable'];
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        //Query get one project
+        $mysql_connect_for_query->query(
+            "UPDATE `$checklistTable` SET isChecked = '$checkbox_status' WHERE id_point = $id_point"
         );
 
     }

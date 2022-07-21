@@ -1,5 +1,5 @@
 export function deleteItem() {
-    console.log("zhopa");
+
     let btns = document.querySelectorAll('.delete_item_btn');
     console.log(btns)
 // Проходим по массиву
@@ -7,6 +7,7 @@ export function deleteItem() {
         // Вешаем событие клик
         btn.addEventListener('click', function () {
             let pointId = parseInt(btn.parentElement.id);
+            btn.disabled = true;
             fetch(`../../../../server/php/Task/DeleteTaskChecklistItem.php?pointId=${pointId}`, {
                 method: "DELETE",
                 header: {
