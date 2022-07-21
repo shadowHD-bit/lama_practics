@@ -621,6 +621,7 @@ body::-webkit-scrollbar {
   font-weight: bold;
   font-size: 16px;
   padding-top: 15px;
+  
 }
 
 .checkbox.style-b input {
@@ -642,6 +643,9 @@ body::-webkit-scrollbar {
 }
 .checkbox.style-b:hover input:checked ~ .checkbox__checkmark {
   background-color: #68b8ec;
+}
+.checkbox.style-b input:checked ~ .project_member_fullname {
+  text-decoration: line-through;
 }
 .checkbox.style-b .checkbox__checkmark {
   position: absolute;
