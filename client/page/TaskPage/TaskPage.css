@@ -423,3 +423,182 @@ body::-webkit-scrollbar {
 .task_subtasks a:visited {
   color: inherit;
 }
+
+
+
+/* Checkbox */
+.checkbox.style-c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox.style-c input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkbox.style-c input:checked ~ .checkbox__checkmark {
+  background-color: #68b8ec;
+  margin-top: 10px;
+}
+.checkbox.style-c input:checked ~ .checkbox__checkmark:after {
+  opacity: 1;
+
+}
+.checkbox.style-c:hover input ~ .checkbox__checkmark {
+  background-color: #eee;
+
+}
+.checkbox.style-c:hover input:checked ~ .checkbox__checkmark {
+  background-color: #68b8ec;
+
+}
+.checkbox.style-c .checkbox__checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  transition: background-color 0.25s ease;
+  border-radius: 4px;
+  margin-top: 10px;
+
+}
+.checkbox.style-c .checkbox__checkmark:after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  width: 8px;
+  height: 12px;
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.checkbox.style-c .checkbox__body {
+  font-family: "Montserrat", sans-serif;
+  color: #428af6;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+
+.create_project_main {
+  width: 60vw;
+}
+
+.create_project_main input {
+height: 30px;
+padding: 5px 7px;
+}
+
+.create_project_main textarea {
+padding: 10px 7px;
+}
+
+.project_invite_members {
+width: 90%;
+border: #428af6 solid 1px;
+border-radius: 5px;
+padding: 10px;
+max-height: 30vh;
+overflow: auto;
+}
+
+.project_member {
+display: flex;
+align-items: center;
+font-size: 20px;
+font-weight: 300;
+color: #428af6;
+}
+
+.project_member * {
+display: inline-block;
+margin: 3px;
+}
+
+.project_member_photo {
+width: 40px;
+height: 40px;
+border-radius: 100%;
+background-position: center;
+background-size: cover;
+}
+
+.create_project button {
+background-color: white;
+border: #428af6 solid 1px;
+border-radius: 5px;
+padding: 15px 20px;
+font-size: 16px;
+color: #428af6;
+}
+
+.create_project button:hover {
+color: white;
+background-color: #428af6;
+}
+
+
+.create_project {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.inner_project {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.create_project p {
+  color: #428af6;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 15px 0px 10px 0px;
+}
+
+.create_project hr {
+  display: block;
+  background-color: #428af6;
+  height: 1px;
+  margin: 50px 0px;
+  width: 100%;
+}
+
+.create_project_input {
+  background-color: rgba(66, 138, 246, 0.3);
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  color: #428af6;
+  width: 90%;
+}
+
+.create_project_input::placeholder {
+  color: #428af6;
+}
+
+.create_project_main {
+  width: 50%;
+}
+
+.create_project_members {
+  width: 50%;
+}

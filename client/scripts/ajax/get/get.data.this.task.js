@@ -13,6 +13,7 @@ let directorTask = document.getElementById("director_task");
 let performerTask = document.getElementById("performer_task");
 let taskSubtasks = document.querySelector(".task_subtasks");
 let taskChecklist = document.querySelector(".checklist_points");
+let add_uppertask_btn = document.getElementById("add_uppertask_btn");
 
 let project_task = document.getElementById("project_task");
 let status_task = document.getElementById("status_task");
@@ -59,11 +60,11 @@ fetch(
     //Get director
     body.map((el) => {
       directorTask.innerHTML = `
-                <div class="task_member_photo" style="background-image: url('../../../../server/uploads/${el.director.avatar}')"></div>
-                <p class="task_member_fullname task_info">
-                    ${el.director.full_name}
-                </p>
-                `;
+        <div class="task_member_photo" style="background-image: url('../../../../server/uploads/${el.director.avatar}')"></div>
+        <p class="task_member_fullname task_info">
+            ${el.director.full_name}
+        </p>
+        `;
     });
 
     //Get performer
@@ -99,8 +100,8 @@ fetch(
     taskSubtasks.innerHTML = `<div class="cleaner"></div>`;
     taskSubtasks.removeChild(document.querySelector(".cleaner"));
     body.map((el) => {
-      el.subtasks.map((el) => {
-        taskSubtasks.innerHTML += `
+          el.subtasks.map((el) => {
+            taskSubtasks.innerHTML += `
                  <div class="task_subtask">
                     <span><a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a></span>
                     <span>|</span>
@@ -109,8 +110,9 @@ fetch(
                     <span>${el.status_name}</span>
                  </div>
         `;
-      });
-    });
+          });
+        })
+
   });
 
 //For creator
@@ -148,5 +150,10 @@ fetch(
         Изменить
       </button>
       `;
+
+      add_uppertask_btn.innerHTML = `
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterUpperTask">
+      Добавить
+    </button>`;
     }
   });

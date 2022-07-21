@@ -10,7 +10,6 @@ let btn_block = document.getElementById("btn_owner");
 let btn_status = document.getElementById("btn_status");
 let btn_adder = document.getElementById("btn_adder");
 let statusProject = document.getElementById("project_status");
-
 let global_data;
 
 //Get data project

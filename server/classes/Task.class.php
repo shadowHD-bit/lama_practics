@@ -310,11 +310,14 @@ class Task
         $mysql_connect_for_query->query("DELETE FROM `$taskRoleTable`
                                         WHERE `$taskRoleTable`.id_task = '$id_task'");
         $mysql_connect_for_query->query("DELETE FROM `$taskTable`
-                                        WHERE `$taskTable`.id_project = '$id_task' OR `$taskTable`.id_uppertask = '$id_task'");
-    }
+                                        WHERE `$taskTable`.id_task = '$id_task'");
+        $mysql_connect_for_query->query("DELETE FROM `$taskTable`
+                                        WHERE `$taskTable`.id_uppertask = '$id_task'");
+}
 
 
-    function delegate($id_user, $id_task){
+    function delegate($id_user, $id_task)
+    {
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         //Get other tables
         $taskRoleTable = $tables_database['TaskRoleTable'];
@@ -326,6 +329,48 @@ class Task
         $mysql_connect_for_query->query("UPDATE `$taskRoleTable` 
                                         SET `$taskRoleTable`.id_user = '$id_user'
                                         WHERE `$taskRoleTable`.id_task = '$id_task' AND `$taskRoleTable`.id_role = 2");
-        
+    }
+
+
+    function createUpperTask($task_main, $title, $descr, $deadline, $invite, $creator)
+    {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $taskTable = $tables_database['TaskTable'];
+        //Get other tables
+        $taskRoleTable = $tables_database['TaskRoleTable'];
+        //$roleTable = $tables_database['RoleTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+
+        $get_proj_task = $mysql_connect_for_query->query("SELECT `$taskTable`.id_project FROM `$taskTable` WHERE `$taskTable`.id_task = '$task_main'");
+        $id_proj_task_from_database = mysqli_fetch_assoc($get_proj_task);
+        $project_ID = $id_proj_task_from_database['id_project'];
+
+        //Query get one task
+        if ($project_ID == 'null') {
+            $mysql_connect_for_query->query(
+                "INSERT INTO `$taskTable` (id_uppertask, id_status, task_name, task_deadline, task_description) 
+                VALUES ('$task_main', 1, '$title', '$deadline', '$descr')"
+            );
+        } else {
+            $mysql_connect_for_query->query(
+                "INSERT INTO `$taskTable` (id_uppertask, id_project, id_status, task_name, task_deadline, task_description) 
+                VALUES ('$task_main', '$project_ID', 1, '$title', '$deadline', '$descr')"
+            );
+        }
+
+        //Get id inserted task
+        $id_inserted_task = $mysql_connect_for_query->query("SELECT `$taskTable`.id_task FROM `$taskTable` WHERE `$taskTable`.task_name = '$title'");
+        //Get result in right format
+        $id_task_from_database = mysqli_fetch_assoc($id_inserted_task);
+        $task_ID = $id_task_from_database['id_task'];
+        //inserted members
+        $mysql_connect_for_query->query("INSERT INTO `$taskRoleTable` (id_task, id_user, id_role) VALUES ('$task_ID', '$invite', 2)");
+
+        //Creator project
+        $mysql_connect_for_query->query("INSERT INTO `$taskRoleTable` (id_task, id_user, id_role) VALUES ('$task_ID', '$creator', 1)");
     }
 }

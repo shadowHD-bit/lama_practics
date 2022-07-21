@@ -122,7 +122,9 @@
 
                 <div class="header_content_task">
                     <a id="task_list">Подзадачи</a>
-                    <a href="#"><i id="plus_icon" class="fas fa-plus-circle"></i></a>
+                    <div id="add_uppertask_btn" class="add_uppertask_btn">
+
+                    </div>
                 </div>
 
                 <div class="task_subtasks">
@@ -151,6 +153,50 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-xl" id="exampleModalCenterUpperTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Создание подзадачи</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="inner_project">
+                        <div class="create_project_main">
+                            <p>Тема подзадачи:</p>
+                            <input id="title_uppertask" class="create_project_input" type="text" placeholder="Введите тематику задачи" />
+
+                            <p>Описание подзадачи:</p>
+                            <textarea id="description_uppertask" class="create_project_input" placeholder="Введите описание задачи" name="" id="" rows="10" style="resize: none"></textarea>
+
+                            <p>Дата окончания подзадачи:</p>
+                            <input id="date_uppertask_start" value="<?php echo date('Y-m-d\TH:i'); ?>" class="create_project_input" type="datetime-local">
+                        </div>
+
+                        <div class="create_project_members">
+                            <p>Выбрать исполнителя подзадачи:</p>
+                            <div class="project_add_member_btn"></div>
+                            <div class="live_search_members_project">
+                                <input type="text" id="live_search_upper" style="width: 90%; margin-bottom: 10px" class="form-control" placeholder="Начните вводить данные...">
+                            </div>
+                            <div class="project_invite_members" id="invite_block_upper">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="error_message"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="uppertask_btn">Создать</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
@@ -201,6 +247,13 @@
 
 
     <?php require('../../assets/libraries/scripts.lib.php') ?>
+    <script src="../../scripts/ajax/delete/delete.task.js"></script>
+
+    <script src="../../scripts/ajax/create/create.uppertask.js"></script>
+    <script src="../../scripts/ajax/get/get.user.uppertask.js"></script>
+
+    <script src="../../scripts/ajax/update/change.status.task.js"></script>
+    <script src="../../scripts/ajax/update/delegate.task.js"></script>
 
     <!-- Get user script -->
     <script src="../../scripts/ajax/get/get.data.user.js"></script>
@@ -208,10 +261,6 @@
     <script type="module" src="../../scripts/ajax/get/get.data.this.task.js"></script>
     <!-- Add new checklist item script -->
     <script src="../../scripts/ajax/create/create.task.checklist.js"></script>
-    <script src="../../scripts/ajax/update/change.status.task.js"></script>
-    <script src="../../scripts/ajax/delete/delete.task.js"></script>
-    <script src="../../scripts/ajax/update/delegate.task.js"></script>
-
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
     <!-- Delete checklist item script -->
