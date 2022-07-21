@@ -5,6 +5,8 @@ import { Loader } from "../../../components/Loader/Loader.js";
 let table_body_project = document.getElementById("project_user");
 let table_head_project = document.getElementById("project_head");
 
+let global_data;
+
 //Func get tasks users
 function get_project_user() {
   document.querySelector(".projects_page").appendChild(Loader);

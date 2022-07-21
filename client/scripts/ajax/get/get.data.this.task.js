@@ -108,6 +108,13 @@ fetch(
     //get subtasks
     taskSubtasks.innerHTML = `<div class="cleaner"></div>`;
     taskSubtasks.removeChild(document.querySelector(".cleaner"));
+    body[0].subtasks.length ==  0 ? 
+    taskSubtasks.innerHTML = `
+    <div class="task_subtask">
+      <span>Нет подзадач для данной задачи...</span>
+    </div>
+    `
+    :
     body.map((el) => {
       el.subtasks.map((el) => {
         taskSubtasks.innerHTML += `
@@ -128,7 +135,6 @@ fetch(
 let idTaskFromURL = location.search.substring(1);
 
 let btn_block = document.getElementById("btn_owner");
-let btn_status = document.getElementById("btn_status");
 
 fetch(
   `../../../../server/php/Task/CheckCreatorTask.php?dataId=${idTaskFromURL}`,

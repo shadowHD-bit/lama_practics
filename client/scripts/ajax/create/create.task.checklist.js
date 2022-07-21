@@ -47,7 +47,7 @@ add_item_btn.addEventListener("click", () => {
                     </label>
                 </div>
                 <button class="delete_item_btn">
-                    <p> + </p>
+                    <i class="fas fa-times"></i>
                 </button>
             </div>`;
 

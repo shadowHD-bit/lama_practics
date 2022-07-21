@@ -307,11 +307,14 @@ class Task
         $taskTable = $tables_database['TaskTable'];
         //Get other tables
         $taskRoleTable = $tables_database['TaskRoleTable'];
+        $checklistTable = $tables_database['ChecklistTable'];
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
         $mysql_connect_for_query->query("DELETE FROM `$taskRoleTable`
                                         WHERE `$taskRoleTable`.id_task = '$id_task'");
+        $mysql_connect_for_query->query("DELETE FROM `$checklistTable`
+                                         WHERE `$checklistTable`.id_task = '$id_task'");
         $mysql_connect_for_query->query("DELETE FROM `$taskTable`
                                         WHERE `$taskTable`.id_task = '$id_task'");
         $mysql_connect_for_query->query("DELETE FROM `$taskTable`

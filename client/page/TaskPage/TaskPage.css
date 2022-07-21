@@ -202,6 +202,12 @@ body {
   padding: 20px;
 }
 
+.task_subtask_content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 body::-webkit-scrollbar {
   width: 0;
 }
@@ -238,6 +244,7 @@ body::-webkit-scrollbar {
   background: #FFFCFC;
   border-radius: 10px;
   padding: 20px;
+  width: 69%;
 
 }
 
@@ -245,6 +252,7 @@ body::-webkit-scrollbar {
   background: #FFFCFC;
   border-radius: 10px;
   padding: 20px;
+  width: 30%;
 }
 
 .task_cheklist input, .task_cheklist p {
@@ -255,7 +263,6 @@ body::-webkit-scrollbar {
   padding: 20px;
   background: #FFFCFC;
   border-radius: 10px;
-
 }
 .field_text {
   font-style: normal;
@@ -287,13 +294,15 @@ body::-webkit-scrollbar {
 }
 
 .delete_item_btn, .add_btn {
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  background-color: transparent;
-  border: black 1px solid;
-  display: inline-block;
+  width: 30px;
+  height: 30px;
   font-size: 20px;
+  border-radius: 5px;
+}
+
+.delete_item_btn {
+  color: #F33B3B;
+  border: 2px solid #F33B3B;
 }
 
 .delete_item_btn:hover {
@@ -305,15 +314,18 @@ body::-webkit-scrollbar {
 .delete_item_btn p {
   transform: rotate(45grad);
 }
-
+.add_btn {
+  color: #57f742;
+  border: 2px solid #57f742;
+}
 .add_btn:hover {
-  border: #428af7 1px solid;
-  background-color: #428af7;
+  background-color: #57f742;
   color: white;
+  border: 2px solid #57f742;
 }
 
 .input_field {
-  width: 40%;
+  width: 90%;
   border-radius: 5px;
   border: none;
   font-size: 20px;

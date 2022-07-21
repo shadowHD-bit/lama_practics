@@ -24,75 +24,78 @@
                     <a id="task_list">Информация о задаче</a>
                     <div id="btn_owner"></div>
                 </div>
-                <div class="task_field">
+                <div class="task_subtask_content">
 
-                    <div class="task_name">
-                        <p class="task_title">Тема:</p>
-                        <p class="task_info" id="title_task">
-                            <span class="placeholder"></span>
-                        </p>
-                    </div>
-                    <hr>
-                    <div class="task_deadline">
-                        <p class="task_title">Дата окончания задачи:</p>
-                        <p class="task_info" id="deadline_task">
-                            <span class="placeholder"></span>
-                        </p>
-                    </div>
-                    <hr>
-                    <div class="task_description">
-                        <p class="task_title">Описание:</p>
-                        <p class="task_info" id="description_task">
-                            <span class="placeholder placeholder_description"></span>
-                        </p>
-                    </div>
-                    <hr>
-                    <div class="task_status">
-                        <p class="task_title">Статус:</p>
-                        <div id="btn_status"></div>
-                        <p class="task_info" id="status_task">
-                            <span class="placeholder"></span>
-                        </p>
-                    </div>
-                    <hr>
-                    <div class="task_project">
-                        <p class="task_title">Проект:</p>
-                        <p class="task_info" id="project_task">
-                            <span class="placeholder"></span>
-                        </p>
-                    </div>
-                    <hr>
-                    <div class="task_director">
-                        <p class="task_title">Постановщик:</p>
-                        <div class="task_member" id="director_task">
-                            <span class="placeholder"></span>
+                    <div class="task_field">
+                        <div class="task_name">
+                            <p class="task_title">Тема:</p>
+                            <p class="task_info" id="title_task">
+                                <span class="placeholder"></span>
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="task_deadline">
+                            <p class="task_title">Дата окончания задачи:</p>
+                            <p class="task_info" id="deadline_task">
+                                <span class="placeholder"></span>
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="task_description">
+                            <p class="task_title">Описание:</p>
+                            <p class="task_info" id="description_task">
+                                <span class="placeholder placeholder_description"></span>
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="task_status">
+                            <p class="task_title">Статус:</p>
+                            <div id="btn_status"></div>
+                            <p class="task_info" id="status_task">
+                                <span class="placeholder"></span>
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="task_project">
+                            <p class="task_title">Проект:</p>
+                            <p class="task_info" id="project_task">
+                                <span class="placeholder"></span>
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="task_director">
+                            <p class="task_title">Постановщик:</p>
+                            <div class="task_member" id="director_task">
+                                <span class="placeholder"></span>
+                            </div>
+                        </div>
+                        <div class="task_performer">
+                            <p class="task_title">Исполнитель:</p>
+                            <button style="margin-bottom: 5px;" type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterDelegate">
+                                <i class="fas fa-user-cog"></i> Делегировать
+                            </button>
+                            <div class="task_member" id="performer_task">
+                                <span class="placeholder"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="task_performer">
-                        <p class="task_title">Исполнитель:</p>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterDelegate">
-                            <i class="fas fa-user-cog"></i> Делегировать
-                        </button>
-                        <div class="task_member" id="performer_task">
-                            <span class="placeholder"></span>
+
+
+                    <div class="task_cheklist">
+                        <p class="task_title">Пункты:</p>
+                        <div class="checklist_points">
+                        </div>
+                        <div class="checklist_item input_checklist" style="display: none">
+                        </div>
+                        <div class="checklist_item">
+                            <button class="add_btn" id="add_checklist_item_btn">
+                                <i class="fas fa-plus"></i>
+                            </button>
+
                         </div>
                     </div>
                 </div>
-                <div class="header_content_task">
-                    <a id="task_list">Чек-лист</a>
-                </div>
-                <div class="task_cheklist">
-                    <p class="task_title">Пункты:</p>
-                    <div class="checklist_points">
-                    </div>
-                    <div class="checklist_item input_checklist" style="display: none">
-                    </div>
-                    <div class="checklist_item">
-                        <button class="add_btn" id="add_checklist_item_btn">
-                            <p> + </p>
-                        </button>
-                    </div>
-                </div>
+
                 <div class="header_content_task">
                     <a id="task_list">Подзадачи</a>
                     <div id="add_uppertask_btn" class="add_uppertask_btn">
@@ -100,6 +103,8 @@
                 </div>
                 <div class="task_subtasks">
                 </div>
+
+
             </div>
         </div>
     </section>
