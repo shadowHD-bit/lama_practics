@@ -4,6 +4,7 @@ require_once realpath(dirname(__FILE__) . './Connection.class.php');
 //Init class auth
 class Admin
 {
+    //Show user method in admin panel method
     function showUser()
     {
         //Get User table
@@ -20,6 +21,7 @@ class Admin
         return json_encode($users);
     }
 
+    //Add new user in admin panel method
     function addNewUser($name, $lastname, $secondname, $tel, $mail, $date, $login, $pass)
     {
         //Get User table
@@ -31,10 +33,10 @@ class Admin
         //Query
         $mysql_connect_for_query->query("INSERT INTO `$userTable` (login, first_name, last_name, second_name, email, phone_number, date_birthday, password) 
                                         VALUES ('$login', '$name', '$lastname', '$secondname', '$mail', '$tel', '$date', '$pass')");
-
     }
 
-    function deleteUser($id_user)   
+    //Delete user in admin panel method
+    function deleteUser($id_user)
     {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
@@ -47,9 +49,5 @@ class Admin
         //Query
         $mysql_connect_for_query->query("DELETE FROM `$userProjectTable` WHERE `$userProjectTable`.id_user = '$id_user'");
         $mysql_connect_for_query->query("DELETE FROM `$userTable` WHERE `$userTable`.id_user = '$id_user'");
-    }
-
-    function updateUser()
-    {
     }
 }

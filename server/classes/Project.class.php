@@ -15,10 +15,8 @@ class Project
         $userTable = $tables_database['UserTable'];
         $projectTable = $tables_database['ProjectTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
-
         //Get auth user id
         $auth_user_id = $_COOKIE['user_id'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -31,10 +29,8 @@ class Project
             INNER JOIN `$userTable` ON `$userTable`.id_user = `$userProjectTable`.id_user
             WHERE `$userTable`.id_user = $auth_user_id"
         );
-
         //To object data
         $projects = mysqli_fetch_all($result_get_projects, MYSQLI_ASSOC);
-
         //Query get creator
         foreach ($projects as $key => $value) {
             $this_id_project = $projects[$key]['id_project'];
@@ -51,7 +47,6 @@ class Project
             $value['creator'] = $full_name_creator;
             $projects[$key] = $value;
         }
-
         return json_encode($projects);
     }
 
@@ -64,7 +59,6 @@ class Project
         $statusTable = $tables_database['StatusTable'];
         $userTable = $tables_database['UserTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -78,7 +72,6 @@ class Project
 
         //Get result in right format
         $result_get_project = mysqli_fetch_all($project_data, MYSQLI_ASSOC);
-
         //Query get creator
         foreach ($result_get_project as $key => $value) {
             $result_get_creator_this_project = $mysql_connect_for_query->query(
@@ -97,7 +90,6 @@ class Project
             ];
             $result_get_project[$key] = $value;
         }
-
         //Query get members
         foreach ($result_get_project as $key => $value) {
             $result_get_members_this_project = $mysql_connect_for_query->query(
@@ -129,7 +121,6 @@ class Project
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $projectTable = $tables_database['ProjectTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -150,13 +141,13 @@ class Project
         $mysql_connect_for_query->query("INSERT INTO `$userProjectTable` (id_user, id_project, isCreator) VALUES ('$id_creator', '$project_ID', 1)");
     }
 
+    //Get creator to id project method
     function getCreatorProjectByIdProject($id_project)
     {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $projectTable = $tables_database['ProjectTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -172,14 +163,12 @@ class Project
         return $row['id_user'];
     }
 
-    //change status project method
+    //Change status project method
     function changeStatusProject($id_project, $id_status)
     {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $projectTable = $tables_database['ProjectTable'];
-        $userProjectTable = $tables_database['UserProjectTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -190,14 +179,12 @@ class Project
         );
     }
 
-    //change status project method
+    //Change status project method
     function getStatusProject()
     {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $statusTable = $tables_database['StatusTable'];
-        $projectTable = $tables_database['ProjectTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -207,12 +194,12 @@ class Project
         return json_encode($status);
     }
 
+    //Update project method
     function updateDataProject($id_project, $new_title, $new_descr, $new_date, $new_start)
     {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $projectTable = $tables_database['ProjectTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -224,11 +211,11 @@ class Project
         ");
     }
 
+    //Get user who not added in project method
     function getNotAddedUser($project_ID)
     {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
-        $projectTable = $tables_database['ProjectTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
         $userTable = $tables_database['UserTable'];
 
@@ -240,18 +227,16 @@ class Project
                                                     WHERE `$userTable`.id_user NOT IN (SELECT `$userProjectTable`.id_user 
                                                                                 FROM `$userProjectTable`
                                                                                 WHERE `$userProjectTable`.id_project = '$project_ID')");
-
         $players_right = mysqli_fetch_all($players, MYSQLI_ASSOC);
         return json_encode($players_right);
     }
 
+    //Get user in project
     function getUserInThisProject($project_ID)
     {
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
-        $projectTable = $tables_database['ProjectTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
         $userTable = $tables_database['UserTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -260,18 +245,15 @@ class Project
                                                     INNER JOIN `$userProjectTable` ON `$userProjectTable`.id_user = `$userTable`.id_user
                                                     WHERE `$userProjectTable`.isCreator = 0 AND `$userProjectTable`.id_project = '$project_ID'
         ");
-
         $players_right = mysqli_fetch_all($player, MYSQLI_ASSOC);
         return json_encode($players_right);
     }
 
+    //Added user in project
     function addedUserInProject($id_project, $id_user)
     {
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
-        $projectTable = $tables_database['ProjectTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
-        $userTable = $tables_database['UserTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -280,12 +262,11 @@ class Project
         ");
     }
 
-    function deleteUserInProject($id_project, $id_user){
+    //Delete user from project
+    function deleteUserInProject($id_project, $id_user)
+    {
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
-        $projectTable = $tables_database['ProjectTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
-        $userTable = $tables_database['UserTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -293,12 +274,12 @@ class Project
                                         WHERE `$userProjectTable`.id_user = '$id_user' AND `$userProjectTable`.id_project = '$id_project'");
     }
 
-    function deleteProject($id_project){
+    //Delete project
+    function deleteProject($id_project)
+    {
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $projectTable = $tables_database['ProjectTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
-        $userTable = $tables_database['UserTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -308,12 +289,12 @@ class Project
                                         WHERE `$projectTable`.id_project = '$id_project'");
     }
 
-    function GetProjectUserCreator($id_user){
+    //Get project user creator
+    function GetProjectUserCreator($id_user)
+    {
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $projectTable = $tables_database['ProjectTable'];
         $userProjectTable = $tables_database['UserProjectTable'];
-        $userTable = $tables_database['UserTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();

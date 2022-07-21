@@ -48,10 +48,8 @@ class Task
             WHERE `$taskRoleTable`.id_user = '$auth_user_id'
             "
         );
-
         //To object data
         $tasks = mysqli_fetch_all($result_get_tasks, MYSQLI_ASSOC);
-
         //Query get director
         foreach ($tasks as $key => $value) {
             $this_id_task = $tasks[$key]['id_task'];
@@ -87,28 +85,25 @@ class Task
             $value['executor'] = $full_name_executor;
             $tasks[$key] = $value;
         }
-
         return json_encode($tasks);
     }
 
+    //Get data one task method
     function getOneTask($task_id)
     {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $taskTable = $tables_database['TaskTable'];
         $roleTable = $tables_database['RoleTable'];
-
         //Get other tables
         $statusTable = $tables_database['StatusTable'];
         $userTable = $tables_database['UserTable'];
         $taskRoleTable = $tables_database['TaskRoleTable'];
         $checklistTable = $tables_database['ChecklistTable'];
         $projectTable = $tables_database['ProjectTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
-
         //Query get task
         $task_data = $mysql_connect_for_query->query("SELECT * FROM `$taskTable`
                                             INNER JOIN `$statusTable` ON `$statusTable`.id_status = `$taskTable`.id_status
@@ -116,8 +111,6 @@ class Task
                                             WHERE id_task = '$task_id'");
         //To object data
         $result_get_task = mysqli_fetch_all($task_data, MYSQLI_ASSOC);
-
-
         //Query get director
         foreach ($result_get_task as $key => $value) {
             $result_get_director_this_task = $mysql_connect_for_query->query(
@@ -157,7 +150,6 @@ class Task
             ];
             $result_get_task[$key] = $value;
         }
-
         //Query get checklist
         foreach ($result_get_task as $key => $value) {
             $result_get_checklist_this_task = $mysql_connect_for_query->query(
@@ -165,11 +157,9 @@ class Task
                         WHERE id_task = '$task_id'"
             );
             $row_checklist = mysqli_fetch_all($result_get_checklist_this_task, MYSQLI_ASSOC);
-
             $value['checklist'] = $row_checklist;
             $result_get_task[$key] = $value;
         }
-
         //Query get subtasks
         foreach ($result_get_task as $key => $value) {
             $result_get_subtasks_this_task = $mysql_connect_for_query->query(
@@ -181,15 +171,14 @@ class Task
             $value['subtasks'] = $row;
             $result_get_task[$key] = $value;
         }
-
         return json_encode($result_get_task);
     }
 
+    //Create check item 
     function createChecklistItem($task_id, $checklistPointValue)
     {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
-        $taskTable = $tables_database['TaskTable'];
         $checklistTable = $tables_database['ChecklistTable'];
         //Get connect
         $database_connect = new Connection();
@@ -199,14 +188,15 @@ class Task
             "INSERT INTO `$checklistTable` (id_task, point_name) VALUES ('$task_id', '$checklistPointValue')"
         );
 
-            $result_get_checklist_this_task = $mysql_connect_for_query->query(
-                "SELECT * FROM `$checklistTable`
+        $result_get_checklist_this_task = $mysql_connect_for_query->query(
+            "SELECT * FROM `$checklistTable`
                         WHERE id_task = '$task_id'"
-            );
-            $row_checklist = mysqli_fetch_all($result_get_checklist_this_task, MYSQLI_ASSOC);
-            return json_encode($row_checklist);
-        }
+        );
+        $row_checklist = mysqli_fetch_all($result_get_checklist_this_task, MYSQLI_ASSOC);
+        return json_encode($row_checklist);
+    }
 
+    //Delete checkpoint method
     function deleteChecklistPoint($id_point)
     {
         //Get User table
@@ -221,18 +211,14 @@ class Task
         );
     }
 
+    //Get creator task method
     function getCreatorTaskByIdTask($id_task)
     {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
-        $taskTable = $tables_database['TaskTable'];
         //Get other tables
-        $statusTable = $tables_database['StatusTable'];
         $taskRoleTable = $tables_database['TaskRoleTable'];
         $roleTable = $tables_database['RoleTable'];
-        $userTable = $tables_database['UserTable'];
-        $projectTable = $tables_database['ProjectTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -248,6 +234,7 @@ class Task
         return $row['id_user'];
     }
 
+    //Change status task method
     function changeStatusTask($id_status, $id_task)
     {
         //Get User table
@@ -263,6 +250,7 @@ class Task
         );
     }
 
+    //Create task method
     function createTask($title, $descr, $deadline, $invite, $proj, $creator)
     {
         //Get User table
@@ -270,8 +258,6 @@ class Task
         $taskTable = $tables_database['TaskTable'];
         //Get other tables
         $taskRoleTable = $tables_database['TaskRoleTable'];
-        //$roleTable = $tables_database['RoleTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -287,7 +273,6 @@ class Task
                 VALUES ('$proj', 1, '$title', '$deadline', '$descr')"
             );
         }
-
         //Get id inserted task
         $id_inserted_task = $mysql_connect_for_query->query("SELECT `$taskTable`.id_task FROM `$taskTable` WHERE `$taskTable`.task_name = '$title'");
         //Get result in right format
@@ -300,7 +285,9 @@ class Task
         $mysql_connect_for_query->query("INSERT INTO `$taskRoleTable` (id_task, id_user, id_role) VALUES ('$task_ID', '$creator', 1)");
     }
 
-    function updateChecklistItem($id_point, $checkbox_status) {
+    //Update checklist method
+    function updateChecklistItem($id_point, $checkbox_status)
+    {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $checklistTable = $tables_database['ChecklistTable'];
@@ -311,18 +298,15 @@ class Task
         $mysql_connect_for_query->query(
             "UPDATE `$checklistTable` SET isChecked = '$checkbox_status' WHERE id_point = $id_point"
         );
-
     }
 
-
+    //Delete task method
     function deleteTask($id_task)
     {
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $taskTable = $tables_database['TaskTable'];
         //Get other tables
         $taskRoleTable = $tables_database['TaskRoleTable'];
-        //$roleTable = $tables_database['RoleTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -332,16 +316,15 @@ class Task
                                         WHERE `$taskTable`.id_task = '$id_task'");
         $mysql_connect_for_query->query("DELETE FROM `$taskTable`
                                         WHERE `$taskTable`.id_uppertask = '$id_task'");
-}
+    }
 
 
+    //Delegate method
     function delegate($id_user, $id_task)
     {
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         //Get other tables
         $taskRoleTable = $tables_database['TaskRoleTable'];
-        //$roleTable = $tables_database['RoleTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -350,7 +333,7 @@ class Task
                                         WHERE `$taskRoleTable`.id_task = '$id_task' AND `$taskRoleTable`.id_role = 2");
     }
 
-
+    //Create upper task method
     function createUpperTask($task_main, $title, $descr, $deadline, $invite, $creator)
     {
         //Get User table
@@ -358,8 +341,6 @@ class Task
         $taskTable = $tables_database['TaskTable'];
         //Get other tables
         $taskRoleTable = $tables_database['TaskRoleTable'];
-        //$roleTable = $tables_database['RoleTable'];
-
         //Get connect
         $database_connect = new Connection();
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
@@ -367,7 +348,6 @@ class Task
         $get_proj_task = $mysql_connect_for_query->query("SELECT `$taskTable`.id_project FROM `$taskTable` WHERE `$taskTable`.id_task = '$task_main'");
         $id_proj_task_from_database = mysqli_fetch_assoc($get_proj_task);
         $project_ID = $id_proj_task_from_database['id_project'];
-
         //Query get one task
         if ($project_ID == 'null') {
             $mysql_connect_for_query->query(
@@ -388,13 +368,13 @@ class Task
         $task_ID = $id_task_from_database['id_task'];
         //inserted members
         $mysql_connect_for_query->query("INSERT INTO `$taskRoleTable` (id_task, id_user, id_role) VALUES ('$task_ID', '$invite', 2)");
-
         //Creator project
         $mysql_connect_for_query->query("INSERT INTO `$taskRoleTable` (id_task, id_user, id_role) VALUES ('$task_ID', '$creator', 1)");
     }
 
-
-    function updateDataTask($_id_Task, $_titleTask, $_descriptionTask, $_dateTask) {
+    //Update task method
+    function updateDataTask($_id_Task, $_titleTask, $_descriptionTask, $_dateTask)
+    {
         //Get User table
         $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
         $taskTable = $tables_database['TaskTable'];
