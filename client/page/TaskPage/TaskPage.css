@@ -328,11 +328,12 @@ body::-webkit-scrollbar {
 }
 
 .input_field {
-  width: 90%;
+  width: 98%;
   border-radius: 5px;
   border: none;
-  font-size: 20px;
-  padding: 6px 6px;
+  font-size: 18px;
+  padding: 2px 2px;
+  background-color: #82b4ff81;
 }
 .input_field:focus {
   outline: 2px solid grey;
