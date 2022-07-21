@@ -41,7 +41,6 @@ getDataProfile();
 let change_btn = document.getElementById("change_btn");
 
 change_btn.addEventListener("click", () => {
-  change_btn.innerHTML =
     change_btn.innerHTML === "Изменить данные профиля"
       ? (change_btn.innerHTML = "Сохранить изменения")
       : (change_btn.innerHTML = "Изменить данные профиля");

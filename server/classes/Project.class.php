@@ -319,7 +319,7 @@ class Project
         $mysql_connect_for_query = $database_connect->getDatabaseConnect();
         $project_user_result = $mysql_connect_for_query->query("SELECT * FROM `$projectTable`
                                                                 INNER JOIN `$userProjectTable` ON `$userProjectTable`.id_project = `$projectTable`.id_project
-                                                                WHERE `$userProjectTable`.id_user = '$id_user' AND `$userProjectTable`.isCreator = 1");
+                                                                WHERE `$userProjectTable`.id_user = '$id_user'");
         $projects = mysqli_fetch_all($project_user_result, MYSQLI_ASSOC);
         return json_encode($projects);
     }
