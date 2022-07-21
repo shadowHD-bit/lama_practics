@@ -41,10 +41,13 @@ add_item_btn.addEventListener("click", () => {
           checklist.innerHTML += `
             <div class="checklist_item" id="${el.id_point} checklist_item">
                 <div class="checklist_item_text">
-                    <label>
-                        <input type="checkbox" class="point_checkbox">
-                        <p class="task_info">${checklist_input.value}</p>
-                    </label>
+                <label class="checkbox style-b">
+                <input type="checkbox" name="user_project" class="checkbox_user_project"/>
+                <div class="checkbox__checkmark"></div>
+                <label for="user_project" class="project_member_fullname">${
+                  checklist_input.value
+                }</label>
+              </label>
                 </div>
                 <button class="delete_item_btn">
                     <i class="fas fa-times"></i>

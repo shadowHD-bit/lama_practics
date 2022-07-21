@@ -80,7 +80,6 @@
                         </div>
                     </div>
 
-
                     <div class="task_cheklist">
                         <p class="task_title">Пункты:</p>
                         <div class="checklist_points">
@@ -88,10 +87,11 @@
                         <div class="checklist_item input_checklist" style="display: none">
                         </div>
                         <div class="checklist_item">
+                        Добавить задачу
                             <button class="add_btn" id="add_checklist_item_btn">
                                 <i class="fas fa-plus"></i>
                             </button>
-
+                            
                         </div>
                     </div>
                 </div>

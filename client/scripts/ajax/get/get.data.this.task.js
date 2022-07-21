@@ -82,21 +82,24 @@ fetch(
     body.map((el) => {
       el.checklist.map((el) => {
         taskChecklist.innerHTML += `
-            <div class="checklist_item" id="${el.id_point} checklist_item">
-              <div class="checklist_item_text">
-                  <label>
-                      ${
-                        Number(el.isChecked)
-                          ? `<input class="point_checkbox" type="checkbox" checked>`
-                          : `<input class="point_checkbox" type="checkbox">`
-                      }
-                      <p class="task_info">${el.point_name}</p>
-                  </label>
-              </div>
-              <button class="delete_item_btn">
-                  <p> + </p>
-              </button>
-          </div>
+          <div class="checklist_item" id="${el.id_point} checklist_item">
+                <div class="checklist_item_text">
+                <label class="checkbox style-b">
+                ${
+                  Number(el.isChecked)
+                    ? `<input type="checkbox" name="user_project" class="point_checkbox" checked/>`
+                    : `<input type="checkbox" name="user_project" class="point_checkbox"/>`
+                }
+                <div class="checkbox__checkmark"></div>
+                <label for="user_project" class="project_member_fullname">${
+                  el.point_name
+                }</label>
+              </label>
+                </div>
+                <button class="delete_item_btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
         `;
         updateItemCheckbox();
       });
