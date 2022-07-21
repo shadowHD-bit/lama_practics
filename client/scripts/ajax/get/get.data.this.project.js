@@ -10,6 +10,7 @@ let btn_block = document.getElementById("btn_owner");
 let btn_status = document.getElementById("btn_status");
 let btn_adder = document.getElementById("btn_adder");
 let statusProject = document.getElementById("project_status");
+let global_data;
 
 //Get data project
 
@@ -26,6 +27,7 @@ fetch(
     return response.json();
   })
   .then(function (body) {
+    global_data = body;
     body.map((el) => {
       titleProject.innerHTML = `
         ${el.project_name}
@@ -81,7 +83,7 @@ fetch(
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
       Редактировать
     </button>
-    <button type="button" class="btn btn-danger">
+    <button data-toggle="modal" data-target="#exampleModalCenterdelete" type="button" class="btn btn-danger">
       Удалить
     </button>`;
 

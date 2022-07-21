@@ -2,7 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
-
 * {
   margin: 0px;
   padding: 0px;
@@ -10,7 +9,11 @@
 }
 
 body {
-  background: linear-gradient(242.06deg, #428AF7 15.6%, rgba(41, 206, 196, 0) 101.16%);
+  background: linear-gradient(
+    242.06deg,
+    #428af7 15.6%,
+    rgba(41, 206, 196, 0) 101.16%
+  );
   width: 100%;
   height: 100%;
 }
@@ -35,9 +38,9 @@ body {
   cursor: pointer;
   text-decoration: none;
   color: #000;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -45,7 +48,6 @@ body {
   text-align: center;
   border: none;
   padding: 4px 0px;
-
 }
 
 .button_menu_text:hover {
@@ -55,37 +57,58 @@ body {
   background: #d6d6d6;
 }
 
+@keyframes glowing {
+  0% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+  50% {
+    background-color: rgba(217, 217, 217, 1);
+  }
+  100% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+}
 
 .Button_profile {
   display: inline-block;
   width: 85px;
   height: 85px;
   margin-top: 39px;
+  background: #d9d9d9;
   border-radius: 67px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  animation: infinite 1.8s glowing;
 }
 
+.menu_fullname_placeholder {
+  display: block;
+  height: 24px;
+  background-color: #d9d9d9;
+  width: 130px;
+  margin: 3px;
+  border-radius: 3px;
+  animation: infinite 1.8s glowing;
+}
 .profile_wrapper {
   height: 20%;
   margin: 0px auto;
   width: 80%;
-
 }
 
 .profile_name {
   display: inline-block;
   width: 100px;
-  height: auto;
+  height: 85px;
   top: 40px;
   text-decoration: none;
   font-style: normal;
+  line-height: 35px;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 22px;
   cursor: pointer;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .profile_name:hover {
@@ -106,7 +129,7 @@ body {
   display: block;
   width: 80%;
 
-  background: #F33B3B;
+  background: #f33b3b;
   border-radius: 10px;
   border: none;
   padding: 6px 0px;
@@ -122,15 +145,22 @@ body {
 }
 
 .Exit:hover {
-background: #c93030;
-color: white;
+  background: #c93030;
+  color: white;
+}
+
+#plus_icon {
+  font-style: normal !important;
+  font-size: 40px;
+
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+  color: #fcfcfc !important;
 }
 
 #Task_list {
-
   width: 378px;
   height: 70px;
-
 
   font-style: normal;
   font-weight: 500;
@@ -139,8 +169,6 @@ color: white;
   text-align: center;
   text-shadow: 1px 1px 1px #000;
   color: #fcfcfc;
-
-
 }
 
 .main_content {
@@ -150,7 +178,7 @@ color: white;
   float: right;
 }
 
-.tasks_page{
+.tasks_page {
   padding: 20px;
 }
 
@@ -172,8 +200,9 @@ color: white;
   color: #000000;
 } */
 
-.header_content_task{
+.header_content_task {
   position: relative;
+  margin-bottom: 20px;
 }
 
 .Exit_field {
@@ -185,8 +214,11 @@ color: white;
 
 table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 2px;
+  border-spacing: 0px 3px;
+}
+
+table a:visited {
+  color: black;
 }
 
 table td {
@@ -213,29 +245,28 @@ table tbody tr:hover {
 }
 
 tbody:before {
-    content: "-";
-    display: block;
-    line-height: 5px;
-    color: transparent;
+  content: "-";
+  display: block;
+  line-height: 4px;
+  color: transparent;
 }
 
-table tbody{
+table tbody {
   border-collapse: separate;
   border-spacing: 0px 10px;
 }
 
-table td span{
-    padding: 5px 0px;
-    display: block;
-    width: 100%;
-    border-right: 1px solid black;
+table td span {
+  padding: 5px 0px;
+  display: block;
+  width: 100%;
+  border-right: 1px solid black;
 }
 
-table td:last-child span{
-    border-right: none;
+table td:last-child span {
+  border-right: none;
 }
 
 table tbody tr {
-    background: #ffffff;
-  }
-  
+  background: #ffffff;
+}

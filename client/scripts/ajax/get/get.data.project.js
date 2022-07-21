@@ -284,7 +284,7 @@ function write_sort_data(data) {
             </td>
             <td>
                 <span class="description">
-                    ${el.project_description.substr(0, 40)}...
+                    ${el.project_description.substring(0, 40)}...
                 </span>
             </td>
             <td>

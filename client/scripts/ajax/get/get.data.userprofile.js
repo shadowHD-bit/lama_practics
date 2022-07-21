@@ -10,6 +10,7 @@ let dol_input = document.getElementById("user_dol_input");
 let photo = document.getElementById('photo_in_profile')
 let photoChange = document.getElementById('photo_in_change')
 
+//user phone mask
 $("#user_tel_input").mask("+7(999)999-99-99");
 
 function getDataProfile() {

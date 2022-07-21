@@ -206,4 +206,121 @@ class Project
         $status = mysqli_fetch_all($status_all, MYSQLI_ASSOC);
         return json_encode($status);
     }
+
+    function updateDataProject($id_project, $new_title, $new_descr, $new_date, $new_start)
+    {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query("UPDATE `$projectTable` SET `$projectTable`.project_start = '$new_start',
+                                                                    `$projectTable`.project_deadline = '$new_date',
+                                                                    `$projectTable`.project_description = '$new_descr',
+                                                                    `$projectTable`.project_name = '$new_title'
+                                        WHERE `$projectTable`.id_project = '$id_project'
+        ");
+    }
+
+    function getNotAddedUser($project_ID)
+    {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+        $userProjectTable = $tables_database['UserProjectTable'];
+        $userTable = $tables_database['UserTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $players = $mysql_connect_for_query->query("SELECT `$userTable`.id_user, `$userTable`.first_name, `$userTable`.last_name, `$userTable`.second_name, `$userTable`.photo
+                                                    FROM `$userTable`
+                                                    WHERE `$userTable`.id_user NOT IN (SELECT `$userProjectTable`.id_user 
+                                                                                FROM `$userProjectTable`
+                                                                                WHERE `$userProjectTable`.id_project = '$project_ID')");
+
+        $players_right = mysqli_fetch_all($players, MYSQLI_ASSOC);
+        return json_encode($players_right);
+    }
+
+    function getUserInThisProject($project_ID)
+    {
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+        $userProjectTable = $tables_database['UserProjectTable'];
+        $userTable = $tables_database['UserTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $player = $mysql_connect_for_query->query("SELECT `$userTable`.id_user, `$userTable`.first_name, `$userTable`.last_name, `$userTable`.second_name, `$userTable`.photo
+                                                    FROM  `$userTable`
+                                                    INNER JOIN `$userProjectTable` ON `$userProjectTable`.id_user = `$userTable`.id_user
+                                                    WHERE `$userProjectTable`.isCreator = 0 AND `$userProjectTable`.id_project = '$project_ID'
+        ");
+
+        $players_right = mysqli_fetch_all($player, MYSQLI_ASSOC);
+        return json_encode($players_right);
+    }
+
+    function addedUserInProject($id_project, $id_user)
+    {
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+        $userProjectTable = $tables_database['UserProjectTable'];
+        $userTable = $tables_database['UserTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query("INSERT INTO `$userProjectTable` (id_user, id_project, isCreator)
+                                        VALUES ($id_user, $id_project, 0)
+        ");
+    }
+
+    function deleteUserInProject($id_project, $id_user){
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+        $userProjectTable = $tables_database['UserProjectTable'];
+        $userTable = $tables_database['UserTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query("DELETE FROM `$userProjectTable`
+                                        WHERE `$userProjectTable`.id_user = '$id_user' AND `$userProjectTable`.id_project = '$id_project'");
+    }
+
+    function deleteProject($id_project){
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+        $userProjectTable = $tables_database['UserProjectTable'];
+        $userTable = $tables_database['UserTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query("DELETE FROM `$userProjectTable`
+                                        WHERE `$userProjectTable`.id_project = '$id_project'");
+        $mysql_connect_for_query->query("DELETE FROM `$projectTable`
+                                        WHERE `$projectTable`.id_project = '$id_project'");
+    }
+
+    function GetProjectUserCreator($id_user){
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $projectTable = $tables_database['ProjectTable'];
+        $userProjectTable = $tables_database['UserProjectTable'];
+        $userTable = $tables_database['UserTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $project_user_result = $mysql_connect_for_query->query("SELECT * FROM `$projectTable`
+                                                                INNER JOIN `$userProjectTable` ON `$userProjectTable`.id_project = `$projectTable`.id_project
+                                                                WHERE `$userProjectTable`.id_user = '$id_user' AND `$userProjectTable`.isCreator = 1");
+        $projects = mysqli_fetch_all($project_user_result, MYSQLI_ASSOC);
+        return json_encode($projects);
+    }
 }

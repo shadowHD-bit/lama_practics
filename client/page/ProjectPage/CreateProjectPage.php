@@ -53,10 +53,13 @@
           </div>
 
           <hr />
+          <div id="error_message" class="error_message">
+            
+          </div>
           <button class="create_project_confirm" id="accept_project_btn">
             Принять
           </button>
-          <button class="create_project_cancel">Отмена</button>
+          <a href="./ProjectPage.php"><button class="create_project_cancel">Отмена</button></a>
         </div>
       </div>
     </div>

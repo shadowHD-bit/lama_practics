@@ -11,4 +11,7 @@ return array(
     'TaskRoleTable' => 'task_role',
     'UserTable' => 'user',
     'UserProjectTable' => 'user_project',
+    'TaskRoleTable' => 'task_role',
+    'ChecklistTable' => 'checklist_point',
+    'RoleTable' => 'role',
 );

@@ -98,22 +98,13 @@
           <p>Дата окончания проекта:</p>
           <input id="date_project_update" class="create_project_input" type="datetime-local" />
 
-          <p>Статус проекта:</p>
-          <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              В процессе
-            </a>
+          <div id="error_message" style="margin-top: 20px;" class="error_message">
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item">Action</a>
-              <a class="dropdown-item">Another action</a>
-              <a class="dropdown-item">Something else here</a>
-            </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="button" class="btn btn-primary">Сохранить изменения</button>
+          <button type="button" id="update_data_project_btn" class="btn btn-primary">Сохранить изменения</button>
         </div>
       </div>
     </div>
@@ -130,11 +121,26 @@
           </button>
         </div>
         <div class="modal-body">
+          <div class="players_change">
+            <div class="added_players">
+              <p>Выберите участника, чтобы удалить его из проекта:</p>
+              <div id="already_invite" class="already_invite">
 
+              </div>
+            </div>
+            <div class="change_players">
+              <div class="live_search_members_project">
+                <p>Выберите участника, чтобы добавить его в проект:</p>
+                <input type="text" id="live_search_member_update" style="width: 90%; margin-bottom: 10px" class="form-control" placeholder="Начните вводить данные...">
+              </div>
+              <div class="project_invite_members" id="invite_block_update">
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="button" class="btn btn-primary">Сохранить изменения</button>
+          <button type="button" class="btn btn-primary" id="save_change_members">Сохранить изменения</button>
         </div>
       </div>
     </div>
@@ -163,6 +169,23 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-xl" id="exampleModalCenterdelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Вы действительно хотите удалить данный проект?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+          <button type="button" class="btn btn-danger" id="delete_this_project">Да</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Get task script -->
   <?php require('../../assets/libraries/scripts.lib.php') ?>
 
@@ -174,6 +197,10 @@
   <script src="../../scripts/ajax/Logout.js"></script>
 
   <script src="../../scripts/ajax/update/change.status.project.js"></script>
+  <script src="../../scripts/ajax/update/update.data.project.js"></script>
+  <script src="../../scripts/ajax/update/update.user.project.js"></script>
+  <script src="../../scripts/ajax/delete/delete.project.js"></script>
+
 </body>
 
 </html>

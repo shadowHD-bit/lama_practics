@@ -17,6 +17,7 @@ function get_task_user() {
             return response.json();
         })
         .then(function (body) {
+            console.log(body);
             document.querySelector('.tasks_page').removeChild(Loader);
             table_head_task.innerHTML += `
                  <tr>
@@ -26,12 +27,12 @@ function get_task_user() {
                         </span>
                     </td>
                     <td>
-                        <span className="director">
+                        <span className="poster">
                             Постановщик
                         </span>
                     </td>
                     <td>
-                        <span className="executor">
+                        <span className="mainer">
                             Ответственный
                         </span>
                     </td>
@@ -56,22 +57,26 @@ function get_task_user() {
             <tr>
                 <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
                     <span class="title">
-                        ${el.task_name}
+                     <a href="../TaskPage/TaskPage.php?${el.id_task}">${el.task_name}</a>
                      </span>
                 </td>
                 <td>
-                     <span class="director">
+                     <span class="poster">
                         ${el.director}
                     </span>
                 </td>
                 <td>
-                    <span class="executor">
+                    <span class="mainer">
                         ${el.executor}
                     </span>
                 </td>
                 <td>
                      <span class="project">
-                        ${el.project_name}
+                     ${el.project_name ?
+                        `<a href="../ProjectItemPage/ProjectItemPage.php?${el.id_project}">${el.project_name}</a>`
+                            :
+                        `Нет проекта`
+                        }
                     </span>
                  </td>
                 <td>
