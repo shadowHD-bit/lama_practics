@@ -90,12 +90,10 @@
                         Добавить задачу
                             <button class="add_btn" id="add_checklist_item_btn">
                                 <i class="fas fa-plus"></i>
-                            </button>
-                            
+                            </button>  
                         </div>
                     </div>
                 </div>
-
                 <div class="header_content_task">
                     <a id="task_list">Подзадачи</a>
                     <div id="add_uppertask_btn" class="add_uppertask_btn">
@@ -103,8 +101,6 @@
                 </div>
                 <div class="task_subtasks">
                 </div>
-
-
             </div>
         </div>
     </section>

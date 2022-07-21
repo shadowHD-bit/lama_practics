@@ -213,14 +213,14 @@ body::-webkit-scrollbar {
 }
 
 .task_info {
-  font-size: 20px;
+  font-size: 19px;
   color: black;
 }
 
 .task_title {
   color: #428af6;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   margin: 15px 0px 10px 0px;
 }
 
