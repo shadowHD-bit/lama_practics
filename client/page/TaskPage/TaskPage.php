@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="TaskPage.css?v1">
     <?php require('../../assets/libraries/font_awesome.php') ?>
     <?php require('../../assets/libraries/bootstrap.link.php') ?>
-
     <!-- Check Auth script -->
     <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
@@ -89,49 +88,25 @@
                 <div class="header_content_task">
                     <a id="task_list">Чек-лист</a>
                 </div>
-
                 <div class="task_cheklist">
                     <p class="task_title">Пункты:</p>
-
                     <div class="checklist_points">
-                        <!---->
-                        <!--                    <div class="checklist_item">-->
-                        <!--                        <div class="checklist_item_text">-->
-                        <!--                            <label>-->
-                        <!--                                <input type="checkbox">-->
-                        <!--                                <p class="task_info">Задача</p>-->
-                        <!--                            </label>-->
-                        <!--                        </div>-->
-                        <!--                        <button class="delete_item_btn">-->
-                        <!--                            <p> + </p>-->
-                        <!--                        </button>-->
-                        <!--                    </div>-->
-
                     </div>
-
                     <div class="checklist_item input_checklist" style="display: none">
-
                     </div>
-
                     <div class="checklist_item">
                         <button class="add_btn" id="add_checklist_item_btn">
                             <p> + </p>
                         </button>
                     </div>
                 </div>
-
                 <div class="header_content_task">
                     <a id="task_list">Подзадачи</a>
                     <div id="add_uppertask_btn" class="add_uppertask_btn">
-
                     </div>
                 </div>
-
                 <div class="task_subtasks">
-
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -245,6 +220,41 @@
         </div>
     </div>
 
+     <!-- Modal -->
+  <div class="modal fade bd-example-modal-xl" id="exampleModalCenterUpadteTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Изменение данных проекта</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Тема задачи:</p>
+          <input id="title_task_update" class="create_project_input" type="text" />
+
+          <p>Описание задачи:</p>
+          <textarea id="description_task_update" class="create_project_input" name="" id="" cols="100" rows="10" style="resize: none"></textarea>
+
+          <p>Дата окончания задачи:</p>
+          <input id="date_project_update" class="create_project_input" type="datetime-local" />
+
+          <div id="error_message" style="margin-top: 20px;" class="error_message">
+
+          </div>
+
+          <div id="error_message_update" style="margin-top: 20px;" class="error_message">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <button type="button" id="update_data_task_btn" class="btn btn-primary">Сохранить изменения</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <?php require('../../assets/libraries/scripts.lib.php') ?>
     <script src="../../scripts/ajax/delete/delete.task.js"></script>
@@ -264,7 +274,7 @@
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
 
-    
+
     <!-- Delete checklist item script -->
     <!--<script type="module" src="../../scripts/ajax/delete/delete.task.checklist.point.js"></script>-->
 </body>

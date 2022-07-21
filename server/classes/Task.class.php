@@ -392,4 +392,20 @@ class Task
         //Creator project
         $mysql_connect_for_query->query("INSERT INTO `$taskRoleTable` (id_task, id_user, id_role) VALUES ('$task_ID', '$creator', 1)");
     }
+
+
+    function updateDataTask($_id_Task, $_titleTask, $_descriptionTask, $_dateTask) {
+        //Get User table
+        $tables_database = require(__DIR__ . '/../configs/configTableDataBase.php');
+        $taskTable = $tables_database['TaskTable'];
+
+        //Get connect
+        $database_connect = new Connection();
+        $mysql_connect_for_query = $database_connect->getDatabaseConnect();
+        $mysql_connect_for_query->query("UPDATE `$taskTable` SET `$taskTable`.task_name = '$_titleTask',
+                                                                    `$taskTable`.task_deadline = '$_dateTask',
+                                                                    `$taskTable`.task_description = '$_descriptionTask'
+                                        WHERE `$taskTable`.id_task = '$_id_Task'
+        ");
+    }
 }
