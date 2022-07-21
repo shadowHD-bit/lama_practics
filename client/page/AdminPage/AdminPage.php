@@ -76,7 +76,7 @@
                     <p>Укажите почту:</p>
                     <input class="create_project_input" type="email" id="new_mail">
                     <p>Укажите дату рождения:</p>
-                    <input class="create_project_input" type="datetime-local" id="new_date">
+                    <input class="create_project_input" type="date" id="new_date">
                     <hr />
                     <p>Укажите логин пользователя:</p>
                     <input class="create_project_input" type="text" id="new_login">
