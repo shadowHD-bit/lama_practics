@@ -8,5 +8,3 @@ $Task = new Task();
 
 //Get tasks
 echo $Task->getAllTasks();
-
- 

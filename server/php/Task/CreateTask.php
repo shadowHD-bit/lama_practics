@@ -21,13 +21,12 @@ if (isset($data)) {
     $_proj = $data->projectJS;
 }
 
-if(!$_titleTask || !$_descriptionTask || !$_dateTask || !$_invite){
+if (!$_titleTask || !$_descriptionTask || !$_dateTask || !$_invite) {
     echo json_encode([
         'error' => true,
         'message' => 'Заполните все поля!',
     ]);
-}
-else{
+} else {
     $Task->createTask($_titleTask, $_descriptionTask, $_dateTask, $_invite, $_proj, $cookieUserId);
     echo json_encode([
         'error' => false,

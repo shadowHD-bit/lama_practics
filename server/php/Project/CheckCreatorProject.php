@@ -13,8 +13,8 @@ $id_project = $_GET['dataId'];
 $cookieUserId = $_COOKIE['user_id'];
 $id_creator = $Project->getCreatorProjectByIdProject($id_project);
 
-if($id_creator == $cookieUserId){
+if ($id_creator == $cookieUserId) {
     echo json_encode('UserCreator');
-}else{
+} else {
     echo json_encode('UserNoCreator');
 }

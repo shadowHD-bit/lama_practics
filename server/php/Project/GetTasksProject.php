@@ -42,4 +42,3 @@ $resultGetProject = mysqli_fetch_all($GetProject, MYSQLI_ASSOC);
 echo json_encode($resultGetProject);
 
 $mysqlConnectForQuery->close();
-?>
