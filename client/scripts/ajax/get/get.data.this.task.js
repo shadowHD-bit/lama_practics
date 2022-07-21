@@ -146,7 +146,7 @@ fetch(
     console.log(body);
     if (body == "UserCreator") {
       btn_block.innerHTML = `
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterUpadteTask">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterUpdateTask">
         Редактировать
       </button>
       <button data-toggle="modal" data-target="#exampleModalCenterdeleteTask" type="button" class="btn btn-danger">

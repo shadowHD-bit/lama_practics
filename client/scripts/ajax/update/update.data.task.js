@@ -25,7 +25,7 @@ function mysqlTimeStampToDate(timestamp) {
 
 function writeDataToUpdate() {
   fetch(
-    `../../../../server/php/Project/GetThisProject.php?dataId=${idProjectFromURL}`,
+    `../../../../server/php/Task/GetThisTask.php?dataId=${idTaskFromURLThis}`,
     {
       method: "GET",
       header: {
@@ -37,30 +37,28 @@ function writeDataToUpdate() {
       return response.json();
     })
     .then(function (body) {
-      console.log(body);
       body.map((el) => {
-        title_input.value = el.project_name;
-        description_input.value = el.project_description;
-        deadline_input.value = mysqlTimeStampToDate(el.project_deadline);
+        title_input.value = el.task_name;
+        description_input.value = el.task_description;
+        date_input.value = mysqlTimeStampToDate(el.task_deadline);
       });
     });
 }
 
 writeDataToUpdate();
 
-update_data_project_btn.addEventListener("click", () => {
+update_data_task_btn.addEventListener("click", () => {
   //Post data
   let dataProjectUpdate = {
-    id_project: idProjectFromURLThis,
-    titleProjectJS: title_input.value,
-    descProjectJS: description_input.value,
-    deadlineProjectJS: start_date_input.value,
-    startDateProjectJS: deadline_input.value,
+    id_taskJS: idTaskFromURLThis,
+    titleTaskJS: title_input.value,
+    descTaskJS: description_input.value,
+    deadlineTaskJS: date_input.value,
   };
 
   let error_message_update = document.getElementById("error_message_update");
 
-  fetch(`../../../../server/php/Project/UpdateDataProject.php`, {
+  fetch(`../../../../server/php/Task/UpdateDataTask.php`, {
     method: "POST",
     body: JSON.stringify(dataProjectUpdate),
     header: {
@@ -81,7 +79,7 @@ update_data_project_btn.addEventListener("click", () => {
             </div>
         `;
     } else {
-      $("#exampleModalCenterUpadteTask").modal("hide");
+      $("#exampleModalCenterUpdateTask").modal("hide");
       location.reload();
     }
   });

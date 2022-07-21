@@ -221,7 +221,7 @@
     </div>
 
      <!-- Modal -->
-  <div class="modal fade bd-example-modal-xl" id="exampleModalCenterUpadteTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade bd-example-modal-xl" id="exampleModalCenterUpdateTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -238,7 +238,7 @@
           <textarea id="description_task_update" class="create_project_input" name="" id="" cols="100" rows="10" style="resize: none"></textarea>
 
           <p>Дата окончания задачи:</p>
-          <input id="date_project_update" class="create_project_input" type="datetime-local" />
+          <input id="date_task_start_update" class="create_project_input" type="datetime-local" />
 
           <div id="error_message" style="margin-top: 20px;" class="error_message">
 
@@ -257,6 +257,8 @@
   </div>
 
     <?php require('../../assets/libraries/scripts.lib.php') ?>
+    <script src="../../scripts/ajax/update/update.data.task.js"></script>
+
     <script src="../../scripts/ajax/delete/delete.task.js"></script>
 
     <script src="../../scripts/ajax/create/create.uppertask.js"></script>
