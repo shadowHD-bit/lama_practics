@@ -83,7 +83,6 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  animation: infinite 1.8s glowing;
 }
 
 .menu_fullname_placeholder {
@@ -180,7 +179,6 @@ body {
   background-position: center;
   background-size: cover;
 }
-
 
 #task_list {
   width: 378px;
@@ -416,8 +414,6 @@ body::-webkit-scrollbar {
 .task_subtasks a:visited {
   color: inherit;
 }
-
-
 
 /* Checkbox */
 .checkbox.style-c {
