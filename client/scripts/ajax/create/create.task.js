@@ -31,6 +31,7 @@ btn_access.addEventListener("click", () => {
       return response.json();
     })
     .then(function (body) {
+      console.log(body);
       if (body.error) {
         error_message.innerHTML = `
         <div class="alert alert-danger alert-dismissible fade show" id="error_alert" style="width: 100%" role="alert">

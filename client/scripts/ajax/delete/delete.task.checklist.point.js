@@ -10,7 +10,7 @@ export function deleteItem() {
       fetch(
         `../../../../server/php/Task/DeleteTaskChecklistItem.php?pointId=${pointId}`,
         {
-          method: "DELETE",
+          method: "GET",
           header: {
             "Content-Type": "application/json; charset=UTF-8",
           },

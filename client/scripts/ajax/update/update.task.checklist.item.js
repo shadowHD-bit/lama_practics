@@ -17,7 +17,7 @@ export function updateItemCheckbox() {
       checkbox.disabled = true;
 
       fetch(`../../../../server/php/Task/UpdateTaskChecklistItem.php`, {
-        method: "UPDATE",
+        method: "POST",
         body: JSON.stringify(queryData),
         header: {
           "Content-Type": "application/json; charset=UTF-8",
