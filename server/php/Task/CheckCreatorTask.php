@@ -11,8 +11,8 @@ $id_task = $_GET['dataId'];
 $cookieUserId = $_COOKIE['user_id'];
 $id_creator = $Task->getCreatorTaskByIdTask($id_task);
 
-if($id_creator == $cookieUserId){
+if ($id_creator == $cookieUserId) {
     echo json_encode('UserCreator');
-}else{
+} else {
     echo json_encode('UserNoCreator');
 }

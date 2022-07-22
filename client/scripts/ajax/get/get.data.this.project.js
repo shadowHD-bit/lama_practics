@@ -81,22 +81,17 @@ fetch(
     if (body == "UserCreator") {
       btn_block.innerHTML = `
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-      Редактировать
-    </button>
-    <button data-toggle="modal" data-target="#exampleModalCenterdelete" type="button" class="btn btn-danger">
-      Удалить
-    </button>`;
-
-      btn_adder.innerHTML = `
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterUser">
-      Редактировать
-    </button>
-    `;
-
-      btn_status.innerHTML = `
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterStatus">
-      Изменить
-    </button>
+        <i class="fas fa-pen"></i> Редактировать
+      </button>
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenterStatus">
+        <i class="fas fa-sync"></i> Изменить статус
+      </button>
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenterUser">
+        <i class="fas fa-user-cog"></i> Редактировать пользователей
+      </button>
+      <button data-toggle="modal" data-target="#exampleModalCenterdelete" type="button" class="btn btn-danger">
+        <i class="fas fa-trash-alt"></i> Удалить
+      </button>
     `;
     }
   });

@@ -12,7 +12,7 @@ fetch("../../../../server/php/User/GetUsers.php", {
   .then(function (body) {
     dataLive = body;
     body.map((user) => {
-        invite_block_upper.innerHTML += `
+      invite_block_upper.innerHTML += `
         <div class="project_member">
         <label class="checkbox style-c">
           <input type="radio" value="${
@@ -35,8 +35,8 @@ let live_search_upper = document.getElementById("live_search_upper");
 let search_term_upper;
 
 live_search_upper.addEventListener("input", () => {
-    invite_block_upper.innerHTML = ``;
-    search_term_upper = live_search_upper.value.toLowerCase();
+  invite_block_upper.innerHTML = ``;
+  search_term_upper = live_search_upper.value.toLowerCase();
   dataLive
     .filter((item) => {
       return (
@@ -49,7 +49,7 @@ live_search_upper.addEventListener("input", () => {
       );
     })
     .map((user) => {
-        invite_block_upper.innerHTML += `
+      invite_block_upper.innerHTML += `
         <div class="project_member">
         <label class="checkbox style-c">
           <input type="radio" value="${

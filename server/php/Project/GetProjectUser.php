@@ -8,5 +8,3 @@ $Project = new Project();
 
 //Get tasks
 echo $Project->getAllProject();
-
- 

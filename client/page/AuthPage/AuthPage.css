@@ -1,5 +1,7 @@
+/* import font */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
+/* main style */
 body,
 html {
   margin: 0;
@@ -21,6 +23,10 @@ html {
     rgba(41, 206, 196, 0) 101.16%
   );
 }
+
+/* end main style */
+
+/* auth style */
 
 .auth_card {
   background: #ffffff;
@@ -53,7 +59,6 @@ html {
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
-
   color: #428af6;
 }
 .form_auth > input {
@@ -68,15 +73,14 @@ html {
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;
-
   color: #428af6;
 }
 
-.icons_info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.icons_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .icons_info_content {
@@ -94,8 +98,6 @@ html {
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;
-  /* identical to box height */
-
   color: #000000;
 }
 
@@ -141,8 +143,6 @@ hr {
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;
-  /* identical to box height */
-
   color: #000000;
 }
 
@@ -157,10 +157,10 @@ hr {
   color: #428af6;
 }
 
-.footer_text_content{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.footer_text_content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .footer_text_content > span {
@@ -175,6 +175,7 @@ hr {
   font-size: 16px;
   line-height: 20px;
   text-align: center;
-
   color: #000000;
 }
+
+/* end auth style */

@@ -68,4 +68,3 @@ input_live_search.addEventListener("input", () => {
           `;
     });
 });
-

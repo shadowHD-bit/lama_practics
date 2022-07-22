@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Проекты</title>
   <link rel="stylesheet" href="./ProjectItemPage.css?v1" />
+  <!-- head libs import -->
   <?php require('../../assets/libraries/head.lib.php') ?>
   <?php require('../../assets/libraries/bootstrap.link.php') ?>
-
   <!-- Check Auth script -->
   <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
@@ -23,10 +23,8 @@
         <div class="header_content_task">
           <a id="task_list">Информация о проекте</a>
           <div id="btn_owner">
-
           </div>
         </div>
-
         <div class="task_field">
           <div class="task_name">
             <p class="task_title">Название проекта:</p>
@@ -51,7 +49,6 @@
           <div class="task_status">
             <p class="task_title">Статус проекта:
             <div id="btn_status" class="btn_status">
-
             </div>
             </p>
             <p id="project_status" class="task_info"></p>
@@ -61,11 +58,9 @@
             <p class="task_title">Создатель:</p>
             <div id="creatorProject" class="task_member"></div>
           </div>
-
           <div class="task_performer">
             <p class="task_title">Участники:
             <div id="btn_adder" class="btn_adder">
-
             </div>
             </p>
             <div id="ispolnitels" class="players"></div>
@@ -88,18 +83,13 @@
         <div class="modal-body">
           <p>Тема проекта:</p>
           <input id="title_project_update" class="create_project_input" type="text" />
-
           <p>Описание проекта:</p>
           <textarea id="description_project_update" class="create_project_input" name="" id="" cols="100" rows="10" style="resize: none"></textarea>
-
           <p>Дата начала проекта:</p>
           <input id="date_project_start_update" class="create_project_input" type="datetime-local">
-
           <p>Дата окончания проекта:</p>
           <input id="date_project_update" class="create_project_input" type="datetime-local" />
-
           <div id="error_message" style="margin-top: 20px;" class="error_message">
-
           </div>
         </div>
         <div class="modal-footer">
@@ -125,7 +115,6 @@
             <div class="added_players">
               <p>Выберите участника, чтобы удалить его из проекта:</p>
               <div id="already_invite" class="already_invite">
-
               </div>
             </div>
             <div class="change_players">

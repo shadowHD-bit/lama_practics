@@ -7,8 +7,8 @@ let mail_input = document.getElementById("user_mail_input");
 let tel_input = document.getElementById("user_tel_input");
 let dol_input = document.getElementById("user_dol_input");
 
-let photo = document.getElementById('photo_in_profile')
-let photoChange = document.getElementById('photo_in_change')
+let photo = document.getElementById("photo_in_profile");
+let photoChange = document.getElementById("photo_in_change");
 
 //user phone mask
 $("#user_tel_input").mask("+7(999)999-99-99");
@@ -30,8 +30,8 @@ function getDataProfile() {
       date_input.value = body.date_birthday;
       mail_input.value = body.email;
       tel_input.value = body.phone_number;
-      photo.style.backgroundImage = `url('../../../../server/uploads/${body.photo}')`
-      photoChange.style.backgroundImage = `url('../../../../server/uploads/${body.photo}')`
+      photo.style.backgroundImage = `url('../../../../server/uploads/${body.photo}')`;
+      photoChange.style.backgroundImage = `url('../../../../server/uploads/${body.photo}')`;
       //dol_input.value = body...
     });
 }

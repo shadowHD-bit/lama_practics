@@ -11,5 +11,3 @@ $cookieUserId = $_COOKIE['user_id'];
 
 //Get tasks
 echo $Project->GetProjectUserCreator($cookieUserId);
-
- 

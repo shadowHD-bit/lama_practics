@@ -10,9 +10,9 @@ require_once '../../classes/User.class.php';
 $User = new User();
 
 //Check data
-if(isset($data)){
-    $_mailChangeUser = $data -> mailFetch;
-    $_telChangeUser = $data -> telFetch;
+if (isset($data)) {
+    $_mailChangeUser = $data->mailFetch;
+    $_telChangeUser = $data->telFetch;
 }
 
 $User->updateNumberPhone($_telChangeUser);

@@ -1,7 +1,7 @@
-/* Table Style */
-
+/* import font */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
+/* main style */
 * {
   margin: 0px;
   padding: 0px;
@@ -17,6 +17,10 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* end main style */
+
+/* bar style */
 
 .Menu {
   position: fixed;
@@ -57,6 +61,18 @@ body {
   background: #d6d6d6;
 }
 
+@keyframes glowing {
+  0% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+  50% {
+    background-color: rgba(217, 217, 217, 1);
+  }
+  100% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+}
+
 .Button_profile {
   display: inline-block;
   width: 85px;
@@ -67,8 +83,18 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  animation: infinite 1.8s glowing;
 }
 
+.menu_fullname_placeholder {
+  display: block;
+  height: 24px;
+  background-color: #d9d9d9;
+  width: 130px;
+  margin: 3px;
+  border-radius: 3px;
+  animation: infinite 1.8s glowing;
+}
 .profile_wrapper {
   height: 20%;
   margin: 0px auto;
@@ -78,13 +104,12 @@ body {
 .profile_name {
   display: inline-block;
   width: 100px;
-  height: auto;
+  height: 85px;
   top: 40px;
   text-decoration: none;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 22px;
   cursor: pointer;
   color: #ffffff;
 }
@@ -103,10 +128,8 @@ body {
   right: 0;
   bottom: 5%;
   text-align: center;
-
   display: block;
   width: 80%;
-
   background: #f33b3b;
   border-radius: 10px;
   border: none;
@@ -115,10 +138,7 @@ body {
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
-  /* identical to box height */
-
   text-align: center;
-
   color: white;
 }
 
@@ -126,6 +146,10 @@ body {
   background: #c93030;
   color: white;
 }
+
+/* end bar style */
+
+/* project page style */
 
 #project_list {
   width: 378px;
@@ -141,7 +165,6 @@ body {
 }
 
 .project_content {
-  display: inline-block;
   width: 82vw;
   min-height: 100vh;
   float: right;
@@ -150,24 +173,6 @@ body {
 .projects_page {
   padding: 20px;
 }
-
-/* #Filt_button {
-  width: 243px;
-  height: 52px;
-  right: 20px;
-  top: 109px;
-  border: none;
-  background: #D8D8D8;
-  border-radius: 10px;
-  position: absolute;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-
-  color: #000000;
-} */
 
 .header_content_project {
   position: relative;
@@ -180,7 +185,7 @@ body {
   top: 860px;
 }
 
-.sort_head_table input{
+.sort_head_table input {
   width: 90%;
   height: auto;
   padding: 5px 0px;
@@ -246,14 +251,21 @@ table tbody tr {
 
 #plus_icon {
   font-style: normal !important;
-  font-size: 40px;
-
+  font-size: 30px;
   text-align: center;
   text-shadow: 1px 1px 1px #000;
   color: #fcfcfc !important;
+  transition: 0.5s ease all;
 }
 
-/* filters */
+#plus_icon:hover {
+  color: #97faa8 !important;
+  transition: 0.5s ease all;
+}
+
+/* end project style */
+
+/* filters style */
 
 #filter {
   margin: auto;

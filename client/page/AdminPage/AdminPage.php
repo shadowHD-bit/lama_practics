@@ -27,10 +27,10 @@
                     <div class="admin_work_user">
                         <p>
                             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                Список пользователей
+                                <i class="fas fa-address-book"></i> Список пользователей
                             </button>
                             <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterAdded" type="button">
-                                Добавить
+                                <i class="fas fa-plus"></i> Добавить
                             </button>
                         </p>
                         <div class="collapse" id="collapseExample">
@@ -38,10 +38,10 @@
                                 <div id="table_users" class="table_users">
                                     <table class="table">
                                         <thead class="table-dark" id="head_table_admin_user">
-
+                                            <!-- Tables col name -->
                                         </thead>
                                         <tbody id="body_table_admin_user">
-
+                                            <!-- This users from js scripts -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -54,8 +54,7 @@
         </div>
     </section>
 
-
-    <!-- Modal -->
+    <!-- Modal added users -->
     <div class="modal fade bd-example-modal-xl" id="exampleModalCenterAdded" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
@@ -77,15 +76,13 @@
                     <p>Укажите почту:</p>
                     <input class="create_project_input" type="email" id="new_mail">
                     <p>Укажите дату рождения:</p>
-                    <input class="create_project_input" type="datetime-local" id="new_date">
+                    <input class="create_project_input" type="date" id="new_date">
                     <hr />
                     <p>Укажите логин пользователя:</p>
                     <input class="create_project_input" type="text" id="new_login">
                     <p>Укажите пароль пользователя:</p>
                     <input class="create_project_input" type="password" id="new_pass">
-
                     <div id="error_message" style="margin-top: 20px;" class="error_message">
-
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -96,18 +93,14 @@
         </div>
     </div>
 
-
+    <!-- Get scripts on lib-->
     <?php require('../../assets/libraries/scripts.lib.php') ?>
-
     <!-- Get user script -->
     <script src="../../scripts/ajax/get/get.data.user.js"></script>
-
     <!-- Logout func script -->
     <script src="../../scripts/ajax/Logout.js"></script>
-
+    <!-- Get user admin script -->
     <script src="../../scripts/ajax/get/get.users.in.admin.js"></script>
-
-
 </body>
 
 </html>

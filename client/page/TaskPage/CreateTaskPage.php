@@ -7,10 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Создать задачу</title>
   <link rel="stylesheet" href="CreateTaskPage.css?v1" />
+  <!-- Get head lib -->
   <?php require('../../assets/libraries/head.lib.php') ?>
   <?php require('../../assets/libraries/bootstrap.link.php') ?>
-
-
   <!-- Check Auth script -->
   <script src="../../scripts/ajax/CheckAuth.js"></script>
 </head>
@@ -29,14 +28,11 @@
             <div class="create_project_main">
               <p>Тема задачи:</p>
               <input id="title_task" class="create_project_input" type="text" placeholder="Введите тематику задачи" />
-
               <p>Описание задачи:</p>
               <textarea id="description_task" class="create_project_input" placeholder="Введите описание задачи" name="" id="" rows="10" style="resize: none"></textarea>
-
               <p>Дата окончания задачи:</p>
               <input id="date_task_start" value="<?php echo date('Y-m-d\TH:i'); ?>" class="create_project_input" type="datetime-local">
             </div>
-
             <div class="create_project_members">
               <p>Выбрать исполнителя задачи:</p>
               <div class="project_add_member_btn"></div>
@@ -44,21 +40,17 @@
                 <input type="text" id="live_search_member" style="width: 90%; margin-bottom: 10px" class="form-control" placeholder="Начните вводить данные...">
               </div>
               <div class="project_invite_members" id="invite_block">
-
               </div>
               <p>Выбрать проект задачи:</p>
               <div class="live_search_members_project">
                 <input type="text" id="live_search_project" style="width: 90%; margin-bottom: 10px" class="form-control" placeholder="Начните вводить данные...">
               </div>
               <div class="project_invite_members" id="project_block">
-
               </div>
             </div>
           </div>
-
           <hr />
           <div id="error_message" class="error_message">
-
           </div>
           <button class="create_project_confirm" id="accept_task_btn">
             Принять
@@ -71,14 +63,13 @@
 
   <!-- Bootstrap scripts -->
   <?php require('../../assets/libraries/scripts.lib.php') ?>
-
   <!-- Get user script -->
   <script src="../../scripts/ajax/get/get.data.user.js"></script>
-
-
   <!-- Get Users Scripts -->
   <script src="../../scripts/ajax/get/get.users.for.task.js"></script>
+  <!-- Get Project Scripts -->
   <script src="../../scripts/ajax/get/get.project.js"></script>
+  <!-- Get Create Task Scripts -->
   <script src="../../scripts/ajax/create/create.task.js"></script>
   <!-- Logout func script -->
   <script src="../../scripts/ajax/Logout.js"></script>

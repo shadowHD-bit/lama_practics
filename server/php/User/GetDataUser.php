@@ -7,7 +7,7 @@ require_once '../../classes/User.class.php';
 $User = new User();
 
 //Get auth user id
-$ID = $User -> getCookieIdUser();
+$ID = $User->getCookieIdUser();
 
 //Get tasks
 echo $User->getDataOneUser($ID);

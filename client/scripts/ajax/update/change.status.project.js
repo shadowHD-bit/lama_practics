@@ -21,20 +21,19 @@ function loadStatusInChange() {
     });
 }
 
-loadStatusInChange()
+loadStatusInChange();
 
 function changeStatus(id_status) {
-fetch(
-  `../../../../server/php/Project/ChangeStatus.php?id_project=${idProjectFromURL}&id_status=${id_status}`,
-  {
-    method: "GET",
-    header: {
-      "Content-Type": "application/json; charset=UTF-8",
-    },
-  }
-).then(function (response) {
-  $("#exampleModalCenterStatus").modal("hide");
-  location.reload();
-});
+  fetch(
+    `../../../../server/php/Project/ChangeStatus.php?id_project=${idProjectFromURL}&id_status=${id_status}`,
+    {
+      method: "GET",
+      header: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    }
+  ).then(function (response) {
+    $("#exampleModalCenterStatus").modal("hide");
+    location.reload();
+  });
 }
-

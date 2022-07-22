@@ -14,12 +14,12 @@ fetch(`../../../../server/php/Project/GetProjectUserCreator.php`, {
     body.map((proj) => {
       project_block.innerHTML += `
         <div class="project_member">
-        <label class="checkbox style-c">
-          <input type="radio" value="${proj.id_project}" name="task_project" class="checkbox_user_project"/>
-          <div class="checkbox__checkmark"></div>
-         <label for="user_project" class="project_member_fullname">${proj.project_name}</label>
-        </label>
-    </div>
+          <label class="checkbox style-c">
+            <input type="radio" value="${proj.id_project}" name="task_project" class="checkbox_user_project"/>
+            <div class="checkbox__checkmark"></div>
+          <label for="user_project" class="project_member_fullname">${proj.project_name}</label>
+          </label>
+      </div>
           `;
     });
   });
@@ -28,7 +28,7 @@ let live_search_project = document.getElementById("live_search_project");
 let search_term_proj;
 
 live_search_project.addEventListener("input", () => {
-    project_block.innerHTML = ``;
+  project_block.innerHTML = ``;
   search_term_proj = live_search_project.value.toLowerCase();
   data_proj
     .filter((item) => {
@@ -37,12 +37,12 @@ live_search_project.addEventListener("input", () => {
     .map((proj) => {
       project_block.innerHTML += `
       <div class="project_member">
-      <label class="checkbox style-c">
-        <input type="radio" value="${proj.id_project}" name="task_project" class="checkbox_user_project"/>
-        <div class="checkbox__checkmark"></div>
-       <label for="user_project" class="project_member_fullname">${proj.project_name}</label>
-      </label>
-  </div>
+        <label class="checkbox style-c">
+          <input type="radio" value="${proj.id_project}" name="task_project" class="checkbox_user_project"/>
+          <div class="checkbox__checkmark"></div>
+        <label for="user_project" class="project_member_fullname">${proj.project_name}</label>
+        </label>
+    </div>
           `;
     });
 });

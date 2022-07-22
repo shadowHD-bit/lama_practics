@@ -1,7 +1,7 @@
-/* Table Style */
-
+/* import font */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
+/* main style */
 * {
   margin: 0px;
   padding: 0px;
@@ -17,6 +17,10 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* end main style */
+
+/* modal style */
 
 .modal-body p {
   color: #428af6;
@@ -46,6 +50,10 @@ body {
 .modal-body .create_project_input::placeholder {
   color: #428af6;
 }
+
+/* end modal style */
+
+/* bar style */
 
 .Menu {
   position: fixed;
@@ -86,17 +94,40 @@ body {
   background: #d6d6d6;
 }
 
+@keyframes glowing {
+  0% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+  50% {
+    background-color: rgba(217, 217, 217, 1);
+  }
+  100% {
+    background-color: rgba(217, 217, 217, 0.51);
+  }
+}
+
 .Button_profile {
   display: inline-block;
   width: 85px;
   height: 85px;
   margin-top: 39px;
+  background: #d9d9d9;
   border-radius: 67px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  animation: infinite 1.8s glowing;
 }
 
+.menu_fullname_placeholder {
+  display: block;
+  height: 24px;
+  background-color: #d9d9d9;
+  width: 130px;
+  margin: 3px;
+  border-radius: 3px;
+  animation: infinite 1.8s glowing;
+}
 .profile_wrapper {
   height: 20%;
   margin: 0px auto;
@@ -106,13 +137,13 @@ body {
 .profile_name {
   display: inline-block;
   width: 100px;
-  height: auto;
+  height: 85px;
   top: 40px;
   text-decoration: none;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 22px;
+  line-height: 26px;
   cursor: pointer;
   color: #ffffff;
 }
@@ -131,10 +162,8 @@ body {
   right: 0;
   bottom: 5%;
   text-align: center;
-
   display: block;
   width: 80%;
-
   background: #f33b3b;
   border-radius: 10px;
   border: none;
@@ -143,10 +172,7 @@ body {
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
-  /* identical to box height */
-
   text-align: center;
-
   color: white;
 }
 
@@ -154,6 +180,10 @@ body {
   background: #c93030;
   color: white;
 }
+
+/* end bar style */
+
+/* profile item page style */
 
 #task_list {
   width: 378px;
@@ -183,14 +213,14 @@ body::-webkit-scrollbar {
 }
 
 .task_info {
-  font-size: 20px;
+  font-size: 19px;
   color: black;
 }
 
 .task_title {
   color: #428af6;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   margin: 15px 0px 10px 0px;
 }
 
@@ -210,83 +240,6 @@ body::-webkit-scrollbar {
   background: #fffcfc;
   border-radius: 10px;
   padding: 20px;
-}
-
-.task_cheklist {
-  background: #fffcfc;
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.task_cheklist input,
-.task_cheklist p {
-  display: inline-block;
-}
-
-.task_subtasks {
-  padding: 20px;
-  background: #fffcfc;
-  border-radius: 10px;
-}
-.field_text {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 50px;
-  line-height: 61px;
-
-  color: #ffffff;
-}
-
-.checklist_item {
-  display: flex;
-  justify-content: space-between;
-  margin: 0px 0px 20px 0px;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #e8e8e8;
-}
-
-.checklist_item .task_info {
-  margin-left: 10px;
-}
-
-.block_C2 {
-  width: auto;
-}
-
-.block_C3 {
-  width: auto;
-  margin-top: 6px;
-}
-
-.delete_item_btn {
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  background-color: transparent;
-  border: black 1px solid;
-  display: inline-block;
-}
-
-.delete_item_btn:hover {
-  border: #f33b3b 1px solid;
-  background-color: #f33b3b;
-  color: white;
-}
-
-.input_field {
-  width: 437px;
-  height: 41px;
-  background: #aed6d6;
-  border-radius: 10px;
-}
-
-.button_add {
-  width: 35px;
-  height: 35px;
-  background: #d9d9d9;
-  border-radius: 49.5px;
-  margin-left: 5px;
 }
 
 .task_member {
@@ -312,19 +265,18 @@ body::-webkit-scrollbar {
   background-repeat: no-repeat;
 }
 
-
-.players_change{
+.players_change {
   width: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.added_players{
+.added_players {
   width: 45%;
 }
 
-.change_players{
+.change_players {
   width: 45%;
   display: flex;
   flex-direction: column;
@@ -359,3 +311,5 @@ body::-webkit-scrollbar {
   background-position: center;
   background-size: cover;
 }
+
+/* ended profile item page style */

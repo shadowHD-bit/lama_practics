@@ -35,11 +35,9 @@ updateAvatarBtn.addEventListener("click", () => {
             ${body.em}
           </div>
             `;
-      }
-      else{
+      } else {
         $("#exampleModalCenter").modal("hide");
         location.reload();
       }
-
     });
 });

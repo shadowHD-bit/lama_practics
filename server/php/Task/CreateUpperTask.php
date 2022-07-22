@@ -21,14 +21,13 @@ if (isset($data)) {
     $_invite = $data->inviteJS;
 }
 
-if( !$_titleTask || !$_descriptionTask || !$_dateTask || !$_invite){
+if (!$_titleTask || !$_descriptionTask || !$_dateTask || !$_invite) {
     echo json_encode([
         'error' => true,
         'message' => 'Заполните все поля!',
     ]);
-}
-else{
-    $Task->createUpperTask($_thisTask ,$_titleTask, $_descriptionTask, $_dateTask, $_invite, $cookieUserId);
+} else {
+    $Task->createUpperTask($_thisTask, $_titleTask, $_descriptionTask, $_dateTask, $_invite, $cookieUserId);
     echo json_encode([
         'error' => false,
     ]);

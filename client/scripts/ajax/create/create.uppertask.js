@@ -1,7 +1,9 @@
 let inputTitleupperTask = document.getElementById("title_uppertask");
-let inputDescriptionupperTask = document.getElementById("description_uppertask");
+let inputDescriptionupperTask = document.getElementById(
+  "description_uppertask"
+);
 let inputDateupperTask = document.getElementById("date_uppertask_start");
-let idMainTask = location.search.substring(1);
+let idTaskUpper = location.search.substring(1);
 
 let btn_upper_task = document.getElementById("uppertask_btn");
 
@@ -11,11 +13,11 @@ btn_upper_task.addEventListener("click", () => {
     titleTaskJS: inputTitleupperTask.value,
     descTaskJS: inputDescriptionupperTask.value,
     deadlineTaskJS: inputDateupperTask.value,
-    thisTaskJS: idMainTask,
-    inviteJS: document.querySelector('input[name="user_uppertask"]:checked') ? document.querySelector('input[name="user_uppertask"]:checked').value : '',
+    thisTaskJS: idTaskUpper,
+    inviteJS: document.querySelector('input[name="user_uppertask"]:checked')
+      ? document.querySelector('input[name="user_uppertask"]:checked').value
+      : "",
   };
-
-  console.log(data_task);
 
   let error_message = document.getElementById("error_message");
 
@@ -33,11 +35,11 @@ btn_upper_task.addEventListener("click", () => {
       if (body.error) {
         error_message.innerHTML = `
         <div class="alert alert-danger alert-dismissible fade show" id="error_alert" style="width: 100%" role="alert">
-              <strong>Заполните все поля!</strong>
-              <a type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </a>
-            </div>
+          <strong>Заполните все поля!</strong>
+          <a type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </a>
+        </div>
         `;
       } else {
         window.location.href = "../MainPage/MainPage.php";

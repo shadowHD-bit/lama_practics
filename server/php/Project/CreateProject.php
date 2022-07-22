@@ -21,13 +21,12 @@ if (isset($data)) {
     $_usersArray = $data->usersProjectJS;
 }
 
-if(!$_titleProject || !$_descriptionProject || !$_dateProject || !$_startDateProject){
+if (!$_titleProject || !$_descriptionProject || !$_dateProject || !$_startDateProject) {
     echo json_encode([
         'error' => true,
         'message' => 'Заполните все поля!',
     ]);
-}
-else{
+} else {
     $Project->createProject($_titleProject, $_descriptionProject, $_startDateProject, $_dateProject, $cookieUserId, $_usersArray);
     echo json_encode([
         'error' => false,
