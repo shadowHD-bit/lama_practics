@@ -5,7 +5,6 @@
 ___
 ![preview_png](client/assets/preview.png)
 ____
-___
 
 ### Технологии:
 * Pure JS + JQuery 
