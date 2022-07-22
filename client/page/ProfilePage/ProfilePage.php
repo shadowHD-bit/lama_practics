@@ -31,9 +31,7 @@
               >
                 Изменить фото
               </button>
-              <button type="button" id="change_btn" class="change_btn">
-                Изменить данные профиля
-              </button>
+              <button type="button" id="change_btn" class="change_btn">Изменить данные профиля</button>
             </div>
           </div>
           <div class="bioinfo_section">
